@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { useFadeUp } from "@/hooks/useFadeUp";
 import Nav from "@/components/Nav";
 import Cursor from "@/components/Cursor";
 import PitchCanvas from "@/components/PitchCanvas";
 import Logo from "@/components/Logo";
+import Contatti from "@/components/Contatti";
 import { ArrowDown, ArrowRight, Check, FolderX, MessageSquare, EuroIcon } from "lucide-react";
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
@@ -16,7 +16,6 @@ const SectionDivider = () => (
 
 const Index = () => {
   useFadeUp();
-  const [submitted, setSubmitted] = useState(false);
 
   return (
     <div id="top" className="relative">
@@ -25,41 +24,28 @@ const Index = () => {
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* gradient mesh blobs */}
         <div className="absolute inset-0 pointer-events-none">
-          <div
-            className="blob absolute -top-20 -left-20 w-[60vw] h-[60vw] rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(200,240,0,0.04), transparent 60%)" }}
-          />
-          <div
-            className="blob absolute -bottom-20 -right-20 w-[60vw] h-[60vw] rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(0,200,160,0.03), transparent 60%)", animationDelay: "-4s" }}
-          />
+          <div className="blob absolute -top-20 -left-20 w-[60vw] h-[60vw] rounded-full"
+            style={{ background: "radial-gradient(circle, rgba(200,240,0,0.04), transparent 60%)" }} />
+          <div className="blob absolute -bottom-20 -right-20 w-[60vw] h-[60vw] rounded-full"
+            style={{ background: "radial-gradient(circle, rgba(0,200,160,0.03), transparent 60%)", animationDelay: "-4s" }} />
         </div>
         <PitchCanvas />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-32 pb-24 w-full">
-          <div className="fade-up">
-            <Eyebrow>// DM Football Services</Eyebrow>
-          </div>
-          <h1
-            className="font-display font-black uppercase mt-6 leading-[0.95] fade-up"
-            data-delay="80"
-            style={{ fontSize: "clamp(48px, 8vw, 120px)" }}
-          >
+          <div className="fade-up"><Eyebrow>// DM Football Services</Eyebrow></div>
+          <h1 className="font-display font-black uppercase mt-6 leading-[0.95] fade-up" data-delay="80"
+            style={{ fontSize: "clamp(48px, 8vw, 120px)" }}>
             <span className="block text-white">Intelligenza Calcistica</span>
             <span className="block text-lime">Per Il Campo Reale.</span>
           </h1>
-
           <p className="fade-up mt-8 font-body text-[1.1rem] max-w-[520px]" data-delay="160" style={{ color: "#888" }}>
             Due piattaforme. Un ecosistema. Per chi nel calcio italiano non vuole più lavorare alla cieca.
           </p>
-
           <div className="fade-up mt-10 flex flex-wrap gap-4" data-delay="240">
             <a href="#clubis" className="btn-lime">Scopri ClubIS</a>
             <a href="#dmscout" className="btn-ghost">Scopri DM Scout</a>
           </div>
-
           <div className="fade-up mt-12 flex flex-wrap items-center gap-4 font-mono text-[10px] uppercase" data-delay="320" style={{ letterSpacing: "2px", color: "#888" }}>
             <span>Eccellenza → Serie D</span>
             <span className="w-6 h-px bg-white/20" />
@@ -67,19 +53,19 @@ const Index = () => {
             <span className="w-6 h-px bg-white/20" />
             <span>Made In Puglia</span>
           </div>
-
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bounce-down text-lime">
             <ArrowDown size={20} />
           </div>
         </div>
       </section>
 
-      {/* SECTION 2 — IL PROBLEMA */}
+      {/* PROBLEMA */}
       <section className="relative py-24 md:py-32" style={{ background: "#0a0a0a" }}>
         <SectionDivider />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="fade-up"><Eyebrow>// Il Problema</Eyebrow></div>
-          <h2 className="fade-up font-display font-extrabold text-white mt-6 max-w-4xl" style={{ fontSize: "clamp(28px, 4vw, 2.8rem)", lineHeight: 1.1 }}>
+          <h2 className="fade-up font-display font-extrabold text-white mt-6 max-w-4xl" data-delay="80"
+            style={{ fontSize: "clamp(28px, 4vw, 2.8rem)", lineHeight: 1.1 }}>
             Il calcio semiprofessionistico italiano lavora ancora con WhatsApp, fogli Excel e intuito.
           </h2>
 
@@ -105,89 +91,101 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 3 — PRODOTTI */}
-      <section id="prodotti" className="relative py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="fade-up text-center"><Eyebrow>// I Nostri Prodotti</Eyebrow></div>
-          <h2 className="fade-up text-center font-display font-extrabold text-white mt-6 mb-16" style={{ fontSize: "clamp(32px, 5vw, 3.5rem)", lineHeight: 1 }}>
+      {/* PRODOTTI INTRO */}
+      <section id="prodotti" className="relative py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
+          <div className="fade-up"><Eyebrow>// I Nostri Prodotti</Eyebrow></div>
+          <h2 className="fade-up font-display font-extrabold text-white mt-6" data-delay="80"
+            style={{ fontSize: "clamp(32px, 5vw, 3.5rem)", lineHeight: 1 }}>
             Due piattaforme. Un ecosistema.
           </h2>
-
-          <div className="grid md:grid-cols-2 gap-0 relative">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10" />
-
-            {/* ClubIS */}
-            <div id="clubis" className="relative p-8 md:pr-10 fade-up overflow-hidden">
-              <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(200,240,0,0.06), transparent 60%)" }} />
-              <ProductPanel
-                badge="Per i Club"
-                badgeColor="lime"
-                title="ClubIS"
-                subtitle="Club Intelligence System"
-                subtitleColor="#00c8a0"
-                description="Il gestionale intelligente costruito per la realtà del calcio italiano. Non per la Serie A. Per te — presidente, DS, allenatore, segretario — che gestisci un club con risorse limitate e zero margine d'errore."
-                listLabel="Quello Che Solo ClubIS Offre"
-                listLabelColor="#c8f000"
-                features={[
-                  "6 dashboard role-based (Presidente, DS, Allenatore, Segretario, Osservatore, Famiglia)",
-                  "Gestione rosa, contratti e scadenze in un'unica vista",
-                  "Report automatici per ogni ruolo — zero setup manuale",
-                  "Notifiche intelligenti su scadenze mediche, contratti, pagamenti",
-                  "Accesso differenziato per collaboratori — ognuno vede solo il suo",
-                  "Archivio documentale condiviso e tracciabile",
-                  "Moduli personalizzabili sulla struttura del tuo club",
-                  "Costruito per Eccellenza, Promozione e Serie D — non adattato",
-                ]}
-                checkColor="#c8f000"
-                problemBorder="#c8f000"
-                problemText="Smetti di rincorrere informazioni tra telefonate, fogli Excel e cartelle Drive condivise male. ClubIS mette tutto in un posto — e ogni persona vede esattamente quello che le serve."
-                ctaClass="btn-lime"
-                ctaLabel="Scopri ClubIS"
-              />
-            </div>
-
-            {/* DM Scout */}
-            <div id="dmscout" className="relative p-8 md:pl-10 fade-up overflow-hidden" data-delay="120">
-              <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full pointer-events-none" style={{ background: "radial-gradient(circle, rgba(0,200,160,0.06), transparent 60%)" }} />
-              <ProductPanel
-                badge="Per Agenzie & Scout"
-                badgeColor="teal"
-                title="DM Scout"
-                subtitle="Intelligence Scouting Platform"
-                subtitleColor="#c8f000"
-                description="La piattaforma multi-tenant per agenzie e reparti scouting che vogliono lavorare con dati, non con istinto. Dalla ricerca del talento al report professionale in PDF, in un click."
-                listLabel="Quello Che Solo DM Scout Offre"
-                listLabelColor="#00c8a0"
-                features={[
-                  "~60 ruoli tattici dettagliati (stile Football Manager) — nessuno ha questa granularità",
-                  "Radar chart e visualizzazioni campo generate automaticamente",
-                  "Generazione report AI in italiano via Anthropic API",
-                  "Upload video e tagging delle azioni — tutto collegato al profilo",
-                  "Architettura multi-tenant: agenzie con account club separati",
-                  "Cross-account access — condividi profili selezionati con club partner",
-                  "Comparatore giocatori con visualizzazione sovrapposta",
-                  "Mappa mondiale/Italia dei talenti monitorati",
-                  "Shortlist, Shadow Team, piano partite integrato",
-                  "PDF export e link di condivisione pubblica dei profili",
-                  "Tactical DNA Search — trova giocatori per stile di gioco, non solo per statistiche",
-                ]}
-                checkColor="#00c8a0"
-                problemBorder="#00c8a0"
-                problemText="Smetti di perdere segnalazioni nei messaggi, di mandare PDF fatti in Word, di non avere uno storico delle valutazioni. DM Scout è il tuo ufficio scouting digitale — professionale, organizzato, condivisibile."
-                ctaClass="btn-teal"
-                ctaLabel="Scopri DM Scout"
-              />
-            </div>
-          </div>
+          <p className="fade-up max-w-2xl mx-auto mt-6 text-[#888] font-body" data-delay="160">
+            Uno per gestire il club. L'altro per costruire la rosa di domani. Costruiti per parlarsi.
+          </p>
         </div>
       </section>
 
-      {/* SECTION 4 — PERCHÉ NOI */}
+      {/* CLUBIS */}
+      <ProductSection
+        id="clubis"
+        glowColor="rgba(200,240,0,0.05)"
+        glowPos="left"
+        badge="Per i Club"
+        badgeColor="lime"
+        title="ClubIS"
+        subtitle="Club Intelligence System"
+        subtitleColor="#00c8a0"
+        description="Il gestionale intelligente costruito per la realtà del calcio italiano. Non per la Serie A. Per te — presidente, DS, allenatore, segretario — che gestisci un club con risorse limitate e zero margine d'errore."
+        listLabel="Quello Che Solo ClubIS Offre"
+        listLabelColor="#c8f000"
+        features={[
+          "6 dashboard role-based (Presidente, DS, Allenatore, Segretario, Osservatore, Famiglia)",
+          "Gestione rosa, contratti e scadenze in un'unica vista",
+          "Report automatici per ogni ruolo — zero setup manuale",
+          "Notifiche intelligenti su scadenze mediche, contratti, pagamenti",
+          "Accesso differenziato per collaboratori — ognuno vede solo il suo",
+          "Archivio documentale condiviso e tracciabile",
+          "Moduli personalizzabili sulla struttura del tuo club",
+          "Costruito per Eccellenza, Promozione e Serie D — non adattato",
+        ]}
+        checkColor="#c8f000"
+        problemBorder="#c8f000"
+        problemText="Smetti di rincorrere informazioni tra telefonate, fogli Excel e cartelle Drive condivise male. ClubIS mette tutto in un posto — e ogni persona vede esattamente quello che le serve."
+        ctaClass="btn-lime"
+        ctaLabel="Scopri ClubIS"
+        stats={[
+          { v: "6", l: "Dashboard ruolo" },
+          { v: "100%", l: "Italiano" },
+          { v: "<30min", l: "Setup" },
+        ]}
+      />
+
+      {/* DM SCOUT */}
+      <ProductSection
+        id="dmscout"
+        glowColor="rgba(0,200,160,0.05)"
+        glowPos="right"
+        reversed
+        badge="Per Agenzie & Scout"
+        badgeColor="teal"
+        title="DM Scout"
+        subtitle="Intelligence Scouting Platform"
+        subtitleColor="#c8f000"
+        description="La piattaforma multi-tenant per agenzie e reparti scouting che vogliono lavorare con dati, non con istinto. Dalla ricerca del talento al report professionale in PDF, in un click."
+        listLabel="Quello Che Solo DM Scout Offre"
+        listLabelColor="#00c8a0"
+        features={[
+          "~60 ruoli tattici dettagliati (stile Football Manager) — nessuno ha questa granularità",
+          "Radar chart e visualizzazioni campo generate automaticamente",
+          "Generazione report AI in italiano via Anthropic API",
+          "Upload video e tagging delle azioni — tutto collegato al profilo",
+          "Architettura multi-tenant: agenzie con account club separati",
+          "Cross-account access — condividi profili selezionati con club partner",
+          "Comparatore giocatori con visualizzazione sovrapposta",
+          "Mappa mondiale/Italia dei talenti monitorati",
+          "Shortlist, Shadow Team, piano partite integrato",
+          "PDF export e link di condivisione pubblica dei profili",
+          "Tactical DNA Search — trova giocatori per stile di gioco, non solo per statistiche",
+        ]}
+        checkColor="#00c8a0"
+        problemBorder="#00c8a0"
+        problemText="Smetti di perdere segnalazioni nei messaggi, di mandare PDF fatti in Word, di non avere uno storico delle valutazioni. DM Scout è il tuo ufficio scouting digitale — professionale, organizzato, condivisibile."
+        ctaClass="btn-teal"
+        ctaLabel="Scopri DM Scout"
+        stats={[
+          { v: "60+", l: "Ruoli tattici" },
+          { v: "AI", l: "Report in IT" },
+          { v: "Multi", l: "Tenant" },
+        ]}
+      />
+
+      {/* PERCHÉ NOI */}
       <section className="relative py-24 md:py-32" style={{ background: "#0a0a0a" }}>
         <SectionDivider />
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="fade-up"><Eyebrow>// Perché DM Football Services</Eyebrow></div>
-          <h2 className="fade-up font-display font-extrabold text-white mt-6 mb-16" style={{ fontSize: "clamp(28px, 4vw, 3rem)", lineHeight: 1 }}>
+          <h2 className="fade-up font-display font-extrabold text-white mt-6 mb-16" data-delay="80"
+            style={{ fontSize: "clamp(28px, 4vw, 3rem)", lineHeight: 1 }}>
             Costruito da chi conosce questo calcio.
           </h2>
 
@@ -217,11 +215,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 5 — COME FUNZIONA */}
+      {/* COME FUNZIONA */}
       <section className="relative py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="fade-up text-center"><Eyebrow>// Onboarding</Eyebrow></div>
-          <h2 className="fade-up text-center font-display font-extrabold text-white mt-6 mb-16" style={{ fontSize: "clamp(28px, 4vw, 3rem)", lineHeight: 1 }}>
+          <h2 className="fade-up text-center font-display font-extrabold text-white mt-6 mb-16" data-delay="80"
+            style={{ fontSize: "clamp(28px, 4vw, 3rem)", lineHeight: 1 }}>
             Operativo in meno di 30 minuti.
           </h2>
 
@@ -242,64 +241,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SECTION 6 — EARLY ADOPTER */}
-      <section id="contatti" className="relative py-24 md:py-32" style={{ background: "var(--c-gray-light)" }}>
-        <div className="max-w-6xl mx-auto px-6 md:px-10">
-          <div className="glass p-8 md:p-14">
-            <div className="fade-up">
-              <span className="font-mono uppercase text-[10px] inline-block px-3 py-1.5 rounded-[12px] border border-lime/40 text-lime" style={{ letterSpacing: "2px" }}>
-                Accesso Anticipato — Posti Limitati
-              </span>
-            </div>
-
-            <h2 className="fade-up font-display font-black text-white mt-6 mb-12" style={{ fontSize: "clamp(28px, 3.5vw, 2.5rem)", lineHeight: 1.05 }}>
-              Unisciti ai primi club e agenzie che stanno cambiando il modo di lavorare.
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-12">
-              <ul className="space-y-4">
-                {[
-                  "Prezzo bloccato a vita (early adopter rate)",
-                  "Accesso diretto al team per feedback e personalizzazioni",
-                  "Priorità su nuove funzionalità",
-                  "Onboarding dedicato 1-to-1",
-                ].map((t, i) => (
-                  <li key={i} className="fade-up flex items-start gap-3" data-delay={String(i * 80)}>
-                    <span className="block w-2 h-2 rounded-full bg-lime mt-2 flex-shrink-0" />
-                    <span className="text-white/90 font-body">{t}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <form
-                className="space-y-4 fade-up"
-                onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-              >
-                {submitted ? (
-                  <div className="text-center py-12">
-                    <div className="text-lime font-mono text-xs mb-3" style={{ letterSpacing: "2px" }}>// Richiesta Ricevuta</div>
-                    <p className="font-display font-bold text-white text-2xl uppercase">Grazie. Ti scriviamo entro 48h.</p>
-                  </div>
-                ) : (
-                  <>
-                    <FieldInput placeholder='Nome e ruolo (es. "DS - FC Taranto")' required />
-                    <FieldInput placeholder="Email" type="email" required />
-                    <select required className="w-full bg-black/60 border-[0.5px] border-white/10 rounded-[12px] px-4 py-3 font-body text-white focus:outline-none focus:border-lime/50">
-                      <option value="">Prodotto di interesse</option>
-                      <option>ClubIS</option>
-                      <option>DM Scout</option>
-                      <option>Entrambi</option>
-                    </select>
-                    <button type="submit" className="btn-lime w-full justify-center">
-                      Entra Nel Programma <ArrowRight size={16} />
-                    </button>
-                  </>
-                )}
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CONTATTI */}
+      <Contatti />
 
       {/* FOOTER */}
       <footer className="relative py-12 border-t border-white/5">
@@ -335,62 +278,78 @@ const Index = () => {
   );
 };
 
-function FieldInput(props: React.InputHTMLAttributes<HTMLInputElement>) {
-  return (
-    <input
-      {...props}
-      className="w-full bg-black/60 border-[0.5px] border-white/10 rounded-[12px] px-4 py-3 font-body text-white placeholder:text-white/40 focus:outline-none focus:border-lime/50"
-    />
-  );
-}
-
-function ProductPanel({
-  badge, badgeColor, title, subtitle, subtitleColor, description, listLabel, listLabelColor, features, checkColor, problemBorder, problemText, ctaClass, ctaLabel,
+function ProductSection({
+  id, glowColor, glowPos, reversed = false,
+  badge, badgeColor, title, subtitle, subtitleColor, description,
+  listLabel, listLabelColor, features, checkColor, problemBorder, problemText, ctaClass, ctaLabel, stats,
 }: {
+  id: string; glowColor: string; glowPos: "left" | "right"; reversed?: boolean;
   badge: string; badgeColor: "lime" | "teal";
-  title: string; subtitle: string; subtitleColor: string;
-  description: string; listLabel: string; listLabelColor: string;
-  features: string[]; checkColor: string; problemBorder: string; problemText: string;
+  title: string; subtitle: string; subtitleColor: string; description: string;
+  listLabel: string; listLabelColor: string; features: string[];
+  checkColor: string; problemBorder: string; problemText: string;
   ctaClass: string; ctaLabel: string;
+  stats: { v: string; l: string }[];
 }) {
   const badgeBorder = badgeColor === "lime" ? "rgba(200,240,0,0.4)" : "rgba(0,200,160,0.4)";
   const badgeText = badgeColor === "lime" ? "#c8f000" : "#00c8a0";
   return (
-    <div>
-      <span
-        className="font-mono uppercase text-[10px] inline-block px-3 py-1.5 rounded-[12px] border"
-        style={{ borderColor: badgeBorder, color: badgeText, letterSpacing: "2px" }}
-      >
-        {badge}
-      </span>
-      <h3 className="font-display font-black text-white mt-5" style={{ fontSize: "clamp(36px, 4vw, 3rem)", lineHeight: 1 }}>{title}</h3>
-      <div className="font-mono text-sm mt-2" style={{ color: subtitleColor, letterSpacing: "1px" }}>{subtitle}</div>
-      <p className="text-[#888] text-[0.95rem] mt-5 leading-relaxed">{description}</p>
-
-      <div className="mt-8">
-        <div className="font-mono text-[10px] uppercase mb-4" style={{ color: listLabelColor, letterSpacing: "2px" }}>// {listLabel}</div>
-        <ul className="space-y-3">
-          {features.map((f, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <Check size={16} style={{ color: checkColor }} className="mt-1 flex-shrink-0" />
-              <span className="font-body font-medium text-white/90 text-[0.95rem]">{f}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
+    <section id={id} className="relative py-24 md:py-32 overflow-hidden">
       <div
-        className="mt-8 p-5 rounded-[12px]"
-        style={{ borderLeft: `2px solid ${problemBorder}`, background: "rgba(255,255,255,0.02)" }}
-      >
-        <div className="font-mono text-[10px] uppercase text-[#888] mb-2" style={{ letterSpacing: "2px" }}>// Problema Risolto</div>
-        <p className="text-white/85 text-[0.9rem] leading-relaxed">{problemText}</p>
-      </div>
+        className={`absolute ${glowPos === "left" ? "-left-40" : "-right-40"} top-1/3 w-[600px] h-[600px] rounded-full pointer-events-none`}
+        style={{ background: `radial-gradient(circle, ${glowColor}, transparent 60%)` }}
+      />
+      <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
+        <div className={`grid md:grid-cols-12 gap-10 items-start ${reversed ? "md:[&>*:first-child]:order-2" : ""}`}>
+          {/* Left: title + summary + stats */}
+          <div className="md:col-span-5 fade-up md:sticky md:top-28">
+            <span
+              className="font-mono uppercase text-[10px] inline-block px-3 py-1.5 rounded-[12px] border"
+              style={{ borderColor: badgeBorder, color: badgeText, letterSpacing: "2px" }}
+            >
+              {badge}
+            </span>
+            <h3 className="font-display font-black text-white mt-6" style={{ fontSize: "clamp(40px, 5vw, 4rem)", lineHeight: 0.95 }}>{title}</h3>
+            <div className="font-mono text-sm mt-3" style={{ color: subtitleColor, letterSpacing: "1px" }}>{subtitle}</div>
+            <p className="text-[#888] text-[0.98rem] mt-6 leading-relaxed">{description}</p>
 
-      <a href="#contatti" className={`${ctaClass} mt-8`}>
-        {ctaLabel} <ArrowRight size={16} />
-      </a>
-    </div>
+            <div className="grid grid-cols-3 gap-3 mt-8">
+              {stats.map((s, i) => (
+                <div key={i} className="glass p-4 text-center">
+                  <div className="font-display font-black text-2xl" style={{ color: checkColor }}>{s.v}</div>
+                  <div className="font-mono text-[9px] uppercase text-[#888] mt-1" style={{ letterSpacing: "1.5px" }}>{s.l}</div>
+                </div>
+              ))}
+            </div>
+
+            <a href="#contatti" className={`${ctaClass} mt-8`}>
+              {ctaLabel} <ArrowRight size={16} />
+            </a>
+          </div>
+
+          {/* Right: features + problem */}
+          <div className="md:col-span-7 fade-up" data-delay="120">
+            <div className="glass p-7 md:p-9">
+              <div className="font-mono text-[10px] uppercase mb-5" style={{ color: listLabelColor, letterSpacing: "2px" }}>// {listLabel}</div>
+              <ul className="space-y-3">
+                {features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-3 fade-up" data-delay={String(i * 80)}>
+                    <Check size={16} style={{ color: checkColor }} className="mt-1 flex-shrink-0" />
+                    <span className="font-body font-medium text-white/90 text-[0.95rem]">{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-6 p-6 rounded-[12px] fade-up" data-delay="160"
+              style={{ borderLeft: `2px solid ${problemBorder}`, background: "rgba(255,255,255,0.02)" }}>
+              <div className="font-mono text-[10px] uppercase text-[#888] mb-2" style={{ letterSpacing: "2px" }}>// Problema Risolto</div>
+              <p className="text-white/85 text-[0.95rem] leading-relaxed">{problemText}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
