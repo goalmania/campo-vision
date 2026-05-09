@@ -17,7 +17,6 @@ import clubSegreteria from "@/assets/clubis-segreteria.png";
 import clubKpi from "@/assets/clubis-kpi.png";
 import clubAzioni from "@/assets/clubis-azioni.png";
 import clubTeamManager from "@/assets/clubis-team-manager.png";
-import clubSidebar1 from "@/assets/clubis-sidebar-1.png";
 import clubSidebar2 from "@/assets/clubis-sidebar-2.png";
 import clubSidebar3 from "@/assets/clubis-sidebar-3.png";
 import {
