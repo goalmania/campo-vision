@@ -25,7 +25,7 @@
     --border: 0 0% 16%;
     --input: 0 0% 9%;
     --ring: 145 100% 39%;
-    --radius: 8px;
+    --radius: 14px;
 
     --c-black: #0a0a0a;
     --c-dark: #111111;
@@ -79,7 +79,7 @@
   .card-cis {
     background: var(--c-card);
     border: 1px solid var(--c-border);
-    border-radius: 8px;
+    border-radius: 14px;
     transition: border-color 0.2s ease, transform 0.2s ease;
   }
   .card-cis:hover { border-color: var(--c-green); }
@@ -96,7 +96,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 999px;
   }
   .badge-gold {
     display: inline-block;
@@ -108,7 +108,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 999px;
   }
   .badge-muted {
     display: inline-block;
@@ -120,7 +120,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 999px;
   }
 
   /* Buttons */
