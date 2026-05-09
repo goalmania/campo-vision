@@ -484,10 +484,17 @@ function RoleCard({ role, delay }: { role: Role; delay: number }) {
   );
 }
 
-/* ───────────── Screenshot Gallery (DM Scout) ───────────── */
-function ScreenshotGallery({ shots }: { shots: { src: string; label: string; desc: string }[] }) {
+/* ───────────── Screenshot Gallery ───────────── */
+function ScreenshotGallery({
+  shots,
+  accent = "gold",
+}: {
+  shots: { src: string; label: string; desc: string }[];
+  accent?: "green" | "gold";
+}) {
   const [idx, setIdx] = useState(0);
   const cur = shots[idx];
+  const activeBg = accent === "green" ? "bg-cis-green" : "bg-cis-gold";
   return (
     <div className="card-cis overflow-hidden">
       {/* Tabs */}
@@ -496,9 +503,9 @@ function ScreenshotGallery({ shots }: { shots: { src: string; label: string; des
           <button
             key={s.label}
             onClick={() => setIdx(i)}
-            className={`font-display font-bold uppercase text-[11px] px-3 py-2 rounded-md transition-colors ${
+            className={`font-display font-bold uppercase text-[11px] px-3 py-2 rounded-full transition-colors ${
               i === idx
-                ? "bg-cis-green text-cis-black"
+                ? `${activeBg} text-cis-black`
                 : "text-cis-muted hover:text-cis-white"
             }`}
             style={{ letterSpacing: "0.14em" }}
@@ -508,10 +515,10 @@ function ScreenshotGallery({ shots }: { shots: { src: string; label: string; des
         ))}
       </div>
       <div className="p-3 sm:p-5 bg-[#0a0a0a]">
-        <div className="rounded-lg overflow-hidden border border-cis-line">
+        <div className="rounded-xl overflow-hidden border border-cis-line">
           <img
             src={cur.src}
-            alt={`DM Scout — ${cur.label}`}
+            alt={cur.label}
             className="w-full h-auto block"
             loading="lazy"
           />
