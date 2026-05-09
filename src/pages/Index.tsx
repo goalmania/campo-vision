@@ -1,276 +1,388 @@
 import { useFadeUp } from "@/hooks/useFadeUp";
 import Nav from "@/components/Nav";
-import Cursor from "@/components/Cursor";
-import PitchCanvas from "@/components/PitchCanvas";
 import Logo from "@/components/Logo";
-import Contatti from "@/components/Contatti";
-import { ArrowDown, ArrowRight, Check, FolderX, MessageSquare, EuroIcon } from "lucide-react";
+import {
+  ArrowRight, Check, Crown, ClipboardList, Target, FolderOpen, Search, Trophy,
+  ClipboardCheck, Users, Stethoscope, Newspaper, Wrench, Sparkles, FileText,
+  Layers, GitCompareArrows, Globe, Map, Bell, MessageCircle, Briefcase,
+  Calendar, BarChart3,
+} from "lucide-react";
 
-const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <div className="eyebrow">{children}</div>
+/* ───────────── helpers ───────────── */
+const Tag = ({ children }: { children: React.ReactNode }) => (
+  <span className="tag">{children}</span>
 );
 
-const SectionDivider = () => (
-  <div className="flex justify-center py-8"><div className="divider-h" /></div>
+const SectionTitle = ({
+  tag, title, sub, align = "left",
+}: { tag: string; title: React.ReactNode; sub?: string; align?: "left" | "center" }) => (
+  <div className={align === "center" ? "text-center" : ""}>
+    <div className="fade-up"><Tag>{tag}</Tag></div>
+    <h2
+      className="fade-up font-display font-black text-cis-white uppercase mt-5"
+      data-delay="80"
+      style={{ fontSize: "clamp(40px, 6vw, 5.5rem)", lineHeight: 0.92, letterSpacing: "-0.01em" }}
+    >
+      {title}
+    </h2>
+    {sub && (
+      <p className="fade-up font-body text-cis-muted mt-5 max-w-2xl text-[1.05rem]" data-delay="160">
+        {sub}
+      </p>
+    )}
+  </div>
 );
 
+/* ───────────── 11 ROLES ───────────── */
+const ROLES = [
+  { icon: Crown, name: "Presidente", desc: "Visione strategica, budget, obiettivi club" },
+  { icon: ClipboardList, name: "Team Manager", desc: "Logistica trasferte, convocazioni, calendario" },
+  { icon: Target, name: "Direttore Sportivo", desc: "Mercato, scouting, rose, trattative" },
+  { icon: FolderOpen, name: "Segretario", desc: "Documenti, tesseramenti, scadenze federali" },
+  { icon: Search, name: "Osservatore", desc: "Report giocatori, valutazioni, shortlist" },
+  { icon: Trophy, name: "Giocatore", desc: "Performance personali, calendario allenamenti" },
+  { icon: ClipboardCheck, name: "Allenatore", desc: "Sessioni, tattiche, statistiche squadra" },
+  { icon: Users, name: "Famiglie", desc: "Comunicazioni club, calendario partite, rimborsi" },
+  { icon: Stethoscope, name: "Medico", desc: "Cartelle sanitarie, infortuni, idoneità" },
+  { icon: Newspaper, name: "Ufficio Stampa", desc: "Comunicati, social, gestione media" },
+  { icon: Wrench, name: "Custode", desc: "Strutture, impianti, manutenzione" },
+];
+
+const CLUBIS_FEATURES = [
+  { badge: "Innovazione Chiave", title: "Gestione Multiruolo Intelligente", body: "Ogni utente vede solo ciò che gli serve. 11 dashboard personalizzate per ruolo con permessi granulari. Il presidente vede il budget. L'allenatore vede le tattiche. Il medico vede le idoneità. Nessuna sovrapposizione, nessun caos.", icon: Users },
+  { badge: "Compliance", title: "Documenti & Scadenze Federali", body: "Tesseramenti, cartellini, scadenze FIGC — tutto centralizzato e con alert automatici prima delle scadenze critiche. Dì addio ai foglietti Excel e alle email perse.", icon: Bell },
+  { badge: "Operativo", title: "Comunicazione Interna Strutturata", body: "Dal presidente al custode — un unico canale di comunicazione organizzato per ruolo e per urgenza. Convocazioni, comunicati interni, avvisi medici: tutto tracciato e storicizzato.", icon: MessageCircle },
+  { badge: "DS / Scouting", title: "Gestione Rosa e Mercato", body: "Tieni traccia dell'intera rosa, dei contratti in scadenza, delle trattative in corso e delle valutazioni di mercato. Integrazione diretta con DM Scout per importare schede giocatori.", icon: Briefcase },
+  { badge: "Logistica", title: "Calendario Operativo Integrato", body: "Partite, allenamenti, visite mediche, riunioni di staff — un calendario condiviso che ogni ruolo vede filtrato per le proprie responsabilità.", icon: Calendar },
+  { badge: "Decisionale", title: "Reportistica & Analytics Club", body: "KPI in tempo reale: performance squadra, utilizzo rosa, costi operativi, confronto stagionale. Dati per decidere, non per riempire fogli.", icon: BarChart3 },
+];
+
+const DMSCOUT_FEATURES = [
+  { badge: "AI — Esclusiva", title: "Carica Report, l'AI fa il resto", body: "Carica un PDF, un DOCX o un file di testo con le tue note. L'AI legge, estrae e compila automaticamente la scheda completa: anagrafica, ratings, statistiche, valore di mercato e verdetto finale. Zero inserimento manuale.", icon: Sparkles },
+  { badge: "AI", title: "Generatore Report da Testo Libero", body: "Scrivi le tue osservazioni come preferisci — in italiano, in gergo tecnico, in appunti disordinati. L'AI le trasforma in una scheda strutturata con radar a 6 assi, skills 0-100, verdetto BUY/MONITOR/PASS.", icon: FileText },
+  { badge: "Professionale", title: "Scheda Giocatore Completa", body: "Radar a 6 assi (Tecnica, Tattica, Fisico, Mentalità, Decisioni, Potenziale), 10 abilità tecniche 0-100, ruoli tattici con Fit Score % per modulo e duty, heatmap posizionale, valore di mercato min/max, timeline osservazioni nel tempo.", icon: Layers },
+  { badge: "Decisionale", title: "Confronto fino a 6 Giocatori", body: "Metti fino a 6 giocatori fianco a fianco: radar sovrapposto, tabelle comparative per ratings e abilità, confronto statistiche stagionali e ultima partita con evidenza del 'winner' per ogni metrica. Esporta in PDF o CSV.", icon: GitCompareArrows },
+  { badge: "Network", title: "Marketplace Cross-Scout", body: "Tutti i giocatori inseriti da tutti gli scout sulla piattaforma sono visibili (solo dati anagrafici). Puoi richiedere accesso al report completo al proprietario. Sistema di approvazione manuale. Il tuo network di scouting, digitalizzato.", icon: Globe },
+  { badge: "Visualizzazione", title: "Mappa Geografica Interattiva", body: "Visualizza i tuoi giocatori su mappa Italia o Mondo con clustering automatico. Filtra per verdetto, ruolo, campionato, nazionalità. Clicca un marker per accedere direttamente alla scheda.", icon: Map },
+];
+
+/* ───────────── Page ───────────── */
 const Index = () => {
   useFadeUp();
 
   return (
     <div id="top" className="relative">
-      <Cursor />
       <Nav />
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="blob absolute -top-20 -left-20 w-[60vw] h-[60vw] rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(200,240,0,0.04), transparent 60%)" }} />
-          <div className="blob absolute -bottom-20 -right-20 w-[60vw] h-[60vw] rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(0,200,160,0.03), transparent 60%)", animationDelay: "-4s" }} />
-        </div>
-        <PitchCanvas />
-
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-32 pb-24 w-full">
-          <div className="fade-up"><Eyebrow>// DM Football Services</Eyebrow></div>
-          <h1 className="font-display font-black uppercase mt-6 leading-[0.95] fade-up" data-delay="80"
-            style={{ fontSize: "clamp(48px, 8vw, 120px)" }}>
-            <span className="block text-white">Intelligenza Calcistica</span>
-            <span className="block text-lime">Per Il Campo Reale.</span>
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center pt-[60px] overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-grid pointer-events-none" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 50% at 50% 18%, rgba(0,200,83,0.10), transparent 70%)",
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-24 w-full">
+          <div className="fade-up"><Tag>Tecnologia per il calcio che conta</Tag></div>
+          <h1
+            className="font-display font-black uppercase mt-7 fade-up"
+            data-delay="80"
+            style={{
+              fontSize: "clamp(3rem, 9vw, 7rem)",
+              lineHeight: 0.92,
+              letterSpacing: "-0.015em",
+            }}
+          >
+            <span className="block text-cis-white">Il sistema di gestione</span>
+            <span className="block text-outline">che il calcio italiano</span>
+            <span className="block text-cis-green">aspettava.</span>
           </h1>
-          <p className="fade-up mt-8 font-body text-[1.1rem] max-w-[520px]" data-delay="160" style={{ color: "#888" }}>
-            Due piattaforme. Un ecosistema. Per chi nel calcio italiano non vuole più lavorare alla cieca.
+          <p className="fade-up mt-8 font-body text-cis-muted text-[1.1rem] max-w-[560px]" data-delay="160">
+            Due prodotti. Un ecosistema. Dalla gestione del club allo scouting avanzato — tutto in un'unica piattaforma progettata per il calcio semiprofessionistico italiano.
           </p>
-          <div className="fade-up mt-10 flex flex-wrap gap-4" data-delay="240">
-            <a href="#clubis" className="btn-lime">Scopri ClubIS</a>
-            <a href="#dmscout" className="btn-ghost">Scopri DM Scout</a>
+          <div className="fade-up mt-10 flex flex-wrap gap-3" data-delay="240">
+            <a href="#clubis" className="btn-primary">Scopri ClubIS <ArrowRight size={15} /></a>
+            <a href="#dmscout" className="btn-outline">Scopri DM Scout <ArrowRight size={15} /></a>
           </div>
-          <div className="fade-up mt-12 flex flex-wrap items-center gap-4 font-mono text-[10px] uppercase" data-delay="320" style={{ letterSpacing: "2px", color: "#888" }}>
-            <span>Eccellenza → Serie D</span>
-            <span className="w-6 h-px bg-white/20" />
-            <span>AI-Powered</span>
-            <span className="w-6 h-px bg-white/20" />
-            <span>Made In Puglia</span>
-          </div>
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bounce-down text-lime">
-            <ArrowDown size={20} />
-          </div>
-        </div>
-      </section>
 
-      {/* PROBLEMA */}
-      <section className="relative py-24 md:py-32" style={{ background: "#0a0a0a" }}>
-        <SectionDivider />
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="fade-up"><Eyebrow>// Il Problema</Eyebrow></div>
-          <h2 className="fade-up font-display font-extrabold text-white mt-6 max-w-4xl" data-delay="80"
-            style={{ fontSize: "clamp(28px, 4vw, 2.8rem)", lineHeight: 1.1 }}>
-            Il calcio semiprofessionistico italiano lavora ancora con WhatsApp, fogli Excel e intuito.
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6 mt-16">
+          {/* Stats */}
+          <div className="mt-20 fade-up grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 border-t border-cis-line pt-10" data-delay="320">
             {[
-              { icon: FolderX, t: "Dati sparsi, zero visibilità", d: "I club non hanno una visione centralizzata della propria rosa, dei contratti, delle spese. Ogni informazione vive in un posto diverso — e spesso nella testa di una sola persona." },
-              { icon: MessageSquare, t: "Lo scouting su WhatsApp", d: "Liste di osservati su note vocali, segnalazioni perse nelle chat di gruppo, report scritti a mano. Non è un sistema — è caos organizzato." },
-              { icon: EuroIcon, t: "Strumenti da top club, prezzi da top club", d: "Le piattaforme esistenti sono pensate per chi ha budget da professionisti. Il resto del calcio italiano, quello vero, non ha uno strumento costruito per sé." },
-            ].map((c, i) => (
-              <div key={i} className="glass p-7 fade-up" data-delay={String(i * 80)}>
-                <div className="w-11 h-11 rounded-[12px] flex items-center justify-center mb-5" style={{ background: "var(--c-accent-dim)", color: "#c8f000" }}>
-                  <c.icon size={20} />
+              { v: "11", l: "Ruoli Dashboard" },
+              { v: "100+", l: "Funzionalità" },
+              { v: "2", l: "Prodotti Integrati" },
+            ].map((s) => (
+              <div key={s.l}>
+                <div className="font-display font-black text-cis-green text-[2.6rem] leading-none">{s.v}</div>
+                <div className="font-display font-bold uppercase text-cis-muted text-[11px] mt-2" style={{ letterSpacing: "0.18em" }}>
+                  {s.l}
                 </div>
-                <h3 className="font-display font-bold text-xl uppercase text-white mb-3" style={{ letterSpacing: "1px" }}>{c.t}</h3>
-                <p className="text-[#888] text-[0.95rem] leading-relaxed">{c.d}</p>
               </div>
             ))}
           </div>
-
-          <p className="fade-up text-center text-white font-body font-medium mt-16 text-lg">
-            Abbiamo costruito due strumenti per risolvere esattamente questo.
-          </p>
         </div>
       </section>
 
-      {/* PRODOTTI INTRO */}
-      <section id="prodotti" className="relative py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 text-center">
-          <div className="fade-up"><Eyebrow>// I Nostri Prodotti</Eyebrow></div>
-          <h2 className="fade-up font-display font-extrabold text-white mt-6" data-delay="80"
-            style={{ fontSize: "clamp(32px, 5vw, 3.5rem)", lineHeight: 1 }}>
-            Due piattaforme. Un ecosistema.
-          </h2>
-          <p className="fade-up max-w-2xl mx-auto mt-6 text-[#888] font-body" data-delay="160">
-            Uno per gestire il club. L'altro per costruire la rosa di domani. Costruiti per parlarsi.
-          </p>
-        </div>
-      </section>
-
-      {/* CLUBIS */}
-      <ProductSection
-        id="clubis"
-        glowColor="rgba(200,240,0,0.05)"
-        glowPos="left"
-        badge="Per i Club"
-        badgeColor="lime"
-        title="ClubIS"
-        subtitle="Club Intelligence System"
-        subtitleColor="#00c8a0"
-        description="Il gestionale intelligente costruito per la realtà del calcio italiano. Non per la Serie A. Per te — presidente, DS, allenatore, segretario — che gestisci un club con risorse limitate e zero margine d'errore."
-        listLabel="Quello Che Solo ClubIS Offre"
-        listLabelColor="#c8f000"
-        features={[
-          "6 dashboard role-based (Presidente, DS, Allenatore, Segretario, Osservatore, Famiglia)",
-          "Gestione rosa, contratti e scadenze in un'unica vista",
-          "Report automatici per ogni ruolo — zero setup manuale",
-          "Notifiche intelligenti su scadenze mediche, contratti, pagamenti",
-          "Accesso differenziato per collaboratori — ognuno vede solo il suo",
-          "Archivio documentale condiviso e tracciabile",
-          "Moduli personalizzabili sulla struttura del tuo club",
-          "Costruito per Eccellenza, Promozione e Serie D — non adattato",
-        ]}
-        checkColor="#c8f000"
-        problemBorder="#c8f000"
-        problemText="Smetti di rincorrere informazioni tra telefonate, fogli Excel e cartelle Drive condivise male. ClubIS mette tutto in un posto — e ogni persona vede esattamente quello che le serve."
-        ctaClass="btn-lime"
-        ctaLabel="Scopri ClubIS"
-        stats={[
-          { v: "6", l: "Dashboard ruolo" },
-          { v: "100%", l: "Italiano" },
-          { v: "<30min", l: "Setup" },
-        ]}
-      />
-
-      {/* DM SCOUT */}
-      <ProductSection
-        id="dmscout"
-        glowColor="rgba(0,200,160,0.05)"
-        glowPos="right"
-        reversed
-        badge="Per Agenzie & Scout"
-        badgeColor="teal"
-        title="DM Scout"
-        subtitle="Intelligence Scouting Platform"
-        subtitleColor="#c8f000"
-        description="La piattaforma multi-tenant per agenzie e reparti scouting che vogliono lavorare con dati, non con istinto. Dalla ricerca del talento al report professionale in PDF, in un click."
-        listLabel="Quello Che Solo DM Scout Offre"
-        listLabelColor="#00c8a0"
-        features={[
-          "~60 ruoli tattici dettagliati (stile Football Manager) — nessuno ha questa granularità",
-          "Radar chart e visualizzazioni campo generate automaticamente",
-          "Generazione report AI in italiano via Anthropic API",
-          "Upload video e tagging delle azioni — tutto collegato al profilo",
-          "Architettura multi-tenant: agenzie con account club separati",
-          "Cross-account access — condividi profili selezionati con club partner",
-          "Comparatore giocatori con visualizzazione sovrapposta",
-          "Mappa mondiale/Italia dei talenti monitorati",
-          "Shortlist, Shadow Team, piano partite integrato",
-          "PDF export e link di condivisione pubblica dei profili",
-          "Tactical DNA Search — trova giocatori per stile di gioco, non solo per statistiche",
-        ]}
-        checkColor="#00c8a0"
-        problemBorder="#00c8a0"
-        problemText="Smetti di perdere segnalazioni nei messaggi, di mandare PDF fatti in Word, di non avere uno storico delle valutazioni. DM Scout è il tuo ufficio scouting digitale — professionale, organizzato, condivisibile."
-        ctaClass="btn-teal"
-        ctaLabel="Scopri DM Scout"
-        stats={[
-          { v: "60+", l: "Ruoli tattici" },
-          { v: "AI", l: "Report in IT" },
-          { v: "Multi", l: "Tenant" },
-        ]}
-      />
-
-      {/* PERCHÉ NOI */}
-      <section className="relative py-24 md:py-32" style={{ background: "#0a0a0a" }}>
-        <SectionDivider />
+      {/* ═══════════════ CLUBIS ═══════════════ */}
+      <section id="clubis" className="relative py-28 md:py-36 border-t border-cis-line" style={{ background: "#0c0c0c" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="fade-up"><Eyebrow>// Perché DM Football Services</Eyebrow></div>
-          <h2 className="fade-up font-display font-extrabold text-white mt-6 mb-16" data-delay="80"
-            style={{ fontSize: "clamp(28px, 4vw, 3rem)", lineHeight: 1 }}>
-            Costruito da chi conosce questo calcio.
-          </h2>
+          <SectionTitle
+            tag="Gestionale per Club"
+            title={<><span>ClubIS</span></>}
+            sub="La piattaforma operativa completa per club di Serie D ed Eccellenza."
+          />
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-20">
-            <div className="fade-up">
-              <div className="text-lime text-4xl font-display mb-6">"</div>
-              <p className="font-display font-extrabold text-white" style={{ fontSize: "clamp(20px, 2.4vw, 2rem)", lineHeight: 1.15 }}>
-                Le piattaforme che esistono non parlano la tua lingua. Sono progettate per chi ha un reparto IT, un budget da milioni e un ufficio a Londra.
-              </p>
-            </div>
+          {/* 2A Roles */}
+          <div className="mt-24">
+            <div className="fade-up"><Tag>Dashboard per ruolo</Tag></div>
+            <h3 className="fade-up font-display font-black text-cis-white uppercase mt-5 text-3xl md:text-4xl" data-delay="80" style={{ letterSpacing: "-0.005em" }}>
+              11 dashboard. Una per ogni ruolo del club.
+            </h3>
+            <p className="fade-up font-body text-cis-muted mt-4 max-w-2xl" data-delay="160">
+              Ogni membro dello staff accede a una dashboard personalizzata per il proprio ruolo. Zero confusione, zero sprechi di tempo.
+            </p>
 
-            <div className="space-y-8">
-              {[
-                ["01", "Pensato per il calcio italiano reale", "Non un adattamento dall'inglese, non uno strumento enterprise tagliato a metà. Costruito da zero per Eccellenza, Promozione, Serie D — con le parole, i ruoli e le logiche del calcio italiano."],
-                ["02", "Prezzo accessibile, qualità enterprise", "Non devi scegliere tra uno strumento professionale e un costo sostenibile. Abbiamo costruito ClubIS e DM Scout per essere economicamente reali per un club di semiprofessionisti."],
-                ["03", "Due prodotti che si parlano", "Il club usa ClubIS. L'osservatore usa DM Scout. I dati fluiscono tra i due. È l'unico ecosistema che copre tutta la filiera — dalla gestione del club alla talent acquisition."],
-                ["04", "Supporto territoriale — non un ticket in coda", "Siamo in Puglia. Parlate con noi in italiano, in tempo reale. Conosciamo il vostro contesto perché ci lavoriamo dentro ogni giorno."],
-              ].map(([n, t, d], i) => (
-                <div key={n} className="fade-up" data-delay={String(i * 80)}>
-                  <div className="font-mono text-lime text-xs mb-2" style={{ letterSpacing: "2px" }}>// {n}</div>
-                  <h3 className="font-display font-bold text-white text-xl uppercase mb-2" style={{ letterSpacing: "1px" }}>{t}</h3>
-                  <p className="text-[#888] text-[0.95rem] leading-relaxed">{d}</p>
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {ROLES.map((r, i) => (
+                <div key={r.name} className="card-cis p-5 fade-up" data-delay={String((i % 4) * 60)}>
+                  <r.icon size={24} className="text-cis-green" strokeWidth={1.6} />
+                  <div className="font-display font-bold uppercase text-cis-white text-[15px] mt-4" style={{ letterSpacing: "0.08em" }}>
+                    {r.name}
+                  </div>
+                  <div className="font-body text-[13px] text-cis-muted mt-2 leading-snug">
+                    {r.desc}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* COME FUNZIONA */}
-      <section className="relative py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="fade-up text-center"><Eyebrow>// Onboarding</Eyebrow></div>
-          <h2 className="fade-up text-center font-display font-extrabold text-white mt-6 mb-16" data-delay="80"
-            style={{ fontSize: "clamp(28px, 4vw, 3rem)", lineHeight: 1 }}>
-            Operativo in meno di 30 minuti.
-          </h2>
+          {/* 2B Features */}
+          <div className="mt-32">
+            <div className="fade-up"><Tag>Funzionalità principali</Tag></div>
+            <h3 className="fade-up font-display font-black text-cis-white uppercase mt-5 text-3xl md:text-4xl" data-delay="80">
+              Cosa rende ClubIS diverso.
+            </h3>
 
-          <div className="grid md:grid-cols-3 gap-8 relative">
-            <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-px bg-gradient-to-r from-lime via-teal to-lime opacity-30" />
-            {[
-              ["01", "Scegli il prodotto", "ClubIS per la gestione del club. DM Scout per lo scouting. O entrambi."],
-              ["02", "Setup guidato", "Nessun tecnico necessario. Onboarding in autonomia con guida passo-passo. Siamo disponibili per una chiamata di 20 minuti se preferisci."],
-              ["03", "Lavori meglio dal giorno uno", "Dati centralizzati, report automatici, zero WhatsApp per le cose importanti."],
-            ].map(([n, t, d], i) => (
-              <div key={n} className="glass p-7 fade-up relative" data-delay={String(i * 100)}>
-                <div className="font-display font-black text-lime text-5xl mb-4">{n}</div>
-                <h3 className="font-display font-bold text-white text-xl uppercase mb-3" style={{ letterSpacing: "1px" }}>{t}</h3>
-                <p className="text-[#888] text-[0.95rem] leading-relaxed">{d}</p>
-              </div>
-            ))}
+            <div className="mt-12 grid md:grid-cols-2 gap-5">
+              {CLUBIS_FEATURES.map((f, i) => (
+                <div key={f.title} className="card-cis p-7 fade-up" data-delay={String((i % 2) * 80)}>
+                  <div className="flex items-start justify-between mb-5">
+                    <f.icon size={22} className="text-cis-green" strokeWidth={1.6} />
+                    <span className="badge-green">{f.badge}</span>
+                  </div>
+                  <h4 className="font-display font-black uppercase text-cis-white text-xl md:text-2xl" style={{ letterSpacing: "-0.005em" }}>
+                    {f.title}
+                  </h4>
+                  <p className="font-body text-cis-muted text-[14.5px] mt-3 leading-relaxed">{f.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 2C Mockup */}
+          <div className="mt-28 fade-up">
+            <ClubISMockup />
           </div>
         </div>
       </section>
 
-      {/* CONTATTI */}
-      <Contatti />
+      {/* ═══════════════ DM SCOUT ═══════════════ */}
+      <section id="dmscout" className="relative py-28 md:py-36 border-t border-cis-line">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <SectionTitle
+            tag="Piattaforma Scouting"
+            title="DM Scout"
+            sub="Il software di scouting che gli scout professionisti usano davvero."
+          />
+
+          <div className="mt-20">
+            <div className="fade-up"><Tag>Funzionalità AI & Differenzianti</Tag></div>
+            <h3 className="fade-up font-display font-black text-cis-white uppercase mt-5 text-3xl md:text-4xl" data-delay="80">
+              Sei strumenti che cambiano il modo di osservare.
+            </h3>
+
+            <div className="mt-12 grid md:grid-cols-2 gap-5">
+              {DMSCOUT_FEATURES.map((f, i) => {
+                const isAi = f.badge.startsWith("AI");
+                return (
+                  <div key={f.title} className="card-cis p-7 fade-up" data-delay={String((i % 2) * 80)}>
+                    <div className="flex items-start justify-between mb-5">
+                      <f.icon size={22} className={isAi ? "text-cis-gold" : "text-cis-green"} strokeWidth={1.6} />
+                      <span className={isAi ? "badge-gold" : "badge-green"}>{f.badge}</span>
+                    </div>
+                    <h4 className="font-display font-black uppercase text-cis-white text-xl md:text-2xl">
+                      {f.title}
+                    </h4>
+                    <p className="font-body text-cis-muted text-[14.5px] mt-3 leading-relaxed">{f.body}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Player card mockup */}
+          <div className="mt-28 fade-up">
+            <PlayerCardMockup />
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ PREZZI ═══════════════ */}
+      <section id="prezzi" className="relative py-28 md:py-36 border-t border-cis-line" style={{ background: "#0c0c0c" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <SectionTitle
+            tag="Prezzi"
+            title="Piani semplici, senza sorprese."
+            sub="Nessun costo di attivazione. Cancellazione in qualsiasi momento. Prova gratuita di 14 giorni."
+            align="center"
+          />
+
+          <div className="mt-20 grid lg:grid-cols-2 gap-10">
+            {/* CLUBIS column */}
+            <div>
+              <div className="fade-up flex items-center gap-3 mb-6">
+                <span className="font-display font-black text-cis-white text-2xl uppercase" style={{ letterSpacing: "0.08em" }}>ClubIS</span>
+                <span className="font-display font-bold text-cis-muted text-xs uppercase" style={{ letterSpacing: "0.18em" }}>— Piani</span>
+              </div>
+
+              <div className="grid gap-5">
+                <PlanCard
+                  name="Starter"
+                  price="79"
+                  blurb="Per club che iniziano la digitalizzazione."
+                  features={[
+                    "Fino a 5 utenti attivi",
+                    "Dashboard per tutti gli 11 ruoli",
+                    "Gestione rosa fino a 30 giocatori",
+                    "Calendario e comunicazioni interne",
+                    "Supporto email",
+                  ]}
+                  cta="Inizia Gratis"
+                  variant="default"
+                />
+                <PlanCard
+                  name="Pro"
+                  price="149"
+                  blurb="Per club che vogliono il controllo totale."
+                  ribbon="Più scelto"
+                  features={[
+                    "Utenti illimitati",
+                    "Dashboard per tutti gli 11 ruoli",
+                    "Gestione rosa illimitata",
+                    "Documenti e scadenze federali",
+                    "Analytics e KPI avanzati",
+                    "Integrazione con DM Scout",
+                    "Supporto prioritario",
+                  ]}
+                  cta="Attiva Pro"
+                  variant="featured"
+                />
+              </div>
+            </div>
+
+            {/* DM SCOUT column */}
+            <div>
+              <div className="fade-up flex items-center gap-3 mb-6">
+                <span className="font-display font-black text-cis-white text-2xl uppercase" style={{ letterSpacing: "0.08em" }}>DM Scout</span>
+                <span className="font-display font-bold text-cis-muted text-xs uppercase" style={{ letterSpacing: "0.18em" }}>— Piano</span>
+              </div>
+
+              <PlanCard
+                name="Scout Pro"
+                price="49"
+                blurb="Per scout e agenti che vogliono lavorare come i professionisti."
+                ribbon="Tutto incluso"
+                features={[
+                  "Report giocatori illimitati",
+                  "Caricamento AI da PDF / DOCX / TXT",
+                  "Generatore report da testo libero",
+                  "Scheda completa con radar, heatmap, fit tattico",
+                  "Confronto fino a 6 giocatori simultanei",
+                  "Mappa geografica Italia e Mondo",
+                  "Marketplace cross-scout con sistema accessi",
+                  "Condivisione link pubblico schede",
+                  "Export PDF, CSV, JSON",
+                  "Squad Builder e Match Planner",
+                  "100+ campi statistici (InStat, Wyscout, FBref)",
+                  "Sincronizzazione real-time multi-device",
+                ]}
+                cta="Inizia con DM Scout"
+                variant="gold"
+              />
+            </div>
+          </div>
+
+          <p className="fade-up text-center font-body text-cis-muted text-sm mt-12">
+            Tutti i prezzi sono IVA esclusa. Nessun costo di attivazione. Cancellazione in qualsiasi momento. Prova gratuita 14 giorni.
+          </p>
+        </div>
+      </section>
+
+      {/* ═══════════════ CTA FINALE ═══════════════ */}
+      <section id="contatti" className="relative py-32 md:py-40 border-t border-cis-line overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0,200,83,0.08), transparent 70%)" }}
+        />
+        <div className="relative max-w-5xl mx-auto px-6 md:px-10 text-center">
+          <div className="fade-up"><Tag>Pronti?</Tag></div>
+          <h2
+            className="fade-up font-display font-black text-cis-white uppercase mt-6"
+            data-delay="80"
+            style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", lineHeight: 0.92, letterSpacing: "-0.01em" }}
+          >
+            <span className="block">Pronto a portare</span>
+            <span className="block">il tuo club</span>
+            <span className="block text-cis-green">al livello successivo?</span>
+          </h2>
+          <p className="fade-up font-body text-cis-muted mt-7 max-w-xl mx-auto text-[1.05rem]" data-delay="160">
+            Inizia con 14 giorni gratuiti. Nessuna carta di credito richiesta.
+          </p>
+          <div className="fade-up mt-10 flex flex-wrap items-center justify-center gap-3" data-delay="240">
+            <a href="mailto:info@cis-sport.it?subject=Prova%20ClubIS" className="btn-primary">
+              Prova ClubIS Gratis <ArrowRight size={15} />
+            </a>
+            <a href="mailto:info@cis-sport.it?subject=Prova%20DM%20Scout" className="btn-gold">
+              Prova DM Scout Gratis <ArrowRight size={15} />
+            </a>
+          </div>
+          <p className="fade-up font-body text-cis-muted text-sm mt-8" data-delay="320">
+            Hai domande? Scrivici a{" "}
+            <a href="mailto:info@cis-sport.it" className="text-cis-white hover:text-cis-green underline underline-offset-4">
+              info@cis-sport.it
+            </a>
+          </p>
+        </div>
+      </section>
 
       {/* FOOTER */}
-      <footer className="relative py-12 border-t border-white/5">
+      <footer className="relative pt-14 pb-10 border-t border-cis-line" style={{ background: "#111111" }}>
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <Logo />
-            <div className="flex flex-wrap items-center gap-6">
-              <a href="#prodotti" className="font-display uppercase text-[11px] text-white/70 hover:text-lime" style={{ letterSpacing: "2px" }}>Prodotti</a>
-              <a href="#clubis" className="font-display uppercase text-[11px] text-white/70 hover:text-lime" style={{ letterSpacing: "2px" }}>ClubIS</a>
-              <a href="#dmscout" className="font-display uppercase text-[11px] text-white/70 hover:text-lime" style={{ letterSpacing: "2px" }}>DM Scout</a>
-              <a href="#contatti" className="font-display uppercase text-[11px] text-white/70 hover:text-lime" style={{ letterSpacing: "2px" }}>Contatti</a>
-            </div>
-            <a href="#contatti" className="btn-lime !py-2.5 !px-5 !text-[11px]">Richiedi Demo</a>
-          </div>
-
-          <div className="my-8 h-px bg-white/5" />
-
-          <div className="flex flex-col md:flex-row items-center justify-between gap-3 font-mono text-[10px] uppercase text-[#888]" style={{ letterSpacing: "2px" }}>
-            <div>DM Football Services — Puglia, Italia</div>
-            <div className="flex gap-5">
-              <a href="#" className="hover:text-lime">Instagram</a>
-              <a href="#" className="hover:text-lime">LinkedIn</a>
+            <div className="flex flex-wrap items-center gap-7">
+              <a href="#clubis" className="nav-link">ClubIS</a>
+              <a href="#dmscout" className="nav-link">DM Scout</a>
+              <a href="#prezzi" className="nav-link">Prezzi</a>
+              <a href="#contatti" className="nav-link">Contatti</a>
             </div>
           </div>
-
-          <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-2 font-mono text-[10px] text-[#666]" style={{ letterSpacing: "1px" }}>
-            <div>© 2025 DM Football Services — Tutti i diritti riservati</div>
-            <a href="#" className="hover:text-lime">Privacy Policy</a>
+          <div className="my-9 h-px bg-cis-line" />
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-cis-muted">
+            <div className="flex flex-wrap gap-5 font-display font-bold text-[11px] uppercase" style={{ letterSpacing: "0.16em" }}>
+              <a href="#" className="hover:text-cis-white">Privacy Policy</a>
+              <a href="#" className="hover:text-cis-white">Termini di Servizio</a>
+              <a href="#" className="hover:text-cis-white">Cookie Policy</a>
+            </div>
+            <div className="font-body text-xs">
+              © 2025 CIS Sport Srl — P.IVA IT12345678901 — Tutti i diritti riservati.
+            </div>
           </div>
         </div>
       </footer>
@@ -278,78 +390,239 @@ const Index = () => {
   );
 };
 
-function ProductSection({
-  id, glowColor, glowPos, reversed = false,
-  badge, badgeColor, title, subtitle, subtitleColor, description,
-  listLabel, listLabelColor, features, checkColor, problemBorder, problemText, ctaClass, ctaLabel, stats,
+/* ───────────── Plan Card ───────────── */
+function PlanCard({
+  name, price, blurb, features, cta, variant, ribbon,
 }: {
-  id: string; glowColor: string; glowPos: "left" | "right"; reversed?: boolean;
-  badge: string; badgeColor: "lime" | "teal";
-  title: string; subtitle: string; subtitleColor: string; description: string;
-  listLabel: string; listLabelColor: string; features: string[];
-  checkColor: string; problemBorder: string; problemText: string;
-  ctaClass: string; ctaLabel: string;
-  stats: { v: string; l: string }[];
+  name: string; price: string; blurb: string; features: string[]; cta: string;
+  variant: "default" | "featured" | "gold"; ribbon?: string;
 }) {
-  const badgeBorder = badgeColor === "lime" ? "rgba(200,240,0,0.4)" : "rgba(0,200,160,0.4)";
-  const badgeText = badgeColor === "lime" ? "#c8f000" : "#00c8a0";
+  const isFeatured = variant === "featured";
+  const isGold = variant === "gold";
+  const accent = isGold ? "text-cis-gold" : "text-cis-green";
+  const ringStyle: React.CSSProperties = isFeatured
+    ? { borderColor: "#00C853" }
+    : isGold
+    ? { borderColor: "#FFB300" }
+    : {};
+
   return (
-    <section id={id} className="relative py-24 md:py-32 overflow-hidden">
-      <div
-        className={`absolute ${glowPos === "left" ? "-left-40" : "-right-40"} top-1/3 w-[600px] h-[600px] rounded-full pointer-events-none`}
-        style={{ background: `radial-gradient(circle, ${glowColor}, transparent 60%)` }}
-      />
-      <div className="max-w-7xl mx-auto px-6 md:px-10 relative">
-        <div className={`grid md:grid-cols-12 gap-10 items-start ${reversed ? "md:[&>*:first-child]:order-2" : ""}`}>
-          {/* Left: title + summary + stats */}
-          <div className="md:col-span-5 fade-up md:sticky md:top-28">
-            <span
-              className="font-mono uppercase text-[10px] inline-block px-3 py-1.5 rounded-[12px] border"
-              style={{ borderColor: badgeBorder, color: badgeText, letterSpacing: "2px" }}
-            >
-              {badge}
-            </span>
-            <h3 className="font-display font-black text-white mt-6" style={{ fontSize: "clamp(40px, 5vw, 4rem)", lineHeight: 0.95 }}>{title}</h3>
-            <div className="font-mono text-sm mt-3" style={{ color: subtitleColor, letterSpacing: "1px" }}>{subtitle}</div>
-            <p className="text-[#888] text-[0.98rem] mt-6 leading-relaxed">{description}</p>
+    <div className={`card-cis ${isGold ? "gold" : ""} p-7 md:p-8 fade-up relative`} style={ringStyle}>
+      {ribbon && (
+        <span
+          className={`absolute -top-3 left-7 ${isGold ? "badge-gold" : "badge-green"}`}
+          style={{ background: isGold ? "#FFB300" : "#00C853", color: "#0a0a0a" }}
+        >
+          {ribbon}
+        </span>
+      )}
+      <div className="font-display font-black uppercase text-cis-white text-2xl" style={{ letterSpacing: "0.08em" }}>
+        {name}
+      </div>
+      <div className="mt-3 flex items-baseline gap-2">
+        <span className={`font-display font-black ${accent} text-5xl leading-none`}>€ {price}</span>
+        <span className="font-body text-cis-muted text-sm">/ mese</span>
+      </div>
+      <p className="font-body text-cis-muted text-[14.5px] mt-4 leading-relaxed">{blurb}</p>
+      <ul className="mt-6 space-y-2.5">
+        {features.map((f) => (
+          <li key={f} className="flex items-start gap-3">
+            <Check size={15} className={`${accent} mt-1 flex-shrink-0`} strokeWidth={2.4} />
+            <span className="font-body text-cis-white/90 text-[14.5px]">{f}</span>
+          </li>
+        ))}
+      </ul>
+      <a
+        href="#contatti"
+        className={`${isGold ? "btn-gold" : "btn-primary"} mt-7 w-full justify-center`}
+      >
+        {cta} <ArrowRight size={15} />
+      </a>
+    </div>
+  );
+}
 
-            <div className="grid grid-cols-3 gap-3 mt-8">
-              {stats.map((s, i) => (
-                <div key={i} className="glass p-4 text-center">
-                  <div className="font-display font-black text-2xl" style={{ color: checkColor }}>{s.v}</div>
-                  <div className="font-mono text-[9px] uppercase text-[#888] mt-1" style={{ letterSpacing: "1.5px" }}>{s.l}</div>
-                </div>
-              ))}
+/* ───────────── ClubIS Mockup ───────────── */
+function ClubISMockup() {
+  return (
+    <div className="card-cis overflow-hidden">
+      {/* Window header */}
+      <div className="flex items-center gap-3 px-5 py-3 border-b border-cis-line" style={{ background: "#101010" }}>
+        <div className="flex gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+        </div>
+        <div className="font-display font-bold text-cis-muted text-[11px] uppercase" style={{ letterSpacing: "0.16em" }}>
+          ClubIS — Dashboard Direttore Sportivo
+        </div>
+      </div>
+
+      {/* Metric row */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-cis-line">
+        {[
+          { l: "Giocatori in rosa", v: "24" },
+          { l: "Contratti in scadenza", v: "3" },
+          { l: "Partite rimanenti", v: "12" },
+          { l: "Valore rosa est.", v: "€480k" },
+        ].map((m) => (
+          <div key={m.l} className="bg-cis-card p-5">
+            <div className="font-display font-bold text-cis-muted text-[10px] uppercase" style={{ letterSpacing: "0.18em" }}>{m.l}</div>
+            <div className="font-display font-black text-cis-green text-3xl mt-2 leading-none">{m.v}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Table */}
+      <div className="p-5 md:p-6">
+        <div className="font-display font-bold uppercase text-cis-white text-sm mb-4" style={{ letterSpacing: "0.12em" }}>
+          Rosa attiva
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-sm font-body">
+            <thead>
+              <tr className="text-cis-muted border-b border-cis-line">
+                {["#", "Nome", "Ruolo", "Età", "Contratto", "Stato"].map((h) => (
+                  <th key={h} className="py-3 pr-4 font-display font-bold text-[11px] uppercase" style={{ letterSpacing: "0.14em" }}>
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="text-cis-white/90">
+              {[
+                ["1", "Rossi M.", "Centrocampista", "24", "Giu 2025", { t: "Idoneo", c: "text-cis-green", i: "✓" }],
+                ["2", "Bianchi L.", "Attaccante", "21", "Dic 2024", { t: "In scadenza", c: "text-cis-gold", i: "!" }],
+                ["3", "Esposito G.", "Difensore", "27", "Giu 2026", { t: "Idoneo", c: "text-cis-green", i: "✓" }],
+                ["4", "Ferraro A.", "Portiere", "29", "Giu 2025", { t: "Infortunato", c: "text-cis-red", i: "●" }],
+                ["5", "Lombardi R.", "Ala", "19", "Giu 2026", { t: "Idoneo", c: "text-cis-green", i: "✓" }],
+              ].map((row, i) => {
+                const status = row[5] as { t: string; c: string; i: string };
+                return (
+                  <tr key={i} className="border-b border-cis-line/60 last:border-0">
+                    <td className="py-3 pr-4 text-cis-muted">{row[0] as string}</td>
+                    <td className="py-3 pr-4 font-medium">{row[1] as string}</td>
+                    <td className="py-3 pr-4">{row[2] as string}</td>
+                    <td className="py-3 pr-4">{row[3] as string}</td>
+                    <td className="py-3 pr-4 text-cis-muted">{row[4] as string}</td>
+                    <td className={`py-3 pr-4 ${status.c} font-display font-bold uppercase text-[12px]`} style={{ letterSpacing: "0.1em" }}>
+                      <span className="mr-1.5">{status.i}</span>{status.t}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ───────────── Player Card Mockup ───────────── */
+function PlayerCardMockup() {
+  const radar = [
+    { k: "Tecnica", v: 80 },
+    { k: "Tattica", v: 72 },
+    { k: "Fisico", v: 65 },
+    { k: "Mentalità", v: 87 },
+    { k: "Decisioni", v: 78 },
+    { k: "Potenziale", v: 90 },
+  ];
+  return (
+    <div className="card-cis overflow-hidden">
+      <div className="flex items-center gap-3 px-5 py-3 border-b border-cis-line" style={{ background: "#101010" }}>
+        <div className="flex gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+        </div>
+        <div className="font-display font-bold text-cis-muted text-[11px] uppercase" style={{ letterSpacing: "0.16em" }}>
+          DM Scout — Scheda Giocatore #042
+        </div>
+      </div>
+
+      <div className="p-6 md:p-8 grid lg:grid-cols-3 gap-8">
+        {/* Left: identity */}
+        <div className="lg:col-span-1">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 rounded-full bg-cis-line flex items-center justify-center font-display font-black text-cis-muted text-xl">
+              MF
             </div>
+            <div>
+              <div className="font-display font-black text-cis-white text-2xl uppercase" style={{ letterSpacing: "0.04em" }}>
+                Marco Ferretti
+              </div>
+              <div className="font-body text-cis-muted text-sm">23 anni · Centrocampista</div>
+            </div>
+          </div>
+          <ul className="mt-6 space-y-2 font-body text-sm text-cis-white/80">
+            <li><span className="text-cis-muted">Piede:</span> Destro</li>
+            <li><span className="text-cis-muted">Nazionalità:</span> 🇮🇹 Italia</li>
+            <li><span className="text-cis-muted">Club:</span> FC Bari 1908</li>
+            <li><span className="text-cis-muted">Campionato:</span> Serie D</li>
+          </ul>
 
-            <a href="#contatti" className={`${ctaClass} mt-8`}>
-              {ctaLabel} <ArrowRight size={16} />
-            </a>
+          <div className="mt-7 p-5 rounded-lg border border-cis-line" style={{ background: "#101010" }}>
+            <div className="font-display font-bold text-cis-muted text-[10px] uppercase" style={{ letterSpacing: "0.18em" }}>Overall</div>
+            <div className="flex items-end gap-2 mt-1">
+              <span className="font-display font-black text-cis-white text-5xl leading-none">7.8</span>
+              <span className="font-body text-cis-muted mb-1">/ 10</span>
+            </div>
+            <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded verdict-buy font-display font-black text-[12px]" style={{ letterSpacing: "0.18em" }}>
+              ● BUY
+            </div>
           </div>
 
-          {/* Right: features + problem */}
-          <div className="md:col-span-7 fade-up" data-delay="120">
-            <div className="glass p-7 md:p-9">
-              <div className="font-mono text-[10px] uppercase mb-5" style={{ color: listLabelColor, letterSpacing: "2px" }}>// {listLabel}</div>
-              <ul className="space-y-3">
-                {features.map((f, i) => (
-                  <li key={i} className="flex items-start gap-3 fade-up" data-delay={String(i * 80)}>
-                    <Check size={16} style={{ color: checkColor }} className="mt-1 flex-shrink-0" />
-                    <span className="font-body font-medium text-white/90 text-[0.95rem]">{f}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <span className="badge-green">High Potential</span>
+            <span className="badge-green">Under 23</span>
+            <span className="badge-muted">Versatile</span>
+          </div>
+        </div>
 
-            <div className="mt-6 p-6 rounded-[12px] fade-up" data-delay="160"
-              style={{ borderLeft: `2px solid ${problemBorder}`, background: "rgba(255,255,255,0.02)" }}>
-              <div className="font-mono text-[10px] uppercase text-[#888] mb-2" style={{ letterSpacing: "2px" }}>// Problema Risolto</div>
-              <p className="text-white/85 text-[0.95rem] leading-relaxed">{problemText}</p>
-            </div>
+        {/* Right: radar bars */}
+        <div className="lg:col-span-2">
+          <div className="font-display font-bold uppercase text-cis-white text-sm mb-5" style={{ letterSpacing: "0.12em" }}>
+            Radar — 6 assi
+          </div>
+          <div className="space-y-4">
+            {radar.map((r) => (
+              <div key={r.k}>
+                <div className="flex items-center justify-between mb-1.5 font-body text-sm">
+                  <span className="text-cis-white/85">{r.k}</span>
+                  <span className="font-display font-black text-cis-green">{r.v}</span>
+                </div>
+                <div className="h-2 rounded-full bg-cis-line overflow-hidden">
+                  <div
+                    className="h-full"
+                    style={{
+                      width: `${r.v}%`,
+                      background: "linear-gradient(90deg, #00C853, #00C853)",
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Last match stats */}
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-px bg-cis-line rounded-lg overflow-hidden border border-cis-line">
+            {[
+              { l: "Passaggi", v: "94%" },
+              { l: "Tiri in porta", v: "3" },
+              { l: "Duelli vinti", v: "68%" },
+              { l: "xG creato", v: "0.42" },
+            ].map((s) => (
+              <div key={s.l} className="bg-cis-card p-4">
+                <div className="font-display font-bold text-cis-muted text-[10px] uppercase" style={{ letterSpacing: "0.18em" }}>{s.l}</div>
+                <div className="font-display font-black text-cis-white text-xl mt-1.5">{s.v}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
