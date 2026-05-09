@@ -1,47 +1,91 @@
 import { useEffect, useState } from "react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
 
 const links = [
-  { href: "#prodotti", label: "Prodotti" },
-  { href: "#clubis", label: "ClubIS" },
-  { href: "#dmscout", label: "DM Scout" },
-  { href: "#contatti", label: "Contatti" },
+  { href: "#home", label: "Home", id: "home" },
+  { href: "#clubis", label: "ClubIS", id: "clubis" },
+  { href: "#dmscout", label: "DM Scout", id: "dmscout" },
+  { href: "#prezzi", label: "Prezzi", id: "prezzi" },
+  { href: "#contatti", label: "Contatti", id: "contatti" },
 ];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("home");
+  const [open, setOpen] = useState(false);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener("scroll", onScroll);
+    const ids = links.map((l) => l.id);
+    const onScroll = () => {
+      const y = window.scrollY + 120;
+      let current = "home";
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= y) current = id;
+      }
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-[999] h-[60px]"
       style={{
-        background: scrolled ? "rgba(10,10,10,0.92)" : "transparent",
-        backdropFilter: scrolled ? "blur(16px)" : "none",
-        borderBottom: scrolled ? "0.5px solid var(--c-border)" : "0.5px solid transparent",
+        background: "rgba(10,10,10,0.92)",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+        borderBottom: "1px solid #2a2a2a",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
-        <a href="#top"><Logo /></a>
-        <div className="hidden md:flex items-center gap-8">
+      <div className="max-w-7xl mx-auto h-full px-5 md:px-8 flex items-center justify-between">
+        <a href="#home" onClick={() => setOpen(false)}><Logo /></a>
+
+        <div className="hidden md:flex items-center gap-7">
           {links.map((l) => (
             <a
-              key={l.href}
+              key={l.id}
               href={l.href}
-              className="font-display font-semibold uppercase text-[11px] text-white/80 hover:text-lime transition-colors"
-              style={{ letterSpacing: "2px" }}
+              className={`nav-link ${active === l.id ? "active" : ""}`}
             >
               {l.label}
             </a>
           ))}
-          <a href="#contatti" className="btn-lime !py-2.5 !px-5 !text-[11px]">Richiedi Demo</a>
+          <a href="#contatti" className="btn-primary !py-2.5 !px-4 !text-[12px]">
+            Inizia Gratis <ArrowRight size={14} />
+          </a>
         </div>
-        <a href="#contatti" className="md:hidden btn-lime !py-2 !px-4 !text-[10px]">Demo</a>
+
+        <button
+          aria-label="Menu"
+          className="md:hidden text-cis-white"
+          onClick={() => setOpen((o) => !o)}
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
+
+      {open && (
+        <div className="md:hidden absolute top-[60px] left-0 right-0 bg-cis-black border-b border-cis-line">
+          <div className="px-6 py-6 flex flex-col gap-5">
+            {links.map((l) => (
+              <a
+                key={l.id}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className={`nav-link text-base ${active === l.id ? "active" : ""}`}
+              >
+                {l.label}
+              </a>
+            ))}
+            <a href="#contatti" onClick={() => setOpen(false)} className="btn-primary self-start">
+              Inizia Gratis <ArrowRight size={14} />
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
