@@ -305,8 +305,13 @@ const Index = () => {
             sub="La piattaforma operativa completa per club di Eccellenza, Promozione, Serie D e settore giovanile multi-squadra."
           />
 
+          {/* ClubIS screenshot gallery — schermate reali */}
+          <div className="mt-20 fade-up">
+            <ScreenshotGallery shots={CLUBSHOTS} accent="green" />
+          </div>
+
           {/* Roles — click to expand */}
-          <div className="mt-24">
+          <div className="mt-28">
             <div className="fade-up"><Tag>Dashboard per ruolo</Tag></div>
             <h3 className="fade-up font-display font-black text-cis-white uppercase mt-5 text-3xl md:text-4xl" data-delay="80" style={{ letterSpacing: "-0.005em" }}>
               11 ruoli. Clicca per scoprire le funzioni.
