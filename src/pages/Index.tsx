@@ -826,7 +826,7 @@ function Pricing() {
 
 /* ───────────── Plan Card ───────────── */
 function PlanCard({
-  name, tagline, price, annual, features, cta, variant, ribbon,
+  name, tagline, price, annual, features, cta, variant, ribbon, href = "#contatti",
 }: {
   name: string;
   tagline: string;
@@ -836,6 +836,7 @@ function PlanCard({
   cta: string;
   variant: "default" | "featured" | "gold";
   ribbon?: string;
+  href?: string;
 }) {
   const isFeatured = variant === "featured";
   const isGold = variant === "gold";
