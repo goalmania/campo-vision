@@ -893,7 +893,9 @@ function PlanCard({
         })}
       </ul>
       <a
-        href="#contatti"
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
         className={`${isGold ? "btn-gold" : "btn-primary"} mt-7 w-full justify-center rounded-lg`}
       >
         {cta} <ArrowRight size={15} />
