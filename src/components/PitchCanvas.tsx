@@ -161,7 +161,7 @@ export default function PitchCanvas() {
     <div
       ref={ref}
       className="absolute inset-0 pointer-events-none"
-      style={{ opacity: 0.85 }}
+      style={{ opacity: 0.55 }}
       aria-hidden
     />
   );
