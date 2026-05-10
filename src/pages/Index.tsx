@@ -357,8 +357,46 @@ const Index = () => {
             sub="Il software di scouting che gli scout professionisti usano davvero. AI, radar, confronto fino a 6 giocatori, mappa interattiva."
           />
 
+          {/* DM Scout features grid */}
+          <div className="mt-20">
+            <div className="fade-up"><Tag>Cosa puoi fare</Tag></div>
+            <h3 className="fade-up font-display font-black text-cis-white uppercase mt-5 text-3xl md:text-4xl" data-delay="80" style={{ letterSpacing: "-0.005em" }}>
+              Lo scouting moderno, in un'unica piattaforma.
+            </h3>
+            <p className="fade-up font-body text-cis-muted mt-4 max-w-2xl" data-delay="160">
+              Ogni funzione è pensata per il flusso reale di scout, agenti e direttori sportivi. Niente rumore, solo decisioni.
+            </p>
+
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {DM_FEATURES.map((f, i) => (
+                <div
+                  key={f.title}
+                  className="card-cis gold fade-up p-6"
+                  data-delay={String((i % 3) * 60)}
+                >
+                  <f.icon size={22} className="text-cis-gold" strokeWidth={1.6} />
+                  <div className="font-display font-bold uppercase text-cis-white text-[15px] mt-4" style={{ letterSpacing: "0.08em" }}>
+                    {f.title}
+                  </div>
+                  <p className="font-body text-[13.5px] text-cis-muted mt-2 leading-relaxed">
+                    {f.desc}
+                  </p>
+                  <ul className="mt-4 space-y-1.5">
+                    {f.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2">
+                        <Check size={12} className="text-cis-gold mt-1 flex-shrink-0" strokeWidth={2.6} />
+                        <span className="font-body text-[12.5px] text-cis-white/80 leading-snug">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Screenshot gallery */}
-          <div className="mt-20 fade-up">
+          <div className="mt-24 fade-up">
+            <div className="fade-up mb-8"><Tag>Schermate reali</Tag></div>
             <ScreenshotGallery shots={DMSHOTS} />
           </div>
 
