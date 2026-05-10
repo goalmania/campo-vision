@@ -16,9 +16,14 @@ import clubPresidenza from "@/assets/clubis-presidenza.png";
 import clubSegreteria from "@/assets/clubis-segreteria.png";
 import clubKpi from "@/assets/clubis-kpi.png";
 import clubAzioni from "@/assets/clubis-azioni.png";
-import clubTeamManager from "@/assets/clubis-team-manager.png";
-import clubSidebar2 from "@/assets/clubis-sidebar-2.png";
-import clubSidebar3 from "@/assets/clubis-sidebar-3.png";
+import clubTeamManager from "@/assets/clubis-teammanager-new.png";
+import clubDisponibilita from "@/assets/clubis-disponibilita.png";
+import clubRosa from "@/assets/clubis-rosa.png";
+import clubMercato from "@/assets/clubis-mercato.png";
+import clubTracker from "@/assets/clubis-tracker.png";
+import clubBudget from "@/assets/clubis-budget.png";
+import clubComunicati from "@/assets/clubis-comunicati.png";
+import clubDocumenti from "@/assets/clubis-documenti.png";
 import {
   ArrowRight, Check, Crown, ClipboardList, Target, FolderOpen, Search, Trophy,
   ClipboardCheck, Users, Stethoscope, Newspaper, Wrench, ChevronDown,
@@ -204,13 +209,18 @@ const ROLES: Role[] = [
 
 /* ───────────── ClubIS screenshots ───────────── */
 const CLUBSHOTS = [
-  { src: clubPresidenza, label: "Presidenza", desc: "Riepilogo esecutivo del presidente: setup, scadenze FIGC critiche e azioni rapide finanziarie con gli organigrammi e gli sponsor a portata di click." },
+  { src: clubPresidenza, label: "Presidenza", desc: "Riepilogo esecutivo del presidente: setup, scadenze FIGC critiche e azioni rapide finanziarie con organigrammi e sponsor a portata di click." },
   { src: clubSegreteria, label: "Segreteria", desc: "Hub operativo del segretario: anagrafica, contabilità, FIGC, documenti, comunicazioni e settore giovanile in un'unica vista a colonne." },
   { src: clubKpi, label: "KPI & FIGC", desc: "Card KPI in tempo reale: tesserati, certificati in scadenza, quote arretrate, prossime partite e portafoglio FIGC con saldo stimato." },
   { src: clubAzioni, label: "Azioni Rapide", desc: "Banner scadenze FIGC e azioni rapide raggruppate per area: nessun click sprecato per le operazioni quotidiane." },
   { src: clubTeamManager, label: "Team Manager", desc: "Logistica squadra: convocazioni, trasferte, presenze, materiale. KPI sulla rosa attiva e sulle trasferte in programma." },
-  { src: clubSidebar2, label: "Moduli FIGC", desc: "Modulistica federale completa: scadenze, pratiche tesseramento, rosa FIGC, comunicati, monitor squalifiche, portafoglio." },
-  { src: clubSidebar3, label: "Settore Giovanile", desc: "Squadre & quote, iscrizioni online, compliance, comunicazioni e archivio per la gestione multi-categoria del giovanile." },
+  { src: clubDisponibilita, label: "Disponibilità", desc: "Chi può giocare: stato in tempo reale di squalificati, diffidati, infortunati e certificati scaduti, con motivazioni e dettaglio per giocatore." },
+  { src: clubRosa, label: "Gestione Rosa", desc: "Rosa completa con filtri età, ruolo, piede, nazionalità, contratto e tipo tesseramento. KPI sintetici su tesserati e scadenze." },
+  { src: clubMercato, label: "Budget Mercato", desc: "Budget di mercato per stagione: assegnato dal presidente, totale acquisti e cessioni, saldo disponibile e trattative in corso." },
+  { src: clubTracker, label: "Tracker Movimenti", desc: "Monitoraggio completo delle operazioni: acquisti, cessioni, prestiti in/out e flusso finanziario di mercato per stagione." },
+  { src: clubBudget, label: "Budget Stagionale", desc: "Pianificazione finanziaria: tetto budget, uscite effettive, saldo previsto, % di consumo e riepilogo entrate/uscite previste vs effettive." },
+  { src: clubComunicati, label: "Comunicati FIGC", desc: "Incolla il testo del C.U. FIGC: il sistema estrae squalifiche e diffide e le applica automaticamente alla rosa." },
+  { src: clubDocumenti, label: "Documenti", desc: "Libreria documenti per categoria (Riforma dello Sport, fiscali, tesseramenti, GDPR…) con template verificati e generazione 1-click." },
 ];
 
 /* ───────────── DM Scout screenshots ───────────── */
@@ -246,7 +256,7 @@ const Index = () => {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 65% 55% at 50% 25%, rgba(0,200,83,0.10), transparent 70%), linear-gradient(to bottom, rgba(10,10,10,0.55), rgba(10,10,10,0.85))",
+              "radial-gradient(ellipse 65% 55% at 50% 25%, rgba(200,240,0,0.10), transparent 70%), linear-gradient(to bottom, rgba(10,10,10,0.55), rgba(10,10,10,0.85))",
           }}
         />
 
@@ -319,7 +329,7 @@ const Index = () => {
               Ogni ruolo ha la sua dashboard con permessi e funzioni dedicate. Apri ogni card per vedere cosa può fare.
             </p>
 
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
               {ROLES.map((r, i) => (
                 <RoleCard role={r} key={r.name} delay={(i % 3) * 60} />
               ))}
@@ -366,7 +376,7 @@ const Index = () => {
       <section id="contatti" className="relative py-32 md:py-40 border-t border-cis-line overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0,200,83,0.08), transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(200,240,0,0.08), transparent 70%)" }}
         />
         <div className="relative max-w-5xl mx-auto px-6 md:px-10 text-center">
           <div className="fade-up"><Tag>Pronti?</Tag></div>
@@ -570,8 +580,8 @@ function Pricing() {
               <span
                 className="px-1.5 py-0.5 rounded text-[9px]"
                 style={{
-                  background: annual ? "rgba(10,10,10,0.18)" : "rgba(0,200,83,0.18)",
-                  color: annual ? "#0a0a0a" : "#00C853",
+                  background: annual ? "rgba(10,10,10,0.18)" : "rgba(200,240,0,0.18)",
+                  color: annual ? "#0a0a0a" : "#c8f000",
                 }}
               >
                 -15%
@@ -704,7 +714,7 @@ function PlanCard({
   const isGold = variant === "gold";
   const accent = isGold ? "text-cis-gold" : "text-cis-green";
   const ringStyle: React.CSSProperties = isFeatured
-    ? { borderColor: "#00C853" }
+    ? { borderColor: "#c8f000" }
     : isGold
     ? { borderColor: "#FFB300" }
     : {};
@@ -715,7 +725,7 @@ function PlanCard({
         <span
           className="absolute -top-3 left-7 font-display font-black uppercase text-[10px] px-2.5 py-1 rounded"
           style={{
-            background: isGold ? "#FFB300" : "#00C853",
+            background: isGold ? "#FFB300" : "#c8f000",
             color: "#0a0a0a",
             letterSpacing: "0.18em",
           }}

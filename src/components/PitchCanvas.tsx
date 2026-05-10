@@ -30,7 +30,7 @@ export default function PitchCanvas() {
     const pitch = new THREE.Group();
     scene.add(pitch);
 
-    const GREEN = 0x00c853;
+    const GREEN = 0xc8f000;
     const lineMat = new THREE.LineBasicMaterial({
       color: GREEN,
       transparent: true,
@@ -110,7 +110,7 @@ export default function PitchCanvas() {
     // Subtle ground glow plane
     const glowGeo = new THREE.PlaneGeometry(W * 1.8, H * 1.8);
     const glowMat = new THREE.MeshBasicMaterial({
-      color: 0x00c853,
+      color: 0xc8f000,
       transparent: true,
       opacity: 0.04,
     });

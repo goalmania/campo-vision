@@ -25,7 +25,7 @@ export default {
           dark: "#111111",
           card: "#161616",
           line: "#2a2a2a",
-          green: "#00C853",
+          green: "#c8f000",
           gold: "#FFB300",
           white: "#f5f5f0",
           muted: "#888880",
