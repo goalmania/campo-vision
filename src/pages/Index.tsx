@@ -732,6 +732,7 @@ function Pricing() {
               annual={annual}
               variant="default"
               cta="Inizia Prova Gratuita"
+              href="https://clubis.it"
               features={[
                 "Gestione rosa e tesseramenti",
                 "Certificati medici con avvisi automatici",
@@ -751,6 +752,7 @@ function Pricing() {
               variant="featured"
               ribbon="Most Popular"
               cta="Inizia Prova Gratuita"
+              href="https://clubis.it"
               features={[
                 "Tutto Starter, più:",
                 "Dashboard DS completa",
@@ -769,6 +771,7 @@ function Pricing() {
               annual={annual}
               variant="default"
               cta="Inizia Prova Gratuita"
+              href="https://clubis.it"
               features={[
                 "Tutto Pro, più:",
                 "DM Scout integrato completo",
@@ -798,6 +801,7 @@ function Pricing() {
               variant="gold"
               ribbon="Tutto incluso"
               cta="Inizia Prova Gratuita"
+              href="https://dmscout.it"
               features={[
                 "Report giocatori illimitati",
                 "Caricamento AI da PDF / DOCX / TXT",
