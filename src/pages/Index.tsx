@@ -246,7 +246,7 @@ const Index = () => {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 65% 55% at 50% 25%, rgba(0,200,83,0.10), transparent 70%), linear-gradient(to bottom, rgba(10,10,10,0.55), rgba(10,10,10,0.85))",
+              "radial-gradient(ellipse 65% 55% at 50% 25%, rgba(200,240,0,0.10), transparent 70%), linear-gradient(to bottom, rgba(10,10,10,0.55), rgba(10,10,10,0.85))",
           }}
         />
 
@@ -366,7 +366,7 @@ const Index = () => {
       <section id="contatti" className="relative py-32 md:py-40 border-t border-cis-line overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(0,200,83,0.08), transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(200,240,0,0.08), transparent 70%)" }}
         />
         <div className="relative max-w-5xl mx-auto px-6 md:px-10 text-center">
           <div className="fade-up"><Tag>Pronti?</Tag></div>
@@ -570,8 +570,8 @@ function Pricing() {
               <span
                 className="px-1.5 py-0.5 rounded text-[9px]"
                 style={{
-                  background: annual ? "rgba(10,10,10,0.18)" : "rgba(0,200,83,0.18)",
-                  color: annual ? "#0a0a0a" : "#00C853",
+                  background: annual ? "rgba(10,10,10,0.18)" : "rgba(200,240,0,0.18)",
+                  color: annual ? "#0a0a0a" : "#c8f000",
                 }}
               >
                 -15%
@@ -704,7 +704,7 @@ function PlanCard({
   const isGold = variant === "gold";
   const accent = isGold ? "text-cis-gold" : "text-cis-green";
   const ringStyle: React.CSSProperties = isFeatured
-    ? { borderColor: "#00C853" }
+    ? { borderColor: "#c8f000" }
     : isGold
     ? { borderColor: "#FFB300" }
     : {};
@@ -715,7 +715,7 @@ function PlanCard({
         <span
           className="absolute -top-3 left-7 font-display font-black uppercase text-[10px] px-2.5 py-1 rounded"
           style={{
-            background: isGold ? "#FFB300" : "#00C853",
+            background: isGold ? "#FFB300" : "#c8f000",
             color: "#0a0a0a",
             letterSpacing: "0.18em",
           }}
