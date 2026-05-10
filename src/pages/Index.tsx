@@ -235,6 +235,91 @@ const DMSHOTS = [
   { src: shotMappa,     label: "Mappa",     desc: "Mappa interattiva Italia o Mondo con clustering automatico dei giocatori e filtri rapidi." },
 ];
 
+/* ───────────── DM Scout funzionalità ───────────── */
+const DM_FEATURES = [
+  {
+    icon: Database, title: "Database giocatori",
+    desc: "Tutti i tuoi osservati in un unico posto, sempre filtrabili per ciò che ti serve davvero.",
+    bullets: [
+      "Filtri per ruolo, piede, età, nazionalità, campionato",
+      "Vista grid, lista o mappa geografica",
+      "Tag personalizzati e liste dinamiche",
+    ],
+  },
+  {
+    icon: Brain, title: "AI Report da PDF",
+    desc: "Carichi un report in PDF, DOCX o TXT: l'AI estrae i dati e crea la scheda completa nel database.",
+    bullets: [
+      "Riconoscimento automatico di skills, voti e note",
+      "Compilazione scheda in pochi secondi",
+      "Zero inserimento manuale ripetitivo",
+    ],
+  },
+  {
+    icon: Radar, title: "Radar a 6 assi",
+    desc: "Visualizzi punti di forza e debolezze su Tecnica, Tattica, Fisico, Mentalità, Decisioni, Potenziale.",
+    bullets: [
+      "100+ skills mappate per ogni giocatore",
+      "Valutazione a stelle e voto complessivo",
+      "Confronto immediato con la media del ruolo",
+    ],
+  },
+  {
+    icon: GitCompare, title: "Confronto multi-giocatore",
+    desc: "Metti fianco a fianco fino a 6 giocatori sulle stesse metriche. Il vincitore di ogni voce è evidenziato.",
+    bullets: [
+      "Confronto su 100+ skills",
+      "Highlight automatico del migliore per metrica",
+      "Export confronto in PDF",
+    ],
+  },
+  {
+    icon: Target, title: "Fit Score tattico",
+    desc: "Per ogni modulo (4-3-3, 3-5-2, 4-2-3-1…) il sistema calcola la % di compatibilità con i ruoli tattici.",
+    bullets: [
+      "60+ ruoli tattici mappati",
+      "Fit Score % per ogni modulo",
+      "Suggerimenti su ruolo ottimale e alternativo",
+    ],
+  },
+  {
+    icon: MapPin, title: "Mappa interattiva",
+    desc: "Vedi su mappa Italia o mondo dove si trovano i tuoi giocatori, con clustering e filtri rapidi.",
+    bullets: [
+      "Cluster automatici per area",
+      "Filtri per verdetto, ruolo, fascia d'età",
+      "Pianificazione trasferte di osservazione",
+    ],
+  },
+  {
+    icon: TagIcon, title: "Verdetti & shortlist",
+    desc: "Assegna BUY, MONITOR o PASS. Crei shortlist dinamiche per direttori sportivi e agenti.",
+    bullets: [
+      "Verdetti con motivazione e data",
+      "Shortlist condivisibili via link",
+      "Storico decisioni per giocatore",
+    ],
+  },
+  {
+    icon: Filter, title: "Ricerca avanzata",
+    desc: "Trovi in pochi secondi il giocatore giusto incrociando criteri tecnici, fisici e contrattuali.",
+    bullets: [
+      "Ricerca booleana su 30+ campi",
+      "Salvataggio query come liste vive",
+      "Alert quando un nuovo giocatore matcha",
+    ],
+  },
+  {
+    icon: Download, title: "Export PDF brandizzato",
+    desc: "Generi report giocatore in PDF con il tuo logo, pronti da inviare a club o famiglie.",
+    bullets: [
+      "Template professionale personalizzabile",
+      "Esportazione in 1 click",
+      "Versione sintetica e versione completa",
+    ],
+  },
+];
+
 /* ───────────── Page ───────────── */
 const Index = () => {
   useFadeUp();
