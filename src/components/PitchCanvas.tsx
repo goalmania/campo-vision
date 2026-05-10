@@ -124,10 +124,15 @@ export default function PitchCanvas() {
 
     let raf = 0;
     let t = 0;
+    const baseTiltX = -0.15;
     const animate = () => {
-      t += 0.0035;
-      pitch.rotation.y = Math.sin(t * 0.6) * 0.35;
-      const s = 1 + Math.sin(t * 1.2) * 0.025;
+      t += 0.005;
+      // wider Y sweep + subtle X tilt oscillation for a more evident motion
+      pitch.rotation.y = Math.sin(t * 0.55) * 0.75;
+      pitch.rotation.x = baseTiltX + Math.sin(t * 0.35) * 0.06;
+      pitch.rotation.z = Math.sin(t * 0.25) * 0.04;
+      // pronounced breathing scale
+      const s = 1 + Math.sin(t * 1.1) * 0.06;
       pitch.scale.set(s, s, s);
       renderer.render(scene, camera);
       raf = requestAnimationFrame(animate);
@@ -156,7 +161,7 @@ export default function PitchCanvas() {
     <div
       ref={ref}
       className="absolute inset-0 pointer-events-none"
-      style={{ opacity: 0.85 }}
+      style={{ opacity: 0.55 }}
       aria-hidden
     />
   );
