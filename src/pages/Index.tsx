@@ -517,19 +517,22 @@ const Index = () => {
             Inizia con 7 giorni di prova gratuita. Nessuna carta di credito richiesta.
           </p>
           <div className="fade-up mt-10 flex flex-wrap items-center justify-center gap-3" data-delay="240">
-            <a href="mailto:info@dmfootballservices.it?subject=Prova%20ClubIS" className="btn-primary">
+            <a href="https://clubis.it" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Prova ClubIS — 7 giorni <ArrowRight size={15} />
             </a>
-            <a href="mailto:info@dmfootballservices.it?subject=Prova%20DM%20Scout" className="btn-gold">
+            <a href="https://dmscout.it" target="_blank" rel="noopener noreferrer" className="btn-gold">
               Prova DM Scout — 7 giorni <ArrowRight size={15} />
             </a>
           </div>
-          <p className="fade-up font-body text-cis-muted text-sm mt-8" data-delay="320">
-            Hai domande? Scrivici a{" "}
+          <div className="fade-up mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-2 font-body text-sm" data-delay="320">
             <a href="mailto:info@dmfootballservices.it" className="text-cis-white hover:text-cis-green underline underline-offset-4">
               info@dmfootballservices.it
             </a>
-          </p>
+            <span className="hidden sm:inline text-cis-muted">·</span>
+            <a href="tel:+393334218596" className="text-cis-white hover:text-cis-green underline underline-offset-4">
+              +39 333 421 8596
+            </a>
+          </div>
         </div>
       </section>
 
@@ -729,6 +732,7 @@ function Pricing() {
               annual={annual}
               variant="default"
               cta="Inizia Prova Gratuita"
+              href="https://clubis.it"
               features={[
                 "Gestione rosa e tesseramenti",
                 "Certificati medici con avvisi automatici",
@@ -748,6 +752,7 @@ function Pricing() {
               variant="featured"
               ribbon="Most Popular"
               cta="Inizia Prova Gratuita"
+              href="https://clubis.it"
               features={[
                 "Tutto Starter, più:",
                 "Dashboard DS completa",
@@ -766,6 +771,7 @@ function Pricing() {
               annual={annual}
               variant="default"
               cta="Inizia Prova Gratuita"
+              href="https://clubis.it"
               features={[
                 "Tutto Pro, più:",
                 "DM Scout integrato completo",
@@ -795,6 +801,7 @@ function Pricing() {
               variant="gold"
               ribbon="Tutto incluso"
               cta="Inizia Prova Gratuita"
+              href="https://dmscout.it"
               features={[
                 "Report giocatori illimitati",
                 "Caricamento AI da PDF / DOCX / TXT",
@@ -823,7 +830,7 @@ function Pricing() {
 
 /* ───────────── Plan Card ───────────── */
 function PlanCard({
-  name, tagline, price, annual, features, cta, variant, ribbon,
+  name, tagline, price, annual, features, cta, variant, ribbon, href = "#contatti",
 }: {
   name: string;
   tagline: string;
@@ -833,6 +840,7 @@ function PlanCard({
   cta: string;
   variant: "default" | "featured" | "gold";
   ribbon?: string;
+  href?: string;
 }) {
   const isFeatured = variant === "featured";
   const isGold = variant === "gold";
@@ -889,7 +897,9 @@ function PlanCard({
         })}
       </ul>
       <a
-        href="#contatti"
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
         className={`${isGold ? "btn-gold" : "btn-primary"} mt-7 w-full justify-center rounded-lg`}
       >
         {cta} <ArrowRight size={15} />
