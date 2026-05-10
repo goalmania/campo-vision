@@ -27,6 +27,7 @@ import clubDocumenti from "@/assets/clubis-documenti.png";
 import {
   ArrowRight, Check, Crown, ClipboardList, Target, FolderOpen, Search, Trophy,
   ClipboardCheck, Users, Stethoscope, Newspaper, Wrench, ChevronDown,
+  Database, Radar, GitCompare, FileText, MapPin, Brain, Filter, Star, Download, Tag as TagIcon,
 } from "lucide-react";
 
 /* ───────────── helpers ───────────── */
