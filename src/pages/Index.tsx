@@ -517,7 +517,7 @@ const Index = () => {
             Inizia con 7 giorni di prova gratuita. Nessuna carta di credito richiesta.
           </p>
           <div className="fade-up mt-10 flex flex-wrap items-center justify-center gap-3" data-delay="240">
-            <a href="https://clubis.it" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href="https://clubis.it/registrati?piano=pro" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Prova ClubIS — 7 giorni <ArrowRight size={15} />
             </a>
             <a href="https://dmscout.it" target="_blank" rel="noopener noreferrer" className="btn-gold">
@@ -732,7 +732,7 @@ function Pricing() {
               annual={annual}
               variant="default"
               cta="Inizia Prova Gratuita"
-              href="https://clubis.it"
+              href="https://clubis.it/registrati?piano=starter"
               features={[
                 "Gestione rosa e tesseramenti",
                 "Certificati medici con avvisi automatici",
@@ -752,7 +752,7 @@ function Pricing() {
               variant="featured"
               ribbon="Most Popular"
               cta="Inizia Prova Gratuita"
-              href="https://clubis.it"
+              href="https://clubis.it/registrati?piano=pro"
               features={[
                 "Tutto Starter, più:",
                 "Dashboard DS completa",
@@ -771,7 +771,7 @@ function Pricing() {
               annual={annual}
               variant="default"
               cta="Inizia Prova Gratuita"
-              href="https://clubis.it"
+              href="https://clubis.it/registrati?piano=elite"
               features={[
                 "Tutto Pro, più:",
                 "DM Scout integrato completo",
