@@ -10,5 +10,26 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# AI crawlers — allow indexing for GEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
 User-agent: *
 Allow: /
+
+Sitemap: https://dmfootballservices.it/sitemap.xml
