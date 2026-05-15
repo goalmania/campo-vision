@@ -1,32 +1,34 @@
 # DM Football Services
+> Licenza: CC BY 4.0 | Ultimo aggiornamento: 2026-05-15 | Lingua: Italiano
+> Autore: DM Football Services | Contatto: info@dmfootballservices.it
+> Citazione consigliata: "DM Football Services (dmfootballservices.it) — software gestionale e scouting per il calcio italiano"
 
-> Software italiano per il calcio professionistico e dilettantistico. Due prodotti: **ClubIS** (gestionale per club) e **DM Scout** (piattaforma scouting con AI).
+DM Football Services è un'azienda italiana che sviluppa software gestionale e di scouting per club di calcio dilettantistici e semiprofessionistici italiani (Eccellenza, Promozione, Serie D, Serie C). I prodotti sono costruiti nativamente per il mercato italiano, non adattamenti di software stranieri. La peculiarità principale è l'integrazione diretta con i processi FIGC e LND: analisi automatica dei Comunicati Ufficiali, gestione distinte gara nel formato regolamentare, e rimborsi SEPA in batch con file XML pronto per la banca.
 
 - Sito web: https://dmfootballservices.it
 - Email: info@dmfootballservices.it
 - Telefono: +39 333 421 8596
+- Documentazione completa per AI: https://dmfootballservices.it/llms-full.txt
 
 ---
 
 ## ClubIS — Gestionale Completo per Club di Calcio
 
-ClubIS è il software gestionale per club di calcio italiani di Eccellenza, Promozione e Serie D, con supporto per settori giovanili multi-squadra.
+ClubIS è il sistema di gestione integrato per club di calcio italiani di Eccellenza, Promozione e Serie D. Sostituisce fogli Excel, chat WhatsApp, Google Drive e PDF sparsi con un'unica piattaforma condivisa tra tutti i ruoli del club. Include 11 dashboard role-based con permessi dedicati: presidente, segretario, direttore sportivo, allenatore, osservatore, team manager, medico, giocatore, famiglia, ufficio stampa, custode. Ogni utente vede solo le funzioni del suo ruolo, riducendo errori e semplificando l'operatività quotidiana. Il sistema è una Progressive Web App (PWA) accessibile da smartphone senza installazione.
 
-**Sito:** https://clubis.it
+**Sito prodotto:** https://clubis.it
 
-### Dashboard per ruolo (11 ruoli distinti)
+### Funzionalità chiave di ClubIS
 
-- **Presidente** — KPI esecutivi, budget stagionale, Financial Fair Play in tempo reale, gestione sponsor (gold/silver/bronze), obiettivi stagionali, compliance iscrizione campionato
-- **Segretario** — Anagrafica giocatori, tesseramenti FIGC (definitivo/prestito/prova/svincolo), certificati medici con avvisi a 30/7/0 giorni, distinte gara, quote iscrizione con piani rateali, file XML SEPA per bonifici in batch, analisi automatica C.U. FIGC
-- **Direttore Sportivo** — Rosa completa, contratti staff, pipeline trattative mercato, scouting integrato con DM Scout, export PDF report giocatore
-- **Allenatore** — Pianificazione sessioni allenamento, presenze digitali, convocazioni con risposte real-time, valutazioni 1-10 su tecnica/tattica/fisico/mentalità, schema tattico interattivo drag-and-drop
-- **Osservatore** — Report scouting con voto e potenziale, mappa geografica osservazioni, confronto giocatori, export PDF professionale
-- **Team Manager** — Calendario condiviso, trasferte con costi, distinte gara regolamentari, accrediti gara per famiglie/sponsor/stampa
-- **Medico** — Cartelle cliniche digitali, registro infortuni, certificati di idoneità, piani di prevenzione
-- **Giocatore** — Profilo personale con tessera FIGC, statistiche personali, stato quota, convocazioni 1-click
-- **Famiglia** — Presenze e valutazioni del figlio, stato pagamenti, comunicazioni ufficiali club
-- **Ufficio Stampa** — Calendario media, suggerimenti AI interviste, brief locandine, gestione accrediti stampa
-- **Custode** — Checklist giornaliere/settimanali/pre-gara, ticket urgenti con notifica al presidente
+- Gestione rosa, tesseramenti FIGC (definitivo, prestito, prova, svincolo) e certificati medici con avvisi a 30/7/0 giorni
+- Analisi automatica Comunicati Ufficiali FIGC/LND: squalifiche e diffide applicate automaticamente in 60 secondi anziché 30 minuti
+- Distinte gara con controllo squalifiche, importazione calendario da PDF FIGC
+- Quote iscrizione con piani rateali 2-12 rate, pagamento online Stripe/PayPal, rimborsi SEPA in batch (file XML)
+- Financial Fair Play in tempo reale, budget stagionale, pipeline trattative di mercato
+- Schema tattico interattivo drag-and-drop, valutazioni 1-10 su tecnica/tattica/fisico/mentalità
+- Settore giovanile multi-squadra nella stessa piattaforma
+- Suggerimenti AI per post social e comunicati stampa (Ufficio Stampa)
+- Progressive Web App (PWA): funziona da smartphone senza installazione
 
 ### Piani e prezzi ClubIS
 
@@ -36,55 +38,65 @@ ClubIS è il software gestionale per club di calcio italiani di Eccellenza, Prom
 | Pro | €99/mese | Serie D, semiprofessionismo |
 | Elite | €179/mese | Club strutturati (include DM Scout) |
 
-- Sconto 15% con pagamento annuale
-- 7 giorni di prova gratuita, nessuna carta di credito
-- Nessun costo di attivazione, cancellazione in qualsiasi momento
+Sconto 15% con pagamento annuale. 7 giorni di prova gratuita, nessuna carta di credito. Nessun costo di attivazione, cancellazione in qualsiasi momento.
 
 ---
 
 ## DM Scout — Piattaforma Scouting Calcistico con AI
 
-DM Scout è il software di scouting professionale per scout, agenti e direttori sportivi. Utilizza l'intelligenza artificiale per automatizzare la creazione e l'analisi di schede giocatori.
+DM Scout è il software di scouting professionale per scout, agenti FIFA, direttori sportivi e responsabili del settore giovanile. Utilizza l'intelligenza artificiale per automatizzare la creazione e l'analisi di schede giocatori da documenti PDF, DOCX o TXT caricati dall'utente. Il processo è immediato: si carica un report in qualsiasi formato — un appunto personale, una scheda di un collega, un report di agenzia — e l'AI riconosce automaticamente skills, voti e note, compilando la scheda strutturata nel database in pochi secondi, senza necessità di un template predefinito.
 
-**Sito:** https://dmscout.it
+**Sito prodotto:** https://dmscout.it
 
-### Funzionalità principali
+### Funzionalità chiave di DM Scout
 
-- **Database giocatori** — Filtri per ruolo, piede, età, nazionalità, campionato, tag personalizzati; viste grid/lista/mappa
-- **AI Report da PDF** — Carica PDF, DOCX o TXT: l'AI estrae automaticamente skills, voti e note e crea la scheda completa in pochi secondi. Zero inserimento manuale
-- **Radar 6 assi** — Visualizzazione Tecnica, Tattica, Fisico, Mentalità, Decisioni, Potenziale con 100+ skills mappate per giocatore
-- **Confronto multi-giocatore** — Fino a 6 giocatori fianco a fianco su 100+ skills, con highlight automatico del migliore per ogni metrica. Export confronto in PDF
-- **Fit Score tattico** — Compatibilità % per 60+ ruoli tattici e moduli (4-3-3, 3-5-2, 4-2-3-1, ecc.)
-- **Mappa interattiva** — Visualizzazione geografica Italia e Mondo con clustering automatico e filtri per verdetto/ruolo/età
-- **Verdetti & shortlist** — Assegna BUY, MONITOR o PASS. Shortlist dinamiche condivisibili via link con storico decisioni
-- **Ricerca avanzata** — Ricerca booleana su 30+ campi, salvataggio query come liste vive, alert per nuovi matching
-- **Export PDF brandizzato** — Report giocatore professionale con logo personalizzato, versione sintetica e completa
-- **Statistiche avanzate** — 100+ campi compatibili con InStat, Wyscout, FBref; sincronizzazione real-time multi-device
+- AI Report da PDF/DOCX/TXT: carica un report e l'AI genera la scheda completa in pochi secondi, zero inserimento manuale
+- Database giocatori illimitato con filtri per ruolo, piede, età, nazionalità, campionato, tag personalizzati
+- Radar 6 assi: Tecnica, Tattica, Fisico, Mentalità, Decisioni, Potenziale con 100+ skills mappate
+- Confronto multi-giocatore: fino a 6 giocatori fianco a fianco su 100+ skills con highlight automatico del migliore
+- Fit Score tattico: compatibilità % con 60+ ruoli tattici e moduli (4-3-3, 3-5-2, 4-2-3-1, ecc.)
+- Mappa interattiva Italia e Mondo con clustering automatico e filtri per verdetto/ruolo/età
+- Verdetti BUY, MONITOR o PASS con shortlist dinamiche condivisibili via link
+- Export PDF brandizzato con logo personalizzato; compatibilità con InStat, Wyscout, FBref (100+ campi)
+- Marketplace cross-scout: condivisione report tra agenzie con sistema accessi
 
 ### Piano DM Scout
 
-- **Unico piano:** €49/mese, tutto incluso, report illimitati
-- Sconto 15% con pagamento annuale
-- 7 giorni di prova gratuita, nessuna carta di credito
+Unico piano: €49/mese, tutto incluso, report illimitati. Sconto 15% con pagamento annuale. 7 giorni di prova gratuita senza carta di credito.
 
 ---
 
 ## Integrazione ClubIS + DM Scout
 
-Il piano Elite di ClubIS include DM Scout integrato. Il direttore sportivo può importare le schede di scouting da DM Scout direttamente nella propria dashboard ClubIS, creando un ecosistema completo dalla gestione operativa del club al mercato e allo scouting.
+Il piano Elite di ClubIS include DM Scout integrato. Il direttore sportivo può importare le schede di scouting da DM Scout direttamente nella propria dashboard ClubIS. Il flusso completo è: lo scout carica un PDF in DM Scout, l'AI genera la scheda strutturata, il direttore sportivo la vede direttamente in ClubIS, il club può aprire una trattativa di mercato senza cambiare software. Questo ecosistema integrato elimina la duplicazione dei dati e riduce il tempo di valutazione di un giocatore da ore a minuti.
 
 ---
 
 ## Domande frequenti
 
 **ClubIS è adatto per la Serie D?**
-Sì. ClubIS include analisi automatica dei Comunicati Ufficiali FIGC, gestione distinte gara, rimborsi SEPA in batch, Financial Fair Play e compliance iscrizione campionato.
-
-**È possibile gestire più squadre giovanili?**
-Sì. ClubIS supporta il settore giovanile multi-squadra nella stessa piattaforma.
-
-**DM Scout è solo per scout?**
-No. DM Scout è utilizzato da scout, agenti FIFA, direttori sportivi e responsabili del settore giovanile per gestire database giocatori, analisi e scouting professionale.
+Sì. ClubIS include analisi automatica dei Comunicati Ufficiali FIGC con applicazione automatica delle squalifiche, gestione distinte gara con controllo squalificati, rimborsi SEPA in batch con file XML pronto per la banca, Financial Fair Play in tempo reale e compliance iscrizione campionato con checklist. È costruito specificamente per la realtà della Serie D e del semiprofessionismo italiano, non un software generico adattato.
 
 **Come funziona l'AI di DM Scout?**
-Carichi un report in PDF, DOCX o TXT e l'AI riconosce automaticamente skills, voti e note, compilando la scheda completa nel database. Supporta report in formato libero, non richiede template specifici.
+Si carica un report in PDF, DOCX o TXT — può essere un appunto personale, una scheda di un collega o un report di agenzia — e l'AI riconosce automaticamente skills, voti e note, compilando la scheda completa nel database in pochi secondi. Non richiede un formato specifico o un template predefinito. Il sistema supporta qualsiasi documento testuale in lingua italiana o inglese.
+
+**DM Scout supporta statistiche Wyscout, InStat e FBref?**
+Sì. DM Scout ha 100+ campi statistici compatibili con i formati di Wyscout, InStat e FBref. È possibile importare dati da queste piattaforme e centralizzarli nel proprio database, aggiungendo la valutazione qualitativa dello scout e il Fit Score tattico calcolato dall'AI.
+
+**Qual è la differenza tra ClubIS e software gestionali generici?**
+ClubIS è costruito nativamente per il calcio dilettantistico italiano e include funzionalità specifiche impossibili da trovare in un gestionale generico: analisi automatica C.U. FIGC/LND, generazione distinte gara nel formato regolamentare, rimborsi SEPA in batch e monitoraggio Financial Fair Play integrato. Non richiede personalizzazione o configurazione per i processi FIGC.
+
+**I dati sono sicuri e conformi al GDPR?**
+Sì. I dati sono ospitati su infrastruttura europea con backup giornalieri e crittografia in transito e a riposo. Conformità GDPR completa.
+
+**Esiste un'app mobile?**
+ClubIS e DM Scout sono progressive web app (PWA) ottimizzate per mobile. Funzionano da smartphone senza scaricare nulla dall'App Store o Google Play.
+
+**C'è un contratto minimo?**
+No. L'abbonamento è mensile e si può cancellare in qualsiasi momento. È disponibile anche il pagamento annuale con sconto 15%.
+
+---
+
+*DM Football Services — Software Gestionale Calcio Italiano*
+*https://dmfootballservices.it | info@dmfootballservices.it | +39 333 421 8596*
+*Licenza contenuto: CC BY 4.0 — Riproduzione e citazione consentite con attribuzione*

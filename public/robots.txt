@@ -14,6 +14,10 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
+# OAI-SearchBot: used for ChatGPT Browse/Search (distinct from GPTBot which is training)
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: ClaudeBot
 Allow: /
 
@@ -27,6 +31,10 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: cohere-ai
+Allow: /
+
+# Meta AI crawler
+User-agent: Meta-ExternalAgent
 Allow: /
 
 User-agent: *
