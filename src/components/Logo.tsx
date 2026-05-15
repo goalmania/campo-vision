@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-dmfs.png";
+import logo from "@/assets/logo-dmfs.webp";
 
 export default function Logo({ size = "md" }: { size?: "sm" | "md" }) {
   const h = size === "sm" ? 36 : 44;
