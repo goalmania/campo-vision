@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFadeUp } from "@/hooks/useFadeUp";
 import Nav from "@/components/Nav";
 import Logo from "@/components/Logo";
@@ -28,6 +28,7 @@ import {
   ArrowRight, Check, Crown, ClipboardList, Target, FolderOpen, Search, Trophy,
   ClipboardCheck, Users, Stethoscope, Newspaper, Wrench, ChevronDown,
   Database, Radar, GitCompare, FileText, MapPin, Brain, Filter, Star, Download, Tag as TagIcon,
+  Volume2,
 } from "lucide-react";
 
 /* ───────────── helpers ───────────── */
@@ -56,7 +57,7 @@ const SectionTitle = ({
 );
 
 /* ───────────── 11 RUOLI con FUNZIONI ───────────── */
-type Role = { icon: any; name: string; desc: string; functions: string[] };
+type Role = { icon: any; name: string; desc: string; functions: string[]; video: string };
 
 const ROLES: Role[] = [
   {
@@ -73,6 +74,7 @@ const ROLES: Role[] = [
       "Notifica immediata ticket urgenti dagli impianti",
       "Report mensile esecutivo esportabile",
     ],
+    video: "/videos/presidente.mp4",
   },
   {
     icon: FolderOpen, name: "Segretario",
@@ -91,6 +93,7 @@ const ROLES: Role[] = [
       "Quietanze in blocco e libreria documenti",
       "Comunicazioni massive con scelta canale",
     ],
+    video: "/videos/segretario.mp4",
   },
   {
     icon: Target, name: "Direttore Sportivo",
@@ -106,6 +109,7 @@ const ROLES: Role[] = [
       "Integrazione DM Scout con import schede",
       "Export PDF report giocatore brandizzato",
     ],
+    video: "/videos/direttore-sportivo.mp4",
   },
   {
     icon: ClipboardCheck, name: "Allenatore",
@@ -120,6 +124,7 @@ const ROLES: Role[] = [
       "Schema tattico interattivo drag-and-drop",
       "Cronologia valutazioni per crescita giocatore",
     ],
+    video: "/videos/allenatore.mp4",
   },
   {
     icon: Search, name: "Osservatore",
@@ -132,6 +137,7 @@ const ROLES: Role[] = [
       "Dashboard personale con tasso di conversione",
       "Export PDF report professionale",
     ],
+    video: "/videos/osservatore.mp4",
   },
   {
     icon: Stethoscope, name: "Medico",
@@ -144,6 +150,7 @@ const ROLES: Role[] = [
       "Avvisi automatici scadenze certificati",
       "Piani di prevenzione personalizzati per giocatore",
     ],
+    video: "/videos/medico.mp4",
   },
   {
     icon: ClipboardList, name: "Team Manager",
@@ -157,6 +164,7 @@ const ROLES: Role[] = [
       "Accrediti gara: famiglie, sponsor, giornalisti",
       "Totale costi trasferte stagionali",
     ],
+    video: "/videos/team-manager.mp4",
   },
   {
     icon: Trophy, name: "Giocatore",
@@ -170,6 +178,7 @@ const ROLES: Role[] = [
       "Stato quota con barra di progresso",
       "Comunicazioni dirette dal club",
     ],
+    video: "/videos/giocatore.mp4",
   },
   {
     icon: Users, name: "Famiglia",
@@ -182,6 +191,7 @@ const ROLES: Role[] = [
       "Calendario partite e allenamenti del figlio",
       "Comunicazioni ufficiali e bacheca del club",
     ],
+    video: "/videos/famiglia.mp4",
   },
   {
     icon: Newspaper, name: "Ufficio Stampa",
@@ -194,6 +204,7 @@ const ROLES: Role[] = [
       "Generazione automatica template articoli partita",
       "Gestione accrediti stampa con approvazione",
     ],
+    video: "/videos/ufficio-stampa.mp4",
   },
   {
     icon: Wrench, name: "Custode",
@@ -205,6 +216,7 @@ const ROLES: Role[] = [
       "Stato impianti: spogliatoi, campo, palestra",
       "Storico interventi e ticket risolti",
     ],
+    video: "/videos/custode.mp4",
   },
 ];
 
@@ -565,6 +577,108 @@ const Index = () => {
   );
 };
 
+/* ───────────── Video autoplay (con gestione policy audio browser) ─────────────
+   I browser bloccano l'autoplay con audio finché l'utente non ha interagito con
+   la pagina. Ad ogni mount proviamo a partire con l'audio attivo; se il browser
+   lo blocca, ripieghiamo su muto + pulsante "Attiva audio". Una sola istanza per
+   volta può avere l'audio: aprendone una nuova, le altre vengono messe in pausa. */
+let currentlyPlaying: HTMLVideoElement | null = null;
+function claimPlayback(v: HTMLVideoElement) {
+  if (currentlyPlaying && currentlyPlaying !== v) currentlyPlaying.pause();
+  currentlyPlaying = v;
+}
+
+function SmartVideo({ src, className }: { src: string; className?: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [needsTap, setNeedsTap] = useState(false);
+
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    let cancelled = false;
+
+    const attempt = async () => {
+      v.muted = false;
+      try {
+        await v.play();
+        if (!cancelled) claimPlayback(v);
+      } catch {
+        if (cancelled) return;
+        v.muted = true;
+        setNeedsTap(true);
+        try {
+          await v.play();
+          claimPlayback(v);
+        } catch {
+          /* nothing more we can do without a user gesture */
+        }
+      }
+    };
+    attempt();
+
+    return () => {
+      cancelled = true;
+      v.pause();
+      if (currentlyPlaying === v) currentlyPlaying = null;
+    };
+  }, [src]);
+
+  const unlock = () => {
+    const v = ref.current;
+    if (!v) return;
+    v.muted = false;
+    v.play().catch(() => {});
+    claimPlayback(v);
+    setNeedsTap(false);
+  };
+
+  return (
+    <div className="relative rounded-xl overflow-hidden border border-cis-line bg-black">
+      <video
+        ref={ref}
+        src={src}
+        playsInline
+        loop
+        preload="metadata"
+        className={className ?? "w-full h-auto block"}
+      />
+      {needsTap && (
+        <button
+          type="button"
+          onClick={unlock}
+          className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cis-black/85 border border-cis-line text-cis-white text-[11px] font-display font-bold uppercase backdrop-blur-sm hover:border-cis-green hover:text-cis-green transition-colors"
+          style={{ letterSpacing: "0.1em" }}
+        >
+          <Volume2 size={13} /> Attiva audio
+        </button>
+      )}
+    </div>
+  );
+}
+
+/* ───────────── Video mostrato quando entra nello scroll ───────────── */
+function ScrollVideo({ src, className }: { src: string; className?: string }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.35 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div ref={wrapRef}>
+      {visible && <SmartVideo src={src} className={className} />}
+    </div>
+  );
+}
+
 /* ───────────── Role Card (expandable) ───────────── */
 function RoleCard({ role, delay }: { role: Role; delay: number }) {
   const [open, setOpen] = useState(false);
@@ -597,12 +711,20 @@ function RoleCard({ role, delay }: { role: Role; delay: number }) {
       </button>
       <div
         style={{
-          maxHeight: open ? 600 : 0,
-          transition: "max-height 0.35s ease",
+          maxHeight: open ? 2000 : 0,
+          transition: "max-height 0.4s ease",
         }}
         className="overflow-hidden"
       >
         <div className="px-5 pb-5 pt-1 border-t border-cis-line/70">
+          {open && (
+            <div className="mt-4 mb-5">
+              <SmartVideo src={role.video} />
+              <div className="font-body text-[11px] text-cis-muted mt-2 uppercase tracking-wide">
+                Dashboard {role.name} in azione
+              </div>
+            </div>
+          )}
           <div className="font-display font-bold uppercase text-cis-green text-[10px] mt-3 mb-2.5" style={{ letterSpacing: "0.18em" }}>
             Funzioni incluse
           </div>
@@ -683,6 +805,14 @@ function Pricing() {
           sub="Nessun costo di attivazione. Cancellazione in qualsiasi momento. 7 giorni di prova gratuita su entrambi i prodotti."
           align="center"
         />
+
+        {/* Video panoramica prodotto */}
+        <div className="fade-up mt-14 max-w-3xl mx-auto" data-delay="120">
+          <ScrollVideo src="/videos/pricing.mp4" />
+          <div className="font-body text-[11px] text-cis-muted mt-2.5 text-center uppercase tracking-wide">
+            ClubIS e DM Scout — il prodotto in 60 secondi
+          </div>
+        </div>
 
         {/* Billing toggle */}
         <div className="mt-12 flex justify-center fade-up">
