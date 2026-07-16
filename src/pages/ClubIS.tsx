@@ -9,9 +9,9 @@ import {
   Tag, SectionTitle, ROLES, CLUBSHOTS, RoleCard, ScreenshotGallery,
 } from "./Index";
 
-const TITLE = "ClubIS — Gestionale Calcio per Società Strutturate";
+const TITLE = "ClubIS — Gestionale per Squadre e Società di Calcio Strutturate";
 const DESCRIPTION =
-  "ClubIS è il gestionale completo per società di calcio strutturate: 11 dashboard per ruolo, automazione FIGC/LND, Financial Fair Play, distinte gara e rimborsi SEPA. Per club di Eccellenza, Promozione e Serie D.";
+  "ClubIS è il gestionale per squadre e società di calcio strutturate: 11 dashboard per ruolo, automazione FIGC/LND, Financial Fair Play, distinte gara e rimborsi SEPA. Per club di Eccellenza, Promozione e Serie D.";
 const CANONICAL = "https://dmfootballservices.it/clubis";
 
 const HIGHLIGHTS = [
@@ -51,7 +51,7 @@ const ClubIS = () => {
             data-delay="80"
             style={{ fontSize: "clamp(2.4rem, 6.5vw, 5.2rem)", lineHeight: 0.95, letterSpacing: "-0.01em" }}
           >
-            Il gestionale per società di calcio strutturate.
+            Il gestionale per squadre e società di calcio strutturate.
           </h1>
           <p className="fade-up mt-7 font-body text-cis-muted text-[1.1rem] max-w-2xl" data-delay="160">
             ClubIS sostituisce fogli Excel, chat WhatsApp e PDF sparsi con un'unica piattaforma condivisa tra
