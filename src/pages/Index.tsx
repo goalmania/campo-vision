@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useFadeUp } from "@/hooks/useFadeUp";
 import Nav from "@/components/Nav";
 import Logo from "@/components/Logo";
-import PitchCanvas from "@/components/PitchCanvas";
+
+/* Lazy-loaded: three.js is the single largest dependency in the bundle.
+   Splitting it into its own chunk lets the hero text/CTAs hydrate and become
+   interactive without waiting for the 3D background to download and parse. */
+const PitchCanvas = lazy(() => import("@/components/PitchCanvas"));
 import logoClubis from "@/assets/logo-clubis.webp";
 import logoDmscout from "@/assets/logo-dmscout.webp";
 import shotDashboard from "@/assets/dmscout-dashboard.webp";
@@ -32,11 +36,11 @@ import {
 } from "lucide-react";
 
 /* ───────────── helpers ───────────── */
-const Tag = ({ children }: { children: React.ReactNode }) => (
+export const Tag = ({ children }: { children: React.ReactNode }) => (
   <span className="tag">{children}</span>
 );
 
-const SectionTitle = ({
+export const SectionTitle = ({
   tag, title, sub, align = "left",
 }: { tag: string; title: React.ReactNode; sub?: string; align?: "left" | "center" }) => (
   <div className={align === "center" ? "text-center" : ""}>
@@ -57,9 +61,9 @@ const SectionTitle = ({
 );
 
 /* ───────────── 11 RUOLI con FUNZIONI ───────────── */
-type Role = { icon: any; name: string; desc: string; functions: string[]; video: string };
+export type Role = { icon: any; name: string; desc: string; functions: string[]; video: string };
 
-const ROLES: Role[] = [
+export const ROLES: Role[] = [
   {
     icon: Crown, name: "Presidente",
     desc: "Visione esecutiva: KPI, budget, conformità.",
@@ -221,7 +225,7 @@ const ROLES: Role[] = [
 ];
 
 /* ───────────── ClubIS screenshots ───────────── */
-const CLUBSHOTS = [
+export const CLUBSHOTS = [
   { src: clubPresidenza, label: "Presidenza", desc: "Riepilogo esecutivo del presidente: setup, scadenze FIGC critiche e azioni rapide finanziarie con organigrammi e sponsor a portata di click." },
   { src: clubSegreteria, label: "Segreteria", desc: "Hub operativo del segretario: anagrafica, contabilità, FIGC, documenti, comunicazioni e settore giovanile in un'unica vista a colonne." },
   { src: clubKpi, label: "KPI & FIGC", desc: "Card KPI in tempo reale: tesserati, certificati in scadenza, quote arretrate, prossime partite e portafoglio FIGC con saldo stimato." },
@@ -237,7 +241,7 @@ const CLUBSHOTS = [
 ];
 
 /* ───────────── DM Scout screenshots ───────────── */
-const DMSHOTS = [
+export const DMSHOTS = [
   { src: shotDashboard, label: "Dashboard", desc: "Cruscotto scouting con KPI in tempo reale: giocatori totali, verdetti BUY, high potential, campionati monitorati." },
   { src: shotDatabase,  label: "Database",  desc: "Database giocatori filtrabile per ruolo, piede, età, tag, verdetto, ruolo tattico, campionato. Vista grid, list o mapping." },
   { src: shotScheda,    label: "Scheda Giocatore", desc: "Scheda completa: anagrafica, posizione in campo, ruoli tattici con Fit Score % per modulo." },
@@ -248,7 +252,7 @@ const DMSHOTS = [
 ];
 
 /* ───────────── DM Scout funzionalità ───────────── */
-const DM_FEATURES = [
+export const DM_FEATURES = [
   {
     icon: Database, title: "Database giocatori",
     desc: "Tutti i tuoi osservati in un unico posto, sempre filtrabili per ciò che ti serve davvero.",
@@ -347,7 +351,9 @@ const Index = () => {
       >
         {/* 3D Pitch background */}
         <div className="absolute inset-0">
-          <PitchCanvas />
+          <Suspense fallback={null}>
+            <PitchCanvas />
+          </Suspense>
         </div>
         <div className="absolute inset-0 bg-grid pointer-events-none opacity-60" />
         <div
@@ -359,22 +365,23 @@ const Index = () => {
         />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-24 w-full">
-          <div className="fade-up"><Tag>DM Football Services</Tag></div>
+          <div className="fade-up"><Tag>ClubIS — by DM Football Services</Tag></div>
           <h1
             className="font-display font-black uppercase mt-7 fade-up"
             data-delay="80"
+            aria-label="Il gestionale per società di calcio strutturate."
             style={{
               fontSize: "clamp(2.6rem, 8.5vw, 6.8rem)",
               lineHeight: 0.92,
               letterSpacing: "-0.015em",
             }}
           >
-            <span className="block text-cis-white">Tecnologia per il calcio</span>
-            <span className="block text-outline">che capisce</span>
-            <span className="block text-cis-green">il tuo lavoro.</span>
+            <span className="block text-cis-white" aria-hidden="true">Il gestionale per</span>
+            <span className="block text-outline" aria-hidden="true">società di calcio</span>
+            <span className="block text-cis-green" aria-hidden="true">strutturate.</span>
           </h1>
           <p className="fade-up mt-8 font-body text-cis-muted text-[1.1rem] max-w-[600px]" data-delay="160">
-            Due prodotti. Un ecosistema. <span className="text-cis-white">ClubIS</span> per la gestione completa del club, <span className="text-cis-white">DM Scout</span> per lo scouting professionale. Nati nel calcio italiano, fatti per chi lo vive davvero.
+            <span className="text-cis-white">ClubIS</span> è il gestionale completo per club con più ruoli e reparti da coordinare: presidenza, segreteria, area tecnica, mercato, medico, famiglie. Con <span className="text-cis-white">DM Scout</span> integrato per lo scouting professionale. Nati nel calcio italiano, fatti per chi lo vive davvero.
           </p>
           <div className="fade-up mt-10 flex flex-wrap gap-3" data-delay="240">
             <a href="#clubis" className="btn-primary">Scopri ClubIS <ArrowRight size={15} /></a>
@@ -404,12 +411,12 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="fade-up flex items-center gap-4 mb-6">
             <img src={logoClubis} alt="ClubIS" style={{ height: 46, width: "auto" }} className="select-none" draggable={false} />
-            <span className="badge-green">Per i Club</span>
+            <span className="badge-green">Per società strutturate</span>
           </div>
           <SectionTitle
-            tag="Gestionale per Club"
+            tag="Gestionale per Società Strutturate"
             title={<><span>Gestisci tutto il club.</span></>}
-            sub="La piattaforma operativa completa per club di Eccellenza, Promozione, Serie D e settore giovanile multi-squadra."
+            sub="La piattaforma operativa completa per società di calcio strutturate di Eccellenza, Promozione, Serie D e settore giovanile multi-squadra."
           />
 
           {/* ClubIS screenshot gallery — schermate reali */}
@@ -435,9 +442,10 @@ const Index = () => {
           </div>
 
           {/* CTA */}
-          <div className="mt-20 fade-up flex flex-wrap gap-3">
+          <div className="mt-20 fade-up flex flex-wrap items-center gap-3">
             <a href="#prezzi" className="btn-primary">Scopri ClubIS <ArrowRight size={15} /></a>
             <a href="#contatti" className="btn-outline">Richiedi una demo <ArrowRight size={15} /></a>
+            <a href="/clubis" className="nav-link">Pagina dedicata a ClubIS →</a>
           </div>
         </div>
       </section>
@@ -498,9 +506,10 @@ const Index = () => {
             <ScreenshotGallery shots={DMSHOTS} />
           </div>
 
-          <div className="mt-16 fade-up flex flex-wrap gap-3">
+          <div className="mt-16 fade-up flex flex-wrap items-center gap-3">
             <a href="#prezzi" className="btn-gold">Scopri DM Scout <ArrowRight size={15} /></a>
             <a href="#contatti" className="btn-outline">Richiedi una demo <ArrowRight size={15} /></a>
+            <a href="/dmscout" className="nav-link">Pagina dedicata a DM Scout →</a>
           </div>
         </div>
       </section>
@@ -563,9 +572,9 @@ const Index = () => {
           <div className="my-9 h-px bg-cis-line" />
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-cis-muted">
             <div className="flex flex-wrap gap-5 font-display font-bold text-[11px] uppercase" style={{ letterSpacing: "0.16em" }}>
-              <a href="#" className="hover:text-cis-white">Privacy Policy</a>
-              <a href="#" className="hover:text-cis-white">Termini di Servizio</a>
-              <a href="#" className="hover:text-cis-white">Cookie Policy</a>
+              <a href="/privacy" className="hover:text-cis-white">Privacy Policy</a>
+              <a href="/termini" className="hover:text-cis-white">Termini di Servizio</a>
+              <a href="/cookie" className="hover:text-cis-white">Cookie Policy</a>
             </div>
             <div className="font-body text-xs">
               © 2026 DM Football Services — Tutti i diritti riservati.
@@ -588,7 +597,7 @@ function claimPlayback(v: HTMLVideoElement) {
   currentlyPlaying = v;
 }
 
-function SmartVideo({ src, className }: { src: string; className?: string }) {
+export function SmartVideo({ src, className }: { src: string; className?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [needsTap, setNeedsTap] = useState(false);
 
@@ -657,7 +666,7 @@ function SmartVideo({ src, className }: { src: string; className?: string }) {
 }
 
 /* ───────────── Video mostrato quando entra nello scroll ───────────── */
-function ScrollVideo({ src, className }: { src: string; className?: string }) {
+export function ScrollVideo({ src, className }: { src: string; className?: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -680,7 +689,7 @@ function ScrollVideo({ src, className }: { src: string; className?: string }) {
 }
 
 /* ───────────── Role Card (expandable) ───────────── */
-function RoleCard({ role, delay }: { role: Role; delay: number }) {
+export function RoleCard({ role, delay }: { role: Role; delay: number }) {
   const [open, setOpen] = useState(false);
   return (
     <div
@@ -743,7 +752,7 @@ function RoleCard({ role, delay }: { role: Role; delay: number }) {
 }
 
 /* ───────────── Screenshot Gallery ───────────── */
-function ScreenshotGallery({
+export function ScreenshotGallery({
   shots,
   accent = "gold",
 }: {
@@ -776,7 +785,7 @@ function ScreenshotGallery({
         <div className="rounded-xl overflow-hidden border border-cis-line">
           <img
             src={cur.src}
-            alt={cur.label}
+            alt={`${cur.label} — ${cur.desc}`}
             className="w-full h-auto block"
             loading="lazy"
           />

@@ -60,7 +60,9 @@ export default function Nav() {
 
         <button
           aria-label="Menu"
-          className="md:hidden text-cis-white"
+          aria-expanded={open}
+          className="md:hidden text-cis-white flex items-center justify-center -mr-2"
+          style={{ width: 48, height: 48 }}
           onClick={() => setOpen((o) => !o)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}

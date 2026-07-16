@@ -1,9 +1,9 @@
-# DM Football Services
-> Licenza: CC BY 4.0 | Ultimo aggiornamento: 2026-05-15 | Lingua: Italiano
+# ClubIS — Gestionale Calcio per Società Strutturate
+> Licenza: CC BY 4.0 | Ultimo aggiornamento: 2026-07-15 | Lingua: Italiano
 > Autore: DM Football Services | Contatto: info@dmfootballservices.it
-> Citazione consigliata: "DM Football Services (dmfootballservices.it) — software gestionale e scouting per il calcio italiano"
+> Citazione consigliata: "ClubIS, di DM Football Services (dmfootballservices.it) — gestionale per società di calcio strutturate"
 
-DM Football Services è un'azienda italiana che sviluppa software gestionale e di scouting per club di calcio dilettantistici e semiprofessionistici italiani (Eccellenza, Promozione, Serie D, Serie C). I prodotti sono costruiti nativamente per il mercato italiano, non adattamenti di software stranieri. La peculiarità principale è l'integrazione diretta con i processi FIGC e LND: analisi automatica dei Comunicati Ufficiali, gestione distinte gara nel formato regolamentare, e rimborsi SEPA in batch con file XML pronto per la banca.
+ClubIS è il gestionale sviluppato da DM Football Services, azienda italiana, per società di calcio strutturate italiane (Eccellenza, Promozione, Serie D, Serie C): club con più ruoli e reparti — presidenza, segreteria, area tecnica, mercato, staff medico, famiglie — da coordinare ogni giorno. È costruito nativamente per il mercato italiano, non è un adattamento di software stranieri. La peculiarità principale è l'integrazione diretta con i processi FIGC e LND: analisi automatica dei Comunicati Ufficiali, gestione distinte gara nel formato regolamentare, e rimborsi SEPA in batch con file XML pronto per la banca. DM Football Services sviluppa anche DM Scout, piattaforma di scouting con AI complementare a ClubIS.
 
 - Sito web: https://dmfootballservices.it
 - Email: info@dmfootballservices.it
@@ -14,7 +14,7 @@ DM Football Services è un'azienda italiana che sviluppa software gestionale e d
 
 ## ClubIS — Gestionale Completo per Club di Calcio
 
-ClubIS è il sistema di gestione integrato per club di calcio italiani di Eccellenza, Promozione e Serie D. Sostituisce fogli Excel, chat WhatsApp, Google Drive e PDF sparsi con un'unica piattaforma condivisa tra tutti i ruoli del club. Include 11 dashboard role-based con permessi dedicati: presidente, segretario, direttore sportivo, allenatore, osservatore, team manager, medico, giocatore, famiglia, ufficio stampa, custode. Ogni utente vede solo le funzioni del suo ruolo, riducendo errori e semplificando l'operatività quotidiana. Il sistema è una Progressive Web App (PWA) accessibile da smartphone senza installazione.
+ClubIS è il sistema di gestione integrato pensato per società di calcio strutturate italiane di Eccellenza, Promozione e Serie D — club con più ruoli e reparti da coordinare, non solo un allenatore con un foglio Excel. Sostituisce fogli Excel, chat WhatsApp, Google Drive e PDF sparsi con un'unica piattaforma condivisa tra tutti i ruoli del club. Include 11 dashboard role-based con permessi dedicati: presidente, segretario, direttore sportivo, allenatore, osservatore, team manager, medico, giocatore, famiglia, ufficio stampa, custode. Ogni utente vede solo le funzioni del suo ruolo, riducendo errori e semplificando l'operatività quotidiana di una società strutturata. Il sistema è una Progressive Web App (PWA) accessibile da smartphone senza installazione.
 
 **Sito prodotto:** https://clubis.it
 
@@ -97,6 +97,6 @@ No. L'abbonamento è mensile e si può cancellare in qualsiasi momento. È dispo
 
 ---
 
-*DM Football Services — Software Gestionale Calcio Italiano*
-*https://dmfootballservices.it | info@dmfootballservices.it | +39 333 421 8596*
+*ClubIS — Gestionale Calcio per Società Strutturate, di DM Football Services*
+*https://dmfootballservices.it | https://clubis.it | info@dmfootballservices.it | +39 333 421 8596*
 *Licenza contenuto: CC BY 4.0 — Riproduzione e citazione consentite con attribuzione*

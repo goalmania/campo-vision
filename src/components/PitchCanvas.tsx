@@ -123,9 +123,11 @@ export default function PitchCanvas() {
     pitch.rotation.x = -0.15;
 
     let raf = 0;
+    let running = true;
     let t = 0;
     const baseTiltX = -0.15;
     const animate = () => {
+      if (!running) return;
       t += 0.005;
       // wider Y sweep + subtle X tilt oscillation for a more evident motion
       pitch.rotation.y = Math.sin(t * 0.55) * 0.75;
@@ -139,6 +141,18 @@ export default function PitchCanvas() {
     };
     animate();
 
+    // Pause the render loop entirely once the hero scrolls out of view —
+    // otherwise this keeps running on the main thread for the life of the page.
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        running = entry.isIntersecting;
+        if (running && !raf) animate();
+        if (!running) cancelAnimationFrame(raf);
+      },
+      { threshold: 0 }
+    );
+    io.observe(mount);
+
     const onResize = () => {
       if (!mount) return;
       const nw = mount.clientWidth;
@@ -150,7 +164,9 @@ export default function PitchCanvas() {
     window.addEventListener("resize", onResize);
 
     return () => {
+      running = false;
       cancelAnimationFrame(raf);
+      io.disconnect();
       window.removeEventListener("resize", onResize);
       renderer.dispose();
       mount.removeChild(renderer.domElement);
