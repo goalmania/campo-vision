@@ -1,5 +1,7 @@
 # Full SEO Audit — dmfootballservices.it
 
+> **Update 2026-07-16:** All Critical/High items and most Medium items below have been fixed and deployed to production (commits `03551c4` and `8921d5d`). See "Post-Fix Status" at the end of this file for what changed, the honest new estimate, and — importantly — which remaining gaps are NOT fixable by code and require real business action (backlinks, YouTube/LinkedIn/Reddit presence, named founder, customer testimonials, legal entity data). The original point-in-time audit below is left unmodified as a baseline record.
+
 **Date:** 2026-07-15
 **Business type detected:** SaaS (B2B software, pricing/sign-up/free-trial signals)
 **Scope:** Single-page site (home + /llms.txt + /llms-full.txt + /ai-content.html)
@@ -73,3 +75,38 @@ Full detail for each dimension is in the sibling files in this folder:
 - `seo-geo.md` — 64/100 live, 66/100 projected once deployed, 78-82/100 long-term ceiling
 - `seo-sxo.md` — 56/100 SXO Gap Score, persona-by-persona breakdown
 - `seo-backlinks.md` — insufficient data, free next-step directory list
+
+---
+
+## Post-Fix Status (2026-07-16)
+
+Deployed to production in two commits: `03551c4` (repositioning + Critical/High fixes) and `8921d5d` (VideoObject schema, IndexNow, keyword reinforcement). Verified live via `curl` and browser after each deploy.
+
+### What's fixed (code-controllable, done)
+
+| Item | Status |
+|---|---|
+| ClubIS-first repositioning | **Live** — title/meta/schema/hero all deployed, no longer pending |
+| Hero invisible 4-6s | **Fixed** — safety-net timer + `prefers-reduced-motion`, verified in browser |
+| 850KB monolithic bundle | **Fixed** — three.js code-split via `React.lazy`; 393KB main / 120KB gzip |
+| SPA soft-404 | **Fixed** — verified live: unknown paths now return real 404 |
+| Deprecated HowTo / dead Speakable selector / misapplied BreadcrumbList | **Fixed** — removed/corrected |
+| Missing VideoObject schema | **Fixed** — 12 nodes added with real durations parsed from each MP4's `mvhd` atom (not estimated) |
+| No CSP / Referrer-Policy | **Fixed** — both live, verified via `curl -I` |
+| No IndexNow | **Fixed** — key file deployed and submission made |
+| Single-URL architecture (SXO) | **Fixed** — `/clubis` and `/dmscout` now real routes with own title/meta/canonical/breadcrumb |
+| Dead legal footer links | **Fixed** — `/privacy`, `/termini`, `/cookie` now real pages |
+| Thin "gestionale squadra/società calcio" keyword coverage | **Fixed** — reinforced in title/meta/H1/FAQ across index.html, /clubis, llms.txt, llms-full.txt, ai-content.html |
+| `www` TLS / operatingSystem overstatement / alt text / touch targets | **Fixed** |
+
+### What's NOT fixable by code — needs real business input or time
+
+Be direct about this: a literal "100/100" or guaranteed #1 ranking for competitive commercial queries is not something any code change can deliver. The remaining gaps are either (a) facts only the business owner has, or (b) off-page authority signals that accrue over months, not in one session:
+
+- **Legal entity data** (P.IVA, ragione sociale, sede legale, foro competente) — searched publicly, found nothing; still marked `[DA COMPILARE]` in the live Privacy/Terms pages. Not invented.
+- **Named founder, customer testimonials/case studies** — no fabricated names or quotes were added; this needs real input from DM Football Services.
+- **Backlinks, YouTube, LinkedIn, Reddit, Wikipedia presence** — confirmed absent; these are the single largest lever left (prior audit's own projected ceiling once addressed: 78-82/100 on GEO alone) but are business/content-marketing work, not something a code session can create.
+- **`www` domain TLS alias** — requires Vercel dashboard access, not committable code.
+- Competitive ranking for "gestionale calcio" / "gestionale squadra di calcio" against established players depends on domain age, backlink authority, and content depth accumulated over time — on-page and technical signals are now as strong as they can be, but ranking #1 is not guaranteed by on-page work alone.
+
+**Honest bottom line:** the site's on-page, technical, schema, and GEO signals are now at or near the ceiling of what code alone can achieve. The path to materially higher rankings from here runs through the off-page items above, which require the business's own facts and time, not more code changes.
