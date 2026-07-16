@@ -565,6 +565,7 @@ const Index = () => {
             <div className="flex flex-wrap items-center gap-7">
               <a href="#clubis" className="nav-link">ClubIS</a>
               <a href="#dmscout" className="nav-link">DM Scout</a>
+              <a href="/risorse" className="nav-link">Risorse</a>
               <a href="#prezzi" className="nav-link">Prezzi</a>
               <a href="#contatti" className="nav-link">Contatti</a>
             </div>

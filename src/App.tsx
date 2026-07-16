@@ -9,6 +9,8 @@ import DmScout from "./pages/DmScout.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import TermsOfService from "./pages/TermsOfService.tsx";
 import CookiePolicy from "./pages/CookiePolicy.tsx";
+import Resources from "./pages/Resources.tsx";
+import ArticlePage from "./pages/ArticlePage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/termini" element={<TermsOfService />} />
           <Route path="/cookie" element={<CookiePolicy />} />
+          <Route path="/risorse" element={<Resources />} />
+          <Route path="/risorse/:slug" element={<ArticlePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

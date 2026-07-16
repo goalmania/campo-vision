@@ -39,6 +39,30 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://dmfootballservices.it/risorse</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dmfootballservices.it/risorse/financial-fair-play-calcio-dilettantistico</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dmfootballservices.it/risorse/comunicato-ufficiale-figc-guida</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dmfootballservices.it/risorse/tesseramenti-figc-guida</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://dmfootballservices.it/llms.txt</loc>
     <lastmod>2026-07-16</lastmod>
     <changefreq>monthly</changefreq>
