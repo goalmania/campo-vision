@@ -40,7 +40,7 @@
   </url>
   <url>
     <loc>https://dmfootballservices.it/risorse</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -61,6 +61,24 @@
     <lastmod>2026-07-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dmfootballservices.it/risorse/come-scegliere-gestionale-societa-calcio</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://dmfootballservices.it/risorse/clubis-vs-excel-whatsapp-gestione-squadra-calcio</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dmfootballservices.it/risorse/rimborsi-trasferte-quote-sepa-societa-calcio</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.65</priority>
   </url>
   <url>
     <loc>https://dmfootballservices.it/llms.txt</loc>

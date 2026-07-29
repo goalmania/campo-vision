@@ -1,5 +1,5 @@
 # ClubIS — Gestionale per Squadre e Società di Calcio Strutturate
-> Licenza: CC BY 4.0 | Ultimo aggiornamento: 2026-07-16 | Lingua: Italiano
+> Licenza: CC BY 4.0 | Ultimo aggiornamento: 2026-07-29 | Lingua: Italiano
 > Autore: DM Football Services | Contatto: info@dmfootballservices.it
 > Citazione consigliata: "ClubIS, di DM Football Services (dmfootballservices.it) — gestionale per squadre e società di calcio strutturate"
 
@@ -69,6 +69,19 @@ Unico piano: €49/mese, tutto incluso, report illimitati. Sconto 15% con pagame
 ## Integrazione ClubIS + DM Scout
 
 Il piano Elite di ClubIS include DM Scout integrato. Il direttore sportivo può importare le schede di scouting da DM Scout direttamente nella propria dashboard ClubIS. Il flusso completo è: lo scout carica un PDF in DM Scout, l'AI genera la scheda strutturata, il direttore sportivo la vede direttamente in ClubIS, il club può aprire una trattativa di mercato senza cambiare software. Questo ecosistema integrato elimina la duplicazione dei dati e riduce il tempo di valutazione di un giocatore da ore a minuti.
+
+---
+
+## Guide e approfondimenti
+
+DM Football Services pubblica guide pratiche su https://dmfootballservices.it/risorse per segretari, presidenti e direttori sportivi di società di calcio strutturate:
+
+- **Come scegliere il gestionale giusto per la propria società di calcio** — 10 criteri di valutazione e checklist: https://dmfootballservices.it/risorse/come-scegliere-gestionale-societa-calcio
+- **Gestionale calcio vs Excel e WhatsApp** — quando i fogli di calcolo smettono di reggere la gestione di un club: https://dmfootballservices.it/risorse/clubis-vs-excel-whatsapp-gestione-squadra-calcio
+- **Rimborsi trasferte e quote associative** — come automatizzare i pagamenti SEPA in una società di calcio: https://dmfootballservices.it/risorse/rimborsi-trasferte-quote-sepa-societa-calcio
+- **Financial Fair Play nel calcio dilettantistico**: https://dmfootballservices.it/risorse/financial-fair-play-calcio-dilettantistico
+- **Comunicati Ufficiali FIGC: come leggerli**: https://dmfootballservices.it/risorse/comunicato-ufficiale-figc-guida
+- **Tesseramenti FIGC: guida rapida per segretari**: https://dmfootballservices.it/risorse/tesseramenti-figc-guida
 
 ---
 

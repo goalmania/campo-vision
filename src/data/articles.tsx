@@ -116,4 +116,108 @@ export const ARTICLES: Article[] = [
       </>
     ),
   },
+  {
+    slug: "come-scegliere-gestionale-societa-calcio",
+    title: "Come scegliere il gestionale giusto per la tua società di calcio: 10 criteri (con checklist)",
+    description: "10 criteri concreti per valutare un gestionale per società di calcio dilettantistiche: cosa chiedere prima di comprare, quali red flag evitare e una checklist da usare durante la valutazione.",
+    publishDate: "2026-07-29",
+    readingMinutes: 7,
+    body: (
+      <>
+        <P>Scegliere il gestionale sbagliato costa più che non averne nessuno: significa migrare dati due volte, riformare lo staff da capo, e tornare — nel frattempo — a Excel e WhatsApp per non fermare la stagione. Prima di firmare un abbonamento, vale la pena valutare un gestionale per società di calcio con gli stessi criteri con cui si valuterebbe qualsiasi altro fornitore che tocca dati sensibili, pagamenti e adempimenti federali.</P>
+
+        <H2>I 10 criteri da controllare prima di scegliere</H2>
+        <UL>
+          <li><strong>1. Copre davvero i processi FIGC/LND</strong> o è un gestionale sportivo generico (spesso pensato per altri sport o altri paesi) adattato alla meglio?</li>
+          <li><strong>2. Ha dashboard per ruolo</strong> — presidente, segretario, direttore sportivo, allenatore — o un'unica schermata uguale per tutti, che nessuno userà davvero?</li>
+          <li><strong>3. Automatizza le distinte gara</strong> con controllo squalifiche, o resta un calcolo manuale che il segretario deve rifare ogni settimana?</li>
+          <li><strong>4. Legge i Comunicati Ufficiali</strong> o richiede comunque la lettura riga per riga di un documento di decine di pagine?</li>
+          <li><strong>5. Gestisce pagamenti reali</strong> (quote rateali, rimborsi SEPA) o è solo un'anagrafica giocatori senza alcuna funzione finanziaria?</li>
+          <li><strong>6. Cosa succede ai tuoi dati se smetti di usarlo</strong> — sono esportabili, o restano bloccati nel sistema del fornitore?</li>
+          <li><strong>7. Funziona da smartphone</strong> senza installare nulla (PWA), visto che gran parte dello staff di un club dilettantistico non userà mai un desktop per queste attività?</li>
+          <li><strong>8. Quanto costa davvero</strong> — il prezzo mensile pubblicizzato include già le funzioni federali, o sono moduli a pagamento extra?</li>
+          <li><strong>9. Si può provare prima di pagare</strong>, con i propri dati reali, o solo con una demo precompilata dal fornitore?</li>
+          <li><strong>10. Regge un settore giovanile multi-squadra</strong> sulla stessa piattaforma, se il club ne ha uno, senza dover attivare un abbonamento separato per ogni categoria?</li>
+        </UL>
+
+        <H2>I tre criteri su cui vale la pena insistere di più</H2>
+        <P>Tra i dieci, tre fanno la differenza pratica più grande nella prima stagione d'uso. Il primo è la copertura reale dei processi FIGC/LND: un gestionale generico costringe comunque il segretario a leggere il Comunicato Ufficiale a mano e a ricostruire la distinta gara fuori dal sistema, vanificando gran parte del risparmio di tempo promesso. Il secondo è la gestione dei pagamenti: se il club incassa quote associative e rimborsa trasferte, un sistema che si ferma all'anagrafica lascia comunque la parte più delicata — i soldi — su bonifici manuali e fogli separati. Il terzo è la possibilità di provarlo con i dati veri del proprio club prima di pagare: una demo precompilata dal fornitore non mostra mai i problemi reali (rose incomplete, tesseramenti misti, categorie multiple) che emergono solo caricando la propria situazione.</P>
+
+        <H2>Una checklist da portare al colloquio con il fornitore</H2>
+        <P>Prima di firmare, è utile chiedere direttamente al fornitore: quanto tempo serve per caricare la rosa attuale? I Comunicati Ufficiali si leggono automaticamente o vanno inseriti a mano? I rimborsi generano un file bancario pronto o solo un elenco da ricopiare? C'è un periodo di prova gratuito con i propri dati? Le risposte vaghe o rimandate a "una demo con il commerciale" su queste domande sono di per sé un segnale da non ignorare.</P>
+        <P><a href="/clubis" style={{ color: "var(--c-green)" }}>ClubIS</a> è stato costruito rispondendo esattamente a questi dieci criteri per il calcio dilettantistico italiano: dashboard per ruolo, lettura automatica dei Comunicati Ufficiali, distinte gara con controllo squalifiche, rimborsi SEPA in batch e 7 giorni di prova gratuita senza carta di credito, per verificare tutto questo con i dati reali del proprio club prima di decidere.</P>
+
+        <H2>Domande frequenti</H2>
+        <P><strong>Quanto tempo serve per valutare un gestionale prima di scegliere?</strong><br/>In genere una settimana di prova gratuita con i dati reali del club (rosa, calendario, un ciclo di distinta gara) è sufficiente per capire se copre davvero l'operatività quotidiana, molto più di una demo guidata dal commerciale.</P>
+        <P><strong>Conviene scegliere il gestionale più economico?</strong><br/>Non necessariamente: un prezzo basso che esclude le funzioni FIGC/LND o i pagamenti spesso significa dover comunque usare Excel o WhatsApp in parallelo, annullando il risparmio di tempo che era l'obiettivo iniziale.</P>
+      </>
+    ),
+  },
+  {
+    slug: "clubis-vs-excel-whatsapp-gestione-squadra-calcio",
+    title: "Gestionale calcio vs Excel e WhatsApp: perché le società di calcio stanno abbandonando i fogli di calcolo",
+    description: "Dove Excel e WhatsApp smettono di reggere la gestione di una società di calcio strutturata, cosa cambia passando a un gestionale dedicato, e quando invece non serve ancora cambiare.",
+    publishDate: "2026-07-29",
+    readingMinutes: 6,
+    body: (
+      <>
+        <P>Quasi ogni società di calcio dilettantistica parte allo stesso modo: un foglio Excel per la rosa e il budget, un gruppo WhatsApp per le comunicazioni allo staff, una cartella Drive per i documenti, qualche PDF salvato sul telefono del segretario. Funziona, finché il club resta piccolo e con una sola squadra. Il problema emerge quando le squadre diventano due o tre, i ruoli si moltiplicano, e le stesse informazioni devono essere coerenti in più posti contemporaneamente.</P>
+
+        <H2>Dove Excel e WhatsApp smettono di reggere</H2>
+        <UL>
+          <li>La distinta gara viene ricostruita a mano ogni settimana, incrociando rosa, squalifiche e certificati medici sparsi in file diversi</li>
+          <li>Un Comunicato Ufficiale con una squalifica passa inosservato in mezzo a decine di altri messaggi nel gruppo WhatsApp dello staff</li>
+          <li>Le quote associative si tracciano su un foglio che solo il segretario aggiorna, e nessun altro ruolo sa in tempo reale chi è in regola</li>
+          <li>I rimborsi trasferte si fanno con bonifici singoli uno per uno, spesso con ricevute cartacee smarrite prima di fine mese</li>
+          <li>Quando il segretario cambia o si assenta, chi lo sostituisce eredita file sparsi senza uno storico ordinato</li>
+        </UL>
+
+        <H2>Cosa cambia con un gestionale dedicato</H2>
+        <P>Un gestionale pensato per società di calcio strutturate mette gli stessi dati — rosa, tesseramenti, comunicati, pagamenti — in un unico posto, con una dashboard diversa per ogni ruolo invece di un solo foglio condiviso da tutti. Il vantaggio non è solo estetico: significa che il presidente vede il quadro finanziario, il segretario vede le scadenze tesseramenti, il direttore sportivo vede il mercato, senza che nessuno debba rincorrere l'altro per un aggiornamento mancante. È il principio su cui sono costruite le 11 dashboard per ruolo di <a href="/clubis" style={{ color: "var(--c-green)" }}>ClubIS</a>: stessa base dati, vista diversa per ciascun ruolo del club.</P>
+
+        <H2>Quando invece Excel basta ancora</H2>
+        <P>Va detto con onestà: un club piccolissimo, con una sola squadra, pochi tesserati e nessun problema di coordinamento tra ruoli, può ragionevolmente continuare con un foglio Excel ben tenuto ancora per un po'. Il punto di svolta arriva quasi sempre con la seconda squadra, il primo settore giovanile, o il primo errore concreto — un giocatore squalificato schierato per una squalifica letta in ritardo — che costa più di un abbonamento mensile.</P>
+
+        <H2>Come avviene la transizione, in pratica</H2>
+        <P>Il timore più comune è dover fermare la stagione per migrare tutto in un colpo solo. In pratica non serve: si può iniziare caricando la rosa attuale e il prossimo turno di campionato, tenendo Excel come backup per le prime settimane, e spostare gradualmente comunicati, tesseramenti e pagamenti man mano che ogni funzione viene verificata con i dati reali del club — è anche il motivo per cui una prova gratuita reale, non una demo precompilata, conta più di ogni altra caratteristica in fase di scelta.</P>
+
+        <H2>Domande frequenti</H2>
+        <P><strong>Serve migrare tutti i dati storici per iniziare a usare un gestionale?</strong><br/>No. Basta caricare la rosa attuale e i dati del ciclo di gioco in corso; lo storico delle stagioni passate può restare in archivio senza bloccare l'adozione.</P>
+        <P><strong>WhatsApp resta comunque utile per un club?</strong><br/>Sì, per la comunicazione informale e rapida allo staff. Il problema non è WhatsApp in sé, ma usarlo come unico posto dove finiscono anche le informazioni che richiedono un'azione tracciabile, come una squalifica o una scadenza di tesseramento.</P>
+      </>
+    ),
+  },
+  {
+    slug: "rimborsi-trasferte-quote-sepa-societa-calcio",
+    title: "Rimborsi trasferte e quote associative: come automatizzare i pagamenti SEPA in una società di calcio dilettantistica",
+    description: "Come funzionano i rimborsi SEPA in batch e la rateizzazione delle quote associative in un gestionale per società di calcio, e perché sostituiscono i bonifici manuali uno per uno.",
+    publishDate: "2026-07-29",
+    readingMinutes: 6,
+    body: (
+      <>
+        <P>In molte società di calcio dilettantistiche la parte finanziaria più dispersiva non è il budget in sé, ma la sua esecuzione materiale: bonifici singoli per ogni rimborso trasferta, quote associative incassate in contanti o su conti diversi, ricevute cartacee che si perdono prima della chiusura di stagione. Il tesoriere o il segretario che se ne occupa finisce per dedicare ore ogni mese a un lavoro meccanico e ripetitivo, con un margine di errore tutt'altro che trascurabile quando si parla di denaro.</P>
+
+        <H2>Cosa sono i rimborsi SEPA in batch</H2>
+        <P>Un bonifico SEPA (Single Euro Payments Area) è il meccanismo standard per i trasferimenti in euro tra conti europei. "In batch" significa che, invece di compilare un bonifico alla volta per ogni giocatore o membro dello staff da rimborsare, il sistema genera un unico file XML con tutti i pagamenti del mese, da caricare una sola volta nel portale della propria banca. Per un club con decine di tesserati, la differenza pratica è passare da decine di operazioni manuali a un solo caricamento verificato.</P>
+
+        <H2>Quote associative: rateizzazione e sollecito</H2>
+        <P>Sul fronte incassi, il problema speculare è tracciare chi ha pagato la quota associativa e chi è in ritardo, spesso su piani rateali diversi da famiglia a famiglia. Senza un sistema dedicato, questa informazione vive in un foglio aggiornato manualmente, con il rischio concreto di perdere traccia di una rata scaduta finché la famiglia stessa non lo segnala — o non lo segnala affatto.</P>
+
+        <H2>Cosa serve per gestirlo senza un commercialista dedicato</H2>
+        <UL>
+          <li>Un'anagrafica unica dove ogni tesserato ha il proprio piano di pagamento (2-12 rate) e lo stato aggiornato automaticamente</li>
+          <li>Pagamento online delle quote (carta, Stripe/PayPal) invece di contanti o bonifici sparsi, per avere una traccia automatica di ogni incasso</li>
+          <li>Generazione automatica del file XML dei rimborsi da caricare in banca, senza ricopiare IBAN e importi a mano uno per uno</li>
+          <li>Un quadro in tempo reale di quanto è stato incassato rispetto a quanto previsto — la stessa base dati usata per il monitoraggio del <a href="/risorse/financial-fair-play-calcio-dilettantistico" style={{ color: "var(--c-green)" }}>Financial Fair Play</a> del club</li>
+        </UL>
+
+        <H2>Come lo fa ClubIS</H2>
+        <P>La dashboard Presidente e Segretario di <a href="/clubis" style={{ color: "var(--c-green)" }}>ClubIS</a> include quote iscrizione con piani rateali da 2 a 12 rate e pagamento online Stripe/PayPal, oltre alla generazione di rimborsi SEPA in batch con file XML pronto per la banca — così il tesoriere carica un solo file invece di ripetere lo stesso bonifico decine di volte a fine mese, e il presidente vede in ogni momento quante quote sono state effettivamente incassate rispetto al budget previsto.</P>
+
+        <H2>Domande frequenti</H2>
+        <P><strong>Serve un conto business dedicato per usare i rimborsi SEPA in batch?</strong><br/>No: il file XML generato è compatibile con il normale portale online della maggior parte delle banche italiane; serve solo che il conto supporti il caricamento di bonifici multipli da file, una funzione ormai comune anche sui conti base.</P>
+        <P><strong>Cosa succede se una famiglia salta una rata della quota?</strong><br/>Con un sistema che traccia automaticamente lo stato di ogni piano rateale, il ritardo emerge subito nella dashboard del segretario invece che a fine stagione, permettendo un sollecito tempestivo invece che tardivo.</P>
+      </>
+    ),
+  },
 ];
