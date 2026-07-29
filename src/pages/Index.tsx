@@ -32,8 +32,12 @@ import {
   ArrowRight, Check, Crown, ClipboardList, Target, FolderOpen, Search, Trophy,
   ClipboardCheck, Users, Stethoscope, Newspaper, Wrench, ChevronDown,
   Database, Radar, GitCompare, FileText, MapPin, Brain, Filter, Star, Download, Tag as TagIcon,
-  Volume2,
+  Volume2, MessageCircle,
 } from "lucide-react";
+
+const WHATSAPP_HREF =
+  "https://wa.me/393334218596?text=" +
+  encodeURIComponent("Ciao, ho visto ClubIS sul sito e vorrei parlare con voi per la mia società.");
 
 /* ───────────── helpers ───────────── */
 export const Tag = ({ children }: { children: React.ReactNode }) => (
@@ -535,13 +539,16 @@ const Index = () => {
             <span className="block text-cis-green">al livello successivo?</span>
           </h2>
           <p className="fade-up font-body text-cis-muted mt-7 max-w-xl mx-auto text-[1.05rem]" data-delay="160">
-            Inizia con 7 giorni di prova gratuita. Nessuna carta di credito richiesta.
+            Inizia con 7 giorni di prova gratuita. Nessuna carta di credito richiesta. Oppure scrivici subito: ti rispondiamo di persona, non un bot.
           </p>
           <div className="fade-up mt-10 flex flex-wrap items-center justify-center gap-3" data-delay="240">
             <a href="https://clubis.it/registrati?piano=pro" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Prova ClubIS — 7 giorni <ArrowRight size={15} />
             </a>
-            <a href="https://dmscout.it" target="_blank" rel="noopener noreferrer" className="btn-gold">
+            <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="btn-gold">
+              <MessageCircle size={15} /> Scrivici su WhatsApp
+            </a>
+            <a href="https://dmscout.it" target="_blank" rel="noopener noreferrer" className="btn-outline">
               Prova DM Scout — 7 giorni <ArrowRight size={15} />
             </a>
           </div>

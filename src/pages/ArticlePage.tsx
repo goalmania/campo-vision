@@ -4,8 +4,12 @@ import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 import { useJsonLd } from "@/hooks/useJsonLd";
 import Nav from "@/components/Nav";
 import Logo from "@/components/Logo";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
 import { ARTICLES } from "@/data/articles";
+
+const WHATSAPP_HREF =
+  "https://wa.me/393334218596?text=" +
+  encodeURIComponent("Ciao, ho letto la vostra guida su ClubIS e vorrei parlare con voi per la mia società.");
 
 const ArticlePage = () => {
   useFadeUp();
@@ -75,6 +79,9 @@ const ArticlePage = () => {
 
           <div className="fade-up mt-14 pt-8 border-t border-cis-line flex flex-wrap gap-3" data-delay="240">
             <a href="/clubis" className="btn-primary">Scopri ClubIS <ArrowRight size={15} /></a>
+            <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="btn-gold">
+              <MessageCircle size={15} /> Chiedi info su WhatsApp
+            </a>
             <a href="/risorse" className="btn-outline">Altre guide</a>
           </div>
         </div>
