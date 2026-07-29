@@ -4,6 +4,8 @@ import { useJsonLd } from "@/hooks/useJsonLd";
 import Nav from "@/components/Nav";
 import Logo from "@/components/Logo";
 import logoClubis from "@/assets/logo-clubis.webp";
+import DemoRequestDialog from "@/components/DemoRequestDialog";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { ArrowRight, Check } from "lucide-react";
 import {
   Tag, SectionTitle, ROLES, CLUBSHOTS, RoleCard, ScreenshotGallery,
@@ -38,6 +40,7 @@ const ClubIS = () => {
   return (
     <div id="top" className="relative">
       <Nav />
+      <ExitIntentPopup source="exit-intent-clubis" />
 
       {/* HEADER */}
       <section className="relative pt-[60px] border-b border-cis-line" style={{ background: "#0c0c0c" }}>
@@ -70,7 +73,10 @@ const ClubIS = () => {
             <a href="https://clubis.it/registrati?piano=pro" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Prova ClubIS — 7 giorni gratis <ArrowRight size={15} />
             </a>
-            <a href="/#prezzi" className="btn-outline">Vedi i piani e i prezzi</a>
+            <DemoRequestDialog source="header-clubis">
+              <button type="button" className="btn-outline">Richiedi una demo</button>
+            </DemoRequestDialog>
+            <a href="/#prezzi" className="nav-link">Vedi i piani e i prezzi →</a>
           </div>
         </div>
       </section>
@@ -124,7 +130,12 @@ const ClubIS = () => {
             <a href="https://clubis.it/registrati?piano=pro" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Prova ClubIS — 7 giorni <ArrowRight size={15} />
             </a>
-            <a href="/" className="btn-outline">Torna alla home</a>
+            <DemoRequestDialog source="footer-clubis">
+              <button type="button" className="btn-outline">Richiedi una demo</button>
+            </DemoRequestDialog>
+          </div>
+          <div className="fade-up mt-6" data-delay="220">
+            <a href="/" className="nav-link">← Torna alla home</a>
           </div>
         </div>
       </section>

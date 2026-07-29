@@ -2,6 +2,9 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useFadeUp } from "@/hooks/useFadeUp";
 import Nav from "@/components/Nav";
 import Logo from "@/components/Logo";
+import DemoRequestDialog from "@/components/DemoRequestDialog";
+import DemoRequestForm from "@/components/DemoRequestForm";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 /* Lazy-loaded: three.js is the single largest dependency in the bundle.
    Splitting it into its own chunk lets the hero text/CTAs hydrate and become
@@ -347,6 +350,7 @@ const Index = () => {
   return (
     <div id="top" className="relative">
       <Nav />
+      <ExitIntentPopup source="exit-intent-home" />
 
       {/* HERO */}
       <section
@@ -448,7 +452,9 @@ const Index = () => {
           {/* CTA */}
           <div className="mt-20 fade-up flex flex-wrap items-center gap-3">
             <a href="#prezzi" className="btn-primary">Scopri ClubIS <ArrowRight size={15} /></a>
-            <a href="#contatti" className="btn-outline">Richiedi una demo <ArrowRight size={15} /></a>
+            <DemoRequestDialog source="mid-clubis-section">
+              <button type="button" className="btn-outline">Richiedi una demo <ArrowRight size={15} /></button>
+            </DemoRequestDialog>
             <a href="/clubis" className="nav-link">Pagina dedicata a ClubIS →</a>
           </div>
         </div>
@@ -512,7 +518,9 @@ const Index = () => {
 
           <div className="mt-16 fade-up flex flex-wrap items-center gap-3">
             <a href="#prezzi" className="btn-gold">Scopri DM Scout <ArrowRight size={15} /></a>
-            <a href="#contatti" className="btn-outline">Richiedi una demo <ArrowRight size={15} /></a>
+            <DemoRequestDialog source="mid-dmscout-section">
+              <button type="button" className="btn-outline">Richiedi una demo <ArrowRight size={15} /></button>
+            </DemoRequestDialog>
             <a href="/dmscout" className="nav-link">Pagina dedicata a DM Scout →</a>
           </div>
         </div>
@@ -560,6 +568,13 @@ const Index = () => {
             <a href="tel:+393334218596" className="text-cis-white hover:text-cis-green underline underline-offset-4">
               +39 333 421 8596
             </a>
+          </div>
+
+          <div className="fade-up mt-16 max-w-lg mx-auto card-cis p-7 md:p-9 text-left" data-delay="380">
+            <p className="font-display font-bold text-[11px] uppercase tracking-[0.14em] text-cis-muted text-center mb-6">
+              Oppure lascia i tuoi contatti, ti richiamiamo noi
+            </p>
+            <DemoRequestForm source="contatti-inline" />
           </div>
         </div>
       </section>
