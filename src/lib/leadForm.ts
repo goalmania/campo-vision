@@ -54,4 +54,27 @@ export async function submitLeadForm(values: LeadFormValues, source: string): Pr
   if (!res.ok || !data.success) {
     throw new Error(data?.message || "Invio non riuscito");
   }
+
+  syncLeadToBrevo(values);
+}
+
+/**
+ * Best-effort sync to the Brevo CRM list that drives the nurture-email
+ * automation. Runs through our own /api/brevo-lead (Brevo's API has no CORS
+ * allowance for browser requests). Never blocks or fails the visitor-facing
+ * submission — the Web3Forms email notification above is the source of truth.
+ */
+function syncLeadToBrevo(values: LeadFormValues): void {
+  fetch("/api/brevo-lead", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      nome: values.nome,
+      email: values.email,
+      societa: values.societa,
+      telefono: values.telefono,
+    }),
+  }).catch(() => {
+    // Silently ignored: the lead has already been emailed via Web3Forms.
+  });
 }
