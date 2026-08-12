@@ -1089,6 +1089,91 @@ function Pricing() {
           </div>
         </div>
 
+        {/* ClubIS Scuole Calcio plan */}
+        <div className="mt-20">
+          <div className="fade-up flex items-center gap-3 mb-8">
+            <img src={logoClubis} alt="ClubIS" style={{ height: 36, width: "auto" }} draggable={false} />
+            <span className="font-display font-bold text-cis-muted text-xs uppercase" style={{ letterSpacing: "0.18em" }}>— Piano per Scuole Calcio</span>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5 max-w-3xl">
+            <div className="card-cis fade-up p-7 md:p-8 rounded-xl">
+              <div className="font-display font-black uppercase text-cis-white text-2xl" style={{ letterSpacing: "0.08em" }}>
+                Mensile
+              </div>
+              <div className="font-display font-bold uppercase text-cis-muted text-[10px] mt-1.5" style={{ letterSpacing: "0.18em" }}>
+                Disattivabile quando vuoi
+              </div>
+              <div className="mt-5 flex items-baseline gap-2">
+                <span className="font-display font-black text-cis-green text-5xl leading-none">€30</span>
+                <span className="font-body text-cis-muted text-sm">/ mese</span>
+              </div>
+              <ul className="mt-6 space-y-2.5">
+                {SCUOLA_CALCIO_HIGHLIGHTS.map((h) => (
+                  <li key={h} className="flex items-start gap-3">
+                    <Check size={15} className="text-cis-green mt-1 flex-shrink-0" strokeWidth={2.4} />
+                    <span className="font-body text-[14px] leading-snug text-cis-white/85">{h}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://clubis.it/registrati?piano=scuola_calcio&ciclo=mensile"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary mt-7 w-full justify-center rounded-lg"
+              >
+                Inizia Prova Gratuita <ArrowRight size={15} />
+              </a>
+              <div className="text-center font-body text-cis-muted text-[12px] mt-3">
+                7 giorni gratis · nessuna carta richiesta
+              </div>
+            </div>
+            <div className="card-cis fade-up p-7 md:p-8 rounded-xl relative" data-delay="80" style={{ borderColor: "#c8f000" }}>
+              <span
+                className="absolute -top-3 left-7 font-display font-black uppercase text-[10px] px-2.5 py-1 rounded"
+                style={{ background: "#c8f000", color: "#0a0a0a", letterSpacing: "0.18em" }}
+              >
+                -10%
+              </span>
+              <div className="font-display font-black uppercase text-cis-white text-2xl" style={{ letterSpacing: "0.08em" }}>
+                Stagionale
+              </div>
+              <div className="font-display font-bold uppercase text-cis-muted text-[10px] mt-1.5" style={{ letterSpacing: "0.18em" }}>
+                Agosto → Giugno, 11 mesi
+              </div>
+              <div className="mt-5 flex items-baseline gap-2">
+                <span className="font-display font-black text-cis-green text-5xl leading-none">€300</span>
+                <span className="font-body text-cis-muted text-sm">/ stagione</span>
+              </div>
+              <div className="font-body text-[12px] text-cis-muted mt-1.5">
+                invece di €330 pagando mese per mese
+              </div>
+              <ul className="mt-4 space-y-2.5">
+                {SCUOLA_CALCIO_HIGHLIGHTS.map((h) => (
+                  <li key={h} className="flex items-start gap-3">
+                    <Check size={15} className="text-cis-green mt-1 flex-shrink-0" strokeWidth={2.4} />
+                    <span className="font-body text-[14px] leading-snug text-cis-white/85">{h}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://clubis.it/registrati?piano=scuola_calcio&ciclo=stagionale"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary mt-7 w-full justify-center rounded-lg"
+              >
+                Inizia Prova Gratuita <ArrowRight size={15} />
+              </a>
+              <div className="text-center font-body text-cis-muted text-[12px] mt-3">
+                7 giorni gratis · nessuna carta richiesta
+              </div>
+            </div>
+          </div>
+          <p className="fade-up font-body text-cis-muted text-xs mt-4">
+            <a href="/clubis-scuole-calcio" className="nav-link">Pagina dedicata a ClubIS per Scuole Calcio →</a>
+          </p>
+        </div>
+
         {/* DM Scout plan */}
         <div className="mt-20">
           <div className="fade-up flex items-center gap-3 mb-8">
