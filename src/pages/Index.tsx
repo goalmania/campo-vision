@@ -521,7 +521,7 @@ const Index = () => {
 
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-start">
               {ROLES.map((r, i) => (
-                <RoleCard role={r} key={r.name} delay={(i % 3) * 60} />
+                <RoleCard role={r} key={r.name} delay={(i % 3) * 60} compact />
               ))}
             </div>
           </div>
@@ -854,7 +854,7 @@ export function ScrollVideo({ src, className }: { src: string; className?: strin
 }
 
 /* ───────────── Role Card (expandable) ───────────── */
-export function RoleCard({ role, delay }: { role: Role; delay: number }) {
+export function RoleCard({ role, delay, compact }: { role: Role; delay: number; compact?: boolean }) {
   const [open, setOpen] = useState(false);
   return (
     <div
@@ -899,17 +899,29 @@ export function RoleCard({ role, delay }: { role: Role; delay: number }) {
               </div>
             </div>
           )}
-          <div className="font-display font-bold uppercase text-cis-green text-[10px] mt-3 mb-2.5" style={{ letterSpacing: "0.18em" }}>
-            Funzioni incluse
-          </div>
-          <ul className="space-y-2">
-            {role.functions.map((f) => (
-              <li key={f} className="flex items-start gap-2.5">
-                <Check size={13} className="text-cis-green mt-1 flex-shrink-0" strokeWidth={2.4} />
-                <span className="font-body text-[13.5px] text-cis-white/85 leading-snug">{f}</span>
-              </li>
-            ))}
-          </ul>
+          {compact ? (
+            <a
+              href="/clubis"
+              className="font-display font-bold uppercase text-cis-green text-[11px] inline-flex items-center gap-2 hover:underline"
+              style={{ letterSpacing: "0.1em" }}
+            >
+              Vedi tutte le funzioni di {role.name} <ArrowRight size={12} />
+            </a>
+          ) : (
+            <>
+              <div className="font-display font-bold uppercase text-cis-green text-[10px] mt-3 mb-2.5" style={{ letterSpacing: "0.18em" }}>
+                Funzioni incluse
+              </div>
+              <ul className="space-y-2">
+                {role.functions.map((f) => (
+                  <li key={f} className="flex items-start gap-2.5">
+                    <Check size={13} className="text-cis-green mt-1 flex-shrink-0" strokeWidth={2.4} />
+                    <span className="font-body text-[13.5px] text-cis-white/85 leading-snug">{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </div>
     </div>
