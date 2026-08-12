@@ -1091,10 +1091,13 @@ function Pricing() {
 
         {/* ClubIS Scuole Calcio plan */}
         <div className="mt-20">
-          <div className="fade-up flex items-center gap-3 mb-8">
+          <div className="fade-up flex items-center gap-3 mb-5">
             <img src={logoClubis} alt="ClubIS" style={{ height: 36, width: "auto" }} draggable={false} />
-            <span className="font-display font-bold text-cis-muted text-xs uppercase" style={{ letterSpacing: "0.18em" }}>— Piano per Scuole Calcio</span>
+            <span className="badge-green">ClubIS per Scuole Calcio</span>
           </div>
+          <h3 className="fade-up font-display font-black text-cis-white uppercase mb-8 text-2xl md:text-3xl" style={{ letterSpacing: "-0.005em" }}>
+            Il piano per chi gestisce una scuola calcio giovanile.
+          </h3>
 
           <div className="grid sm:grid-cols-2 gap-5 max-w-3xl">
             <div className="card-cis fade-up p-7 md:p-8 rounded-xl">
