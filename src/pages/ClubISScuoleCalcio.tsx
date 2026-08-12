@@ -61,14 +61,14 @@ const ClubISScuoleCalcio = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-32">
           <div className="fade-up flex items-center gap-4 mb-6">
             <img src={logoClubis} alt="ClubIS" style={{ height: 46, width: "auto" }} className="select-none" draggable={false} />
-            <span className="badge-green">Per Scuole Calcio</span>
+            <span className="badge-green">ClubIS per Scuole Calcio</span>
           </div>
           <h1
             className="fade-up font-display font-black uppercase text-cis-white"
             data-delay="80"
             style={{ fontSize: "clamp(2.4rem, 6.5vw, 5.2rem)", lineHeight: 0.95, letterSpacing: "-0.01em" }}
           >
-            Tu pensi ai bambini. A tutto il resto, ci pensa ClubIS.
+            Tu pensi alla crescita dei tuoi ragazzi. A tutto il resto, ci pensa ClubIS.
           </h1>
           <p className="fade-up mt-7 font-body text-cis-muted text-[1.1rem] max-w-2xl" data-delay="160">
             Chi gestisce una scuola calcio oggi fa il presidente, il segretario, il contabile e il centralino — tutto

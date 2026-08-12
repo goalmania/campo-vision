@@ -523,11 +523,11 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="fade-up flex items-center gap-4 mb-6">
             <img src={logoClubis} alt="ClubIS" style={{ height: 46, width: "auto" }} className="select-none" draggable={false} />
-            <span className="badge-green">Per Scuole Calcio</span>
+            <span className="badge-green">ClubIS per Scuole Calcio</span>
           </div>
           <SectionTitle
             tag="Gestionale per Scuole Calcio Giovanili"
-            title={<span>Tu pensi ai bambini. A tutto il resto, ci pensa ClubIS.</span>}
+            title={<span>Tu pensi alla crescita dei tuoi ragazzi. A tutto il resto, ci pensa ClubIS.</span>}
             sub="La stessa piattaforma ClubIS, pensata per chi gestisce una scuola calcio giovanile: iscrizioni online, quote sempre visibili, quietanze pronte per il 730 e un'app dedicata alle famiglie. Da €30/mese o €300 a stagione."
           />
 
