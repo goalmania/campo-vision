@@ -35,7 +35,7 @@ import {
   ArrowRight, Check, Crown, ClipboardList, Target, FolderOpen, Search, Trophy,
   ClipboardCheck, Users, Stethoscope, Newspaper, Wrench, ChevronDown,
   Database, Radar, GitCompare, FileText, MapPin, Brain, Filter, Star, Download, Tag as TagIcon,
-  Volume2, MessageCircle, Euro, CalendarDays,
+  Volume2, MessageCircle, Euro, CalendarDays, Smartphone, HeartHandshake, Wallet,
 } from "lucide-react";
 
 const WHATSAPP_HREF =
@@ -316,6 +316,25 @@ export const SCUOLA_CALCIO_FEATURES = [
   },
 ];
 
+export const SCUOLA_CALCIO_FAMILY_POINTS = [
+  {
+    icon: Smartphone, title: "Tutto quello che serve a un genitore",
+    desc: "Quando si allena mio figlio, quanto devo pagare, come sta andando. Un'app che dice esattamente questo, niente di più.",
+  },
+  {
+    icon: Users, title: "Solo la categoria di tuo figlio",
+    desc: "Se il figlio è dei Pulcini, non si perde tra allenamenti e comunicazioni degli Esordienti.",
+  },
+  {
+    icon: HeartHandshake, title: "Progressi a misura di bambino",
+    desc: "Niente gergo da spogliatoio professionistico su un bambino di 8 anni: coordinazione, divertimento, gioco di squadra.",
+  },
+  {
+    icon: Wallet, title: "Paga con un tap",
+    desc: "Niente più bonifici da ricordarsi, niente contanti in busta, niente \"te lo porto la prossima volta\".",
+  },
+];
+
 /* ───────────── DM Scout funzionalità ───────────── */
 export const DM_FEATURES = [
   {
@@ -549,6 +568,27 @@ const Index = () => {
                 </ul>
               </div>
             ))}
+          </div>
+
+          {/* Per le famiglie */}
+          <div className="mt-24">
+            <div className="fade-up"><Tag>Per le famiglie</Tag></div>
+            <h3 className="fade-up font-display font-black text-cis-white uppercase mt-5 text-3xl md:text-4xl" data-delay="80" style={{ letterSpacing: "-0.005em" }}>
+              Un'app che dice esattamente quello che serve a un genitore.
+            </h3>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {SCUOLA_CALCIO_FAMILY_POINTS.map((f, i) => (
+                <div key={f.title} className="card-cis fade-up p-6 flex items-start gap-4" data-delay={String((i % 2) * 80)}>
+                  <f.icon size={22} className="text-cis-green mt-1 flex-shrink-0" strokeWidth={1.6} />
+                  <div>
+                    <div className="font-display font-bold uppercase text-cis-white text-[15px]" style={{ letterSpacing: "0.08em" }}>
+                      {f.title}
+                    </div>
+                    <p className="font-body text-[13.5px] text-cis-muted mt-2 leading-relaxed">{f.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="mt-16 fade-up flex flex-wrap items-center gap-3">

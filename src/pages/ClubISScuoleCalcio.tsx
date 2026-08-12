@@ -6,12 +6,11 @@ import Logo from "@/components/Logo";
 import logoClubis from "@/assets/logo-clubis.webp";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
-import {
-  ArrowRight, Check, Users, Smartphone, HeartHandshake, ShieldCheck, Wallet,
-} from "lucide-react";
+import { ArrowRight, Check, ShieldCheck } from "lucide-react";
 import {
   Tag, SectionTitle, CLUBSHOTS, ScreenshotGallery,
   SCUOLA_CALCIO_HIGHLIGHTS as HIGHLIGHTS, SCUOLA_CALCIO_FEATURES as CLUB_FEATURES,
+  SCUOLA_CALCIO_FAMILY_POINTS as FAMILY_POINTS,
 } from "./Index";
 
 const TITLE = "ClubIS per Scuole Calcio — Iscrizioni, Quote e App Genitori | DM Football Services";
@@ -19,25 +18,6 @@ const DESCRIPTION =
   "ClubIS per le Scuole Calcio: iscrizioni online, quote con stato sempre visibile, quietanze pronte per il 730 e app dedicata ai genitori. 7 giorni di prova gratuita, da €30/mese.";
 const CANONICAL = "https://dmfootballservices.it/clubis-scuole-calcio";
 const TRIAL_HREF = "https://clubis.it/registrati?piano=scuola_calcio";
-
-const FAMILY_POINTS = [
-  {
-    icon: Smartphone, title: "Tutto quello che serve a un genitore",
-    desc: "Quando si allena mio figlio, quanto devo pagare, come sta andando. Un'app che dice esattamente questo, niente di più.",
-  },
-  {
-    icon: Users, title: "Solo la categoria di tuo figlio",
-    desc: "Se il figlio è dei Pulcini, non si perde tra allenamenti e comunicazioni degli Esordienti.",
-  },
-  {
-    icon: HeartHandshake, title: "Progressi a misura di bambino",
-    desc: "Niente gergo da spogliatoio professionistico su un bambino di 8 anni: coordinazione, divertimento, gioco di squadra.",
-  },
-  {
-    icon: Wallet, title: "Paga con un tap",
-    desc: "Niente più bonifici da ricordarsi, niente contanti in busta, niente \"te lo porto la prossima volta\".",
-  },
-];
 
 const ClubISScuoleCalcio = () => {
   useFadeUp();
