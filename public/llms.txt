@@ -42,6 +42,28 @@ Sconto 15% con pagamento annuale. 7 giorni di prova gratuita, nessuna carta di c
 
 ---
 
+## ClubIS per Scuole Calcio — Gestionale per Scuole Calcio Giovanili
+
+ClubIS per le Scuole Calcio è la variante di ClubIS pensata per chi gestisce una scuola calcio giovanile italiana — spesso presidenti e dirigenti volontari con poco tempo. Copre iscrizioni online, quote mensili e di iscrizione con stato sempre visibile, quietanze e documenti fiscali generati automaticamente (pronti per la detrazione 730 dei genitori), Prima Nota automatica, rendiconti e registro IVA, calendario allenamenti/partite/tornei diviso per categoria federale (Pulcini, Primi Calci, Esordienti...). Include un'app dedicata alle famiglie, filtrata per la categoria del figlio, con pagamento della retta in un tap.
+
+**Pagina prodotto:** https://dmfootballservices.it/clubis-scuole-calcio
+**Sito prodotto:** https://clubis.it
+
+### Come funzionano i pagamenti
+
+I pagamenti delle rette arrivano direttamente sul conto corrente della società, non transitano da DM Football Services. Zero canone fisso sui pagamenti: commissione dell'1,5% solo sugli incassi reali, ripartita 0,75% a carico del genitore (sovrapprezzo in fase di pagamento) e 0,75% trattenuta sull'incasso della società.
+
+### Piani e prezzi ClubIS per Scuole Calcio
+
+| Piano | Prezzo | Note |
+|-------|--------|------|
+| Mensile | €30/mese | Disattivabile quando vuoi |
+| Stagionale | €300/stagione (agosto → giugno, 11 mesi) | 10% di sconto rispetto al mensile (€330 → €300) |
+
+7 giorni di prova gratuita, nessuna carta di credito richiesta. Nessun costo di attivazione.
+
+---
+
 ## DM Scout — Piattaforma Scouting Calcistico con AI
 
 DM Scout è il software di scouting professionale per scout, agenti FIFA, direttori sportivi e responsabili del settore giovanile. Utilizza l'intelligenza artificiale per automatizzare la creazione e l'analisi di schede giocatori da documenti PDF, DOCX o TXT caricati dall'utente. Il processo è immediato: si carica un report in qualsiasi formato — un appunto personale, una scheda di un collega, un report di agenzia — e l'AI riconosce automaticamente skills, voti e note, compilando la scheda strutturata nel database in pochi secondi, senza necessità di un template predefinito.

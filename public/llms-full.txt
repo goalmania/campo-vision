@@ -129,6 +129,47 @@ Ogni membro dello staff vede solo le informazioni rilevanti per il suo ruolo:
 
 ---
 
+## ClubIS per Scuole Calcio — Gestionale per Scuole Calcio Giovanili
+
+### Cos'è ClubIS per Scuole Calcio?
+
+ClubIS per le Scuole Calcio è la variante di ClubIS pensata specificamente per chi gestisce una scuola calcio giovanile italiana — tipicamente presidenti e dirigenti volontari, spesso genitori loro stessi, con poco tempo e nessuna formazione gestionale. Sostituisce Excel per le iscrizioni, un gruppo WhatsApp per le comunicazioni e un quaderno per il tracciamento delle rette con un'unica piattaforma.
+
+**Pagina prodotto:** https://dmfootballservices.it/clubis-scuole-calcio
+**Sito prodotto:** https://clubis.it
+
+### Funzionalità per chi gestisce la scuola calcio
+
+- Anagrafica ragazzi, gruppi per categoria federale (Pulcini, Primi Calci, Esordienti...), certificati medici tracciati
+- Iscrizioni online: link condivisibile, la famiglia compila e paga, zero moduli cartacei
+- Quote mensili e di iscrizione con stato sempre visibile: chi ha pagato, chi è in ritardo, chi deve ancora
+- Quietanze e ricevute di pagamento generate automaticamente ad ogni incasso, pronte per la detrazione fiscale nel 730 dei genitori
+- Rendiconti, budget stagionale e registro IVA generabili con un click
+- Prima Nota che si aggiorna da sola ad ogni pagamento
+- Calendario allenamenti, partite, tornei e trasferte diviso per categoria
+
+### Funzionalità per le famiglie
+
+- App dedicata ai genitori: quando si allena il figlio, quanto resta da pagare, come sta andando
+- Ogni genitore vede solo la categoria del proprio figlio
+- Progressi raccontati con linguaggio adatto all'età (coordinazione, divertimento, gioco di squadra), non gergo da spogliatoio professionistico
+- Pagamento della retta con un tap dal telefono
+
+### Come funzionano i pagamenti
+
+I soldi dei pagamenti vanno direttamente sul conto corrente della società, non transitano da DM Football Services e non restano in sospeso in attesa di un bonifico. Zero canone fisso sui pagamenti, zero costi fissi: commissione dell'1,5% solo sugli incassi reali — la metà di quanto chiede il principale concorrente di settore. La commissione è ripartita: 0,75% a carico del genitore come piccolo sovrapprezzo in fase di pagamento, 0,75% trattenuta sull'incasso della società, sempre dichiarata e visibile.
+
+### Piani e prezzi ClubIS per Scuole Calcio
+
+| Piano | Prezzo | Note |
+|-------|--------|------|
+| Mensile | €30/mese | Disattivabile quando vuoi |
+| Stagionale | €300/stagione (agosto → giugno, 11 mesi) | 10% di sconto rispetto al mensile (€330 → €300) |
+
+7 giorni di prova gratuita, nessuna carta di credito richiesta. Nessun costo di attivazione. Cancellazione in qualsiasi momento.
+
+---
+
 ## DM Scout — Piattaforma Scouting Calcistico con AI
 
 ### Cos'è DM Scout?

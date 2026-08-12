@@ -456,6 +456,7 @@ const Index = () => {
               <button type="button" className="btn-outline">Richiedi una demo <ArrowRight size={15} /></button>
             </DemoRequestDialog>
             <a href="/clubis" className="nav-link">Pagina dedicata a ClubIS →</a>
+            <a href="/clubis-scuole-calcio" className="nav-link">ClubIS per Scuole Calcio →</a>
           </div>
         </div>
       </section>
@@ -586,6 +587,7 @@ const Index = () => {
             <Logo />
             <div className="flex flex-wrap items-center gap-7">
               <a href="#clubis" className="nav-link">ClubIS</a>
+              <a href="/clubis-scuole-calcio" className="nav-link">Scuole Calcio</a>
               <a href="#dmscout" className="nav-link">DM Scout</a>
               <a href="/risorse" className="nav-link">Risorse</a>
               <a href="#prezzi" className="nav-link">Prezzi</a>

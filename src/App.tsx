@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import ClubIS from "./pages/ClubIS.tsx";
+import ClubISScuoleCalcio from "./pages/ClubISScuoleCalcio.tsx";
 import DmScout from "./pages/DmScout.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import TermsOfService from "./pages/TermsOfService.tsx";
@@ -24,6 +25,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/clubis" element={<ClubIS />} />
+          <Route path="/clubis-scuole-calcio" element={<ClubISScuoleCalcio />} />
           <Route path="/dmscout" element={<DmScout />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/termini" element={<TermsOfService />} />
