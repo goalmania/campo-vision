@@ -7,73 +7,18 @@ import logoClubis from "@/assets/logo-clubis.webp";
 import DemoRequestDialog from "@/components/DemoRequestDialog";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import {
-  ArrowRight, Check, Users, ClipboardList, Euro, FileText, CalendarDays,
-  Smartphone, HeartHandshake, ShieldCheck, Wallet,
+  ArrowRight, Check, Users, Smartphone, HeartHandshake, ShieldCheck, Wallet,
 } from "lucide-react";
-import { Tag, SectionTitle, CLUBSHOTS, ScreenshotGallery } from "./Index";
+import {
+  Tag, SectionTitle, CLUBSHOTS, ScreenshotGallery,
+  SCUOLA_CALCIO_HIGHLIGHTS as HIGHLIGHTS, SCUOLA_CALCIO_FEATURES as CLUB_FEATURES,
+} from "./Index";
 
 const TITLE = "ClubIS per Scuole Calcio — Iscrizioni, Quote e App Genitori | DM Football Services";
 const DESCRIPTION =
   "ClubIS per le Scuole Calcio: iscrizioni online, quote con stato sempre visibile, quietanze pronte per il 730 e app dedicata ai genitori. 7 giorni di prova gratuita, da €30/mese.";
 const CANONICAL = "https://dmfootballservices.it/clubis-scuole-calcio";
-const TRIAL_HREF = "https://clubis.it/registrati?piano=scuola-calcio";
-
-const HIGHLIGHTS = [
-  "Iscrizioni online: link, la famiglia compila e paga, è dentro",
-  "Quote sempre visibili: chi ha pagato, chi è in ritardo, chi deve ancora",
-  "Quietanze automatiche, già pronte per il 730 dei genitori",
-  "Prima Nota che si aggiorna da sola ad ogni pagamento",
-  "App genitori filtrata per la categoria del figlio",
-  "Retta pagata con un tap, dal telefono",
-];
-
-const CLUB_FEATURES = [
-  {
-    icon: Users, title: "Anagrafica & Categorie",
-    desc: "Ragazzi, gruppi per categoria federale, certificati medici: tutto tracciato, niente più fogli sparsi.",
-    bullets: [
-      "Anagrafica completa per ogni ragazzo",
-      "Gruppi per categoria federale (Pulcini, Primi Calci, Esordienti...)",
-      "Certificati medici con avvisi automatici",
-    ],
-  },
-  {
-    icon: ClipboardList, title: "Iscrizioni Online",
-    desc: "Condividi un link, la famiglia compila, paga, è dentro. Zero moduli cartacei.",
-    bullets: [
-      "Modulo iscrizione condivisibile via link",
-      "Pagamento contestuale all'iscrizione",
-      "Zero moduli cartacei da archiviare",
-    ],
-  },
-  {
-    icon: Euro, title: "Quote & Pagamenti",
-    desc: "Quote mensili e di iscrizione con stato sempre visibile: chi ha pagato, chi è in ritardo, chi deve ancora.",
-    bullets: [
-      "Stato pagamento in tempo reale per ogni famiglia",
-      "Solleciti automatici ai ritardatari",
-      "Pagamento con un tap dal telefono per i genitori",
-    ],
-  },
-  {
-    icon: FileText, title: "Documenti Automatici",
-    desc: "Quietanze pronte per il 730 dei genitori, generate da sole ad ogni incasso. Rendiconti e budget con un click.",
-    bullets: [
-      "Quietanze e ricevute pronte per la detrazione fiscale",
-      "Rendiconti, budget stagionale e registro IVA con un click",
-      "Prima Nota che si aggiorna da sola ad ogni pagamento",
-    ],
-  },
-  {
-    icon: CalendarDays, title: "Calendario",
-    desc: "Allenamenti, partite, tornei e trasferte in un posto solo, diviso per categoria.",
-    bullets: [
-      "Calendario unico per tutte le categorie",
-      "Vista dedicata per ogni gruppo",
-      "Trasferte e tornei sempre a portata di mano",
-    ],
-  },
-];
+const TRIAL_HREF = "https://clubis.it/registrati?piano=scuola_calcio";
 
 const FAMILY_POINTS = [
   {
@@ -293,7 +238,7 @@ const ClubISScuoleCalcio = () => {
                 <span className="font-body text-cis-muted text-sm">/ mese</span>
               </div>
               <a
-                href={`${TRIAL_HREF}-mensile`}
+                href={`${TRIAL_HREF}&ciclo=mensile`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary mt-7 w-full justify-center rounded-lg"
@@ -325,7 +270,7 @@ const ClubISScuoleCalcio = () => {
                 invece di €330 pagando mese per mese
               </div>
               <a
-                href={`${TRIAL_HREF}-stagionale`}
+                href={`${TRIAL_HREF}&ciclo=stagionale`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary mt-7 w-full justify-center rounded-lg"

@@ -5,6 +5,7 @@ import Logo from "./Logo";
 const links = [
   { href: "#home", label: "Home", id: "home" },
   { href: "#clubis", label: "ClubIS", id: "clubis" },
+  { href: "#scuole-calcio", label: "Scuole Calcio", id: "scuole-calcio" },
   { href: "#dmscout", label: "DM Scout", id: "dmscout" },
   { href: "#prezzi", label: "Prezzi", id: "prezzi" },
   { href: "#contatti", label: "Contatti", id: "contatti" },

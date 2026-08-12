@@ -35,7 +35,7 @@ import {
   ArrowRight, Check, Crown, ClipboardList, Target, FolderOpen, Search, Trophy,
   ClipboardCheck, Users, Stethoscope, Newspaper, Wrench, ChevronDown,
   Database, Radar, GitCompare, FileText, MapPin, Brain, Filter, Star, Download, Tag as TagIcon,
-  Volume2, MessageCircle,
+  Volume2, MessageCircle, Euro, CalendarDays,
 } from "lucide-react";
 
 const WHATSAPP_HREF =
@@ -258,6 +258,64 @@ export const DMSHOTS = [
   { src: shotMappa,     label: "Mappa",     desc: "Mappa interattiva Italia o Mondo con clustering automatico dei giocatori e filtri rapidi." },
 ];
 
+/* ───────────── ClubIS per Scuole Calcio ───────────── */
+export const SCUOLA_CALCIO_HIGHLIGHTS = [
+  "Iscrizioni online: link, la famiglia compila e paga, è dentro",
+  "Quote sempre visibili: chi ha pagato, chi è in ritardo, chi deve ancora",
+  "Quietanze automatiche, già pronte per il 730 dei genitori",
+  "Prima Nota che si aggiorna da sola ad ogni pagamento",
+  "App genitori filtrata per la categoria del figlio",
+  "Retta pagata con un tap, dal telefono",
+];
+
+export const SCUOLA_CALCIO_FEATURES = [
+  {
+    icon: Users, title: "Anagrafica & Categorie",
+    desc: "Ragazzi, gruppi per categoria federale, certificati medici: tutto tracciato, niente più fogli sparsi.",
+    bullets: [
+      "Anagrafica completa per ogni ragazzo",
+      "Gruppi per categoria federale (Pulcini, Primi Calci, Esordienti...)",
+      "Certificati medici con avvisi automatici",
+    ],
+  },
+  {
+    icon: ClipboardList, title: "Iscrizioni Online",
+    desc: "Condividi un link, la famiglia compila, paga, è dentro. Zero moduli cartacei.",
+    bullets: [
+      "Modulo iscrizione condivisibile via link",
+      "Pagamento contestuale all'iscrizione",
+      "Zero moduli cartacei da archiviare",
+    ],
+  },
+  {
+    icon: Euro, title: "Quote & Pagamenti",
+    desc: "Quote mensili e di iscrizione con stato sempre visibile: chi ha pagato, chi è in ritardo, chi deve ancora.",
+    bullets: [
+      "Stato pagamento in tempo reale per ogni famiglia",
+      "Solleciti automatici ai ritardatari",
+      "Pagamento con un tap dal telefono per i genitori",
+    ],
+  },
+  {
+    icon: FileText, title: "Documenti Automatici",
+    desc: "Quietanze pronte per il 730 dei genitori, generate da sole ad ogni incasso. Rendiconti e budget con un click.",
+    bullets: [
+      "Quietanze e ricevute pronte per la detrazione fiscale",
+      "Rendiconti, budget stagionale e registro IVA con un click",
+      "Prima Nota che si aggiorna da sola ad ogni pagamento",
+    ],
+  },
+  {
+    icon: CalendarDays, title: "Calendario",
+    desc: "Allenamenti, partite, tornei e trasferte in un posto solo, diviso per categoria.",
+    bullets: [
+      "Calendario unico per tutte le categorie",
+      "Vista dedicata per ogni gruppo",
+      "Trasferte e tornei sempre a portata di mano",
+    ],
+  },
+];
+
 /* ───────────── DM Scout funzionalità ───────────── */
 export const DM_FEATURES = [
   {
@@ -456,7 +514,49 @@ const Index = () => {
               <button type="button" className="btn-outline">Richiedi una demo <ArrowRight size={15} /></button>
             </DemoRequestDialog>
             <a href="/clubis" className="nav-link">Pagina dedicata a ClubIS →</a>
-            <a href="/clubis-scuole-calcio" className="nav-link">ClubIS per Scuole Calcio →</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ CLUBIS PER SCUOLE CALCIO ═══════════════ */}
+      <section id="scuole-calcio" className="relative py-28 md:py-36 border-t border-cis-line">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="fade-up flex items-center gap-4 mb-6">
+            <img src={logoClubis} alt="ClubIS" style={{ height: 46, width: "auto" }} className="select-none" draggable={false} />
+            <span className="badge-green">Per Scuole Calcio</span>
+          </div>
+          <SectionTitle
+            tag="Gestionale per Scuole Calcio Giovanili"
+            title={<span>Tu pensi ai bambini. A tutto il resto, ci pensa ClubIS.</span>}
+            sub="La stessa piattaforma ClubIS, pensata per chi gestisce una scuola calcio giovanile: iscrizioni online, quote sempre visibili, quietanze pronte per il 730 e un'app dedicata alle famiglie. Da €30/mese o €300 a stagione."
+          />
+
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {SCUOLA_CALCIO_FEATURES.map((f, i) => (
+              <div key={f.title} className="card-cis fade-up p-6" data-delay={String((i % 3) * 60)}>
+                <f.icon size={22} className="text-cis-green" strokeWidth={1.6} />
+                <div className="font-display font-bold uppercase text-cis-white text-[15px] mt-4" style={{ letterSpacing: "0.08em" }}>
+                  {f.title}
+                </div>
+                <p className="font-body text-[13.5px] text-cis-muted mt-2 leading-relaxed">{f.desc}</p>
+                <ul className="mt-4 space-y-1.5">
+                  {f.bullets.map((b) => (
+                    <li key={b} className="flex items-start gap-2">
+                      <Check size={12} className="text-cis-green mt-1 flex-shrink-0" strokeWidth={2.6} />
+                      <span className="font-body text-[12.5px] text-cis-white/80 leading-snug">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 fade-up flex flex-wrap items-center gap-3">
+            <a href="/clubis-scuole-calcio" className="btn-primary">Scopri ClubIS Scuole Calcio <ArrowRight size={15} /></a>
+            <DemoRequestDialog source="mid-scuole-calcio-section">
+              <button type="button" className="btn-outline">Richiedi una demo <ArrowRight size={15} /></button>
+            </DemoRequestDialog>
+            <a href="/clubis-scuole-calcio" className="nav-link">Pagina dedicata a ClubIS per Scuole Calcio →</a>
           </div>
         </div>
       </section>
