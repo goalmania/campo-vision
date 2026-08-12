@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dmfootballservices.it/</loc>
-    <lastmod>2026-07-16</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://dmfootballservices.it/"/>
@@ -46,7 +46,7 @@
   </url>
   <url>
     <loc>https://dmfootballservices.it/risorse</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-08-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -85,6 +85,12 @@
     <lastmod>2026-07-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://dmfootballservices.it/risorse/quote-rette-scuola-calcio-quietanze-730</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dmfootballservices.it/llms.txt</loc>

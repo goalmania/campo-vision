@@ -78,7 +78,9 @@ const ArticlePage = () => {
           </div>
 
           <div className="fade-up mt-14 pt-8 border-t border-cis-line flex flex-wrap gap-3" data-delay="240">
-            <a href="/clubis" className="btn-primary">Scopri ClubIS <ArrowRight size={15} /></a>
+            <a href={article.ctaHref ?? "/clubis"} className="btn-primary">
+              {article.ctaLabel ?? "Scopri ClubIS"} <ArrowRight size={15} />
+            </a>
             <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="btn-gold">
               <MessageCircle size={15} /> Chiedi info su WhatsApp
             </a>

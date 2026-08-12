@@ -5,9 +5,9 @@ import Logo from "@/components/Logo";
 import { ArrowRight } from "lucide-react";
 import { ARTICLES } from "@/data/articles";
 
-const TITLE = "Risorse — Guide per Società di Calcio Strutturate | ClubIS";
+const TITLE = "Risorse — Guide per Società di Calcio e Scuole Calcio | ClubIS";
 const DESCRIPTION =
-  "Guide pratiche su come scegliere un gestionale per società di calcio, Financial Fair Play, rimborsi SEPA, Comunicati Ufficiali FIGC e tesseramenti — per segretari, presidenti e direttori sportivi.";
+  "Guide pratiche su come scegliere un gestionale per società di calcio o scuola calcio, Financial Fair Play, rimborsi SEPA, quietanze 730, Comunicati Ufficiali FIGC e tesseramenti — per segretari, presidenti e dirigenti.";
 const CANONICAL = "https://dmfootballservices.it/risorse";
 
 const Resources = () => {
@@ -26,11 +26,12 @@ const Resources = () => {
             data-delay="80"
             style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)", lineHeight: 0.95, letterSpacing: "-0.01em" }}
           >
-            Guide per società e squadre di calcio strutturate.
+            Guide per società di calcio strutturate e scuole calcio.
           </h1>
           <p className="fade-up mt-6 font-body text-cis-muted text-[1.05rem] max-w-2xl" data-delay="160">
-            Come scegliere un gestionale per la propria società di calcio, Financial Fair Play, rimborsi SEPA,
-            burocrazia FIGC e gestione tesseramenti — scritti per chi gestisce davvero un club, non per addetti ai lavori.
+            Come scegliere un gestionale per la propria società o scuola calcio, Financial Fair Play, rimborsi SEPA,
+            quietanze e detrazione 730, burocrazia FIGC e gestione tesseramenti — scritti per chi gestisce davvero un club,
+            non per addetti ai lavori.
           </p>
         </div>
       </section>

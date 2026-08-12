@@ -7,6 +7,9 @@ export type Article = {
   publishDate: string;
   readingMinutes: number;
   body: ReactNode;
+  /** Defaults to /clubis + "Scopri ClubIS" when omitted. */
+  ctaHref?: string;
+  ctaLabel?: string;
 };
 
 const P = ({ children }: { children: ReactNode }) => (
@@ -217,6 +220,37 @@ export const ARTICLES: Article[] = [
         <H2>Domande frequenti</H2>
         <P><strong>Serve un conto business dedicato per usare i rimborsi SEPA in batch?</strong><br/>No: il file XML generato è compatibile con il normale portale online della maggior parte delle banche italiane; serve solo che il conto supporti il caricamento di bonifici multipli da file, una funzione ormai comune anche sui conti base.</P>
         <P><strong>Cosa succede se una famiglia salta una rata della quota?</strong><br/>Con un sistema che traccia automaticamente lo stato di ogni piano rateale, il ritardo emerge subito nella dashboard del segretario invece che a fine stagione, permettendo un sollecito tempestivo invece che tardivo.</P>
+      </>
+    ),
+  },
+  {
+    slug: "quote-rette-scuola-calcio-quietanze-730",
+    title: "Scuola calcio: come smettere di rincorrere i genitori per la retta (e avere le quietanze pronte per il 730)",
+    description: "Come organizzare iscrizioni, rette mensili e quietanze fiscali di una scuola calcio giovanile senza fogli Excel e senza rincorrere i genitori ogni mese — inclusa la detrazione 730.",
+    publishDate: "2026-08-12",
+    readingMinutes: 6,
+    ctaHref: "/clubis-scuole-calcio",
+    ctaLabel: "Scopri ClubIS per Scuole Calcio",
+    body: (
+      <>
+        <P>Chi gestisce una scuola calcio giovanile lo sa: il problema non è mai "non abbiamo un software". È che si finisce a fare il presidente, il segretario, il contabile e il centralino tutto insieme, spesso gratis, spesso la sera dopo il lavoro — con un modulo di iscrizione di carta, un gruppo WhatsApp per le comunicazioni e un quaderno dove segnare chi ha pagato la retta questo mese.</P>
+
+        <H2>Le iscrizioni: dal modulo di carta al digitale</H2>
+        <P>A inizio stagione, decine di famiglie devono compilare lo stesso modulo — dati anagrafici del bambino, contatti dei genitori, eventuale certificato medico. Farlo su carta significa poi ribattere tutto a mano in un foglio Excel, con il rischio concreto di un dato sbagliato o di un modulo perso tra le altre carte della segreteria. Un modulo di iscrizione digitale, compilato direttamente dalla famiglia da smartphone, elimina questo doppio passaggio: i dati entrano già strutturati, pronti da consultare.</P>
+
+        <H2>Le rette: perché "chi ha pagato" è la domanda che nessuno sa rispondere in tempo reale</H2>
+        <P>Su un quaderno o un foglio condiviso tra più persone, sapere con certezza chi è in regola con la retta del mese richiede di incrociare a mano ricevute, bonifici e contanti consegnati a bordo campo. Il risultato tipico: il tesoriere rincorre telefonicamente le famiglie a fine mese, spesso segnalando per errore chi aveva già pagato, o dimenticandosi chi non l'aveva fatto. Avere lo stato di ogni retta — pagata, in corso, scaduta — visibile in tempo reale, aggiornato automaticamente a ogni pagamento online, elimina sia la rincorsa sia l'imbarazzo dell'errore.</P>
+
+        <H2>Marzo, il mese delle quietanze per il 730</H2>
+        <P>In Italia, le famiglie possono detrarre parte della retta sportiva versata per un figlio tra i 5 e i 18 anni nella dichiarazione dei redditi (modello 730), a condizione che il pagamento sia tracciabile — non in contanti — e che la società sportiva rilasci una quietanza corretta con i dati richiesti dall'Agenzia delle Entrate. Il problema arriva puntuale ogni marzo: decine di genitori chiedono la quietanza per il commercialista, e chi gestisce la scuola calcio si ritrova a ricostruire a mano, ricevuta per ricevuta, chi ha versato cosa e quando durante l'intera stagione — spesso incrociando bonifici, contanti e promemoria sparsi.</P>
+        <P>Il modo per evitarlo non è lavorare più in fretta a marzo, ma non dover ricostruire nulla: se ogni pagamento genera automaticamente la propria quietanza nel momento in cui avviene, a marzo basta esportare i documenti già pronti invece di crearli da zero.</P>
+
+        <H2>Come un gestionale per scuole calcio risolve tutto insieme</H2>
+        <P>Iscrizioni, rette e quietanze non sono tre problemi separati: sono la stessa anagrafica vista in tre momenti diversi della stagione. Un gestionale pensato specificamente per le scuole calcio — non un gestionale generico adattato — tiene questi dati collegati fin dall'iscrizione, così il pagamento di ottobre e la quietanza di marzo riguardano automaticamente lo stesso tesserato, senza reinserimenti. È il principio su cui è costruito <a href="/clubis-scuole-calcio" style={{ color: "var(--c-green)" }}>ClubIS per Scuole Calcio</a>: iscrizioni online, quote con stato sempre visibile, quietanze e documenti fiscali generati automaticamente a ogni pagamento, Prima Nota e registro IVA sincronizzati, e un'app dedicata ai genitori per pagare la retta in un tap e vedere sempre a che punto sono.</P>
+
+        <H2>Domande frequenti</H2>
+        <P><strong>Qualsiasi pagamento della retta dà diritto alla detrazione 730?</strong><br/>No: deve essere tracciabile (bonifico, carta, altri strumenti non in contanti) e accompagnato da una quietanza della società sportiva con i dati richiesti. Per l'importo detraibile e i requisiti aggiornati resta comunque necessario fare riferimento alla normativa fiscale in vigore o al proprio commercialista.</P>
+        <P><strong>Serve competenza contabile per gestire quote e quietanze di una scuola calcio?</strong><br/>Per gli adempimenti fiscali completi sì, ma il tracciamento quotidiano di chi ha pagato cosa e la generazione delle quietanze a ogni versamento può essere gestito direttamente dal dirigente, senza attendere l'intervento di un commercialista per ogni singola ricevuta.</P>
       </>
     ),
   },
