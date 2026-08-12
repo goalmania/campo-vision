@@ -6,6 +6,7 @@
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/clubis", "destination": "/index.html" },
+    { "source": "/clubis-scuole-calcio", "destination": "/index.html" },
     { "source": "/dmscout", "destination": "/index.html" },
     { "source": "/privacy", "destination": "/index.html" },
     { "source": "/termini", "destination": "/index.html" },
