@@ -1040,16 +1040,21 @@ function Pricing() {
             <span className="font-display font-bold text-cis-muted text-xs uppercase" style={{ letterSpacing: "0.18em" }}>— Piani per i Club</span>
           </div>
 
+          <p className="fade-up font-body text-cis-muted text-sm mb-6 max-w-2xl">
+            Un unico piano, tutto sbloccato: cambia solo in base a quante società gestisci nello stesso account.
+          </p>
           <div className="grid lg:grid-cols-3 gap-5">
             <PlanCard
-              name="Starter"
-              tagline="Per Eccellenza / Promozione"
-              price={fmt(59)}
+              name="ClubIS"
+              tagline="Per una società"
+              price={fmt(50)}
               annual={annual}
-              variant="default"
+              variant="featured"
+              ribbon="Most Popular"
               cta="Inizia Prova Gratuita"
               href="https://clubis.it/registrati?piano=starter"
               features={[
+                "Tutte le funzionalità sbloccate, nessun limite artificiale",
                 "Gestione rosa e tesseramenti",
                 "Certificati medici con avvisi automatici",
                 "Quote iscrizione e piani rateali",
@@ -1057,40 +1062,37 @@ function Pricing() {
                 "Prima nota e rendiconto",
                 "11 dashboard role-based (presidente, team manager, DS, segretario, osservatore, giocatore, allenatore, famiglie, medico, ufficio stampa, custode)",
                 "Settore giovanile multi-squadra",
-                "Supporto email entro 48h",
+                "Analisi automatica C.U. FIGC/LND",
+                "Rimborsi SEPA batch",
+                "Registro IVA sincronizzato",
+                "Supporto email 24h",
               ]}
             />
             <PlanCard
-              name="Pro"
-              tagline="Per Serie D e semiprofessionismo"
-              price={fmt(99)}
+              name="Multi-club"
+              tagline="Per chi gestisce più società"
+              price={fmt(100)}
               annual={annual}
-              variant="featured"
-              ribbon="Most Popular"
+              variant="default"
               cta="Inizia Prova Gratuita"
               href="https://clubis.it/registrati?piano=pro"
               features={[
-                "Tutto Starter, più:",
-                "Dashboard DS completa",
-                "Analisi automatica C.U. FIGC",
-                "Scouting nativo con export PDF",
-                "Schema tattico interattivo",
-                "Rimborsi SEPA batch",
-                "Registro IVA sincronizzato",
-                "Supporto email 24h + onboarding call 1h",
+                "Tutto ClubIS, più:",
+                "Gestione centralizzata di più società nello stesso account",
+                "Passaggio rapido tra i club gestiti",
+                "Supporto prioritario",
               ]}
             />
             <PlanCard
-              name="Elite"
-              tagline="Per club strutturati"
+              name="5+ Club"
+              tagline="Per chi gestisce più di 5 società"
               price={fmt(179)}
               annual={annual}
               variant="default"
               cta="Inizia Prova Gratuita"
               href="https://clubis.it/registrati?piano=elite"
               features={[
-                "Tutto Pro, più:",
-                "DM Scout integrato completo",
+                "Tutto Multi-club, più:",
                 "Utenti illimitati",
                 "Onboarding dedicato 2 sessioni",
                 "Supporto prioritario 4h (WhatsApp diretto)",

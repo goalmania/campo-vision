@@ -71,11 +71,11 @@ const TermsOfService = () => {
             </Section>
 
             <Section n="2" title="Piani, prezzi e fatturazione">
-              <p>ClubIS è disponibile nei seguenti piani, fatturati mensilmente o annualmente:</p>
+              <p>ClubIS è disponibile in un unico piano con tutte le funzionalità sbloccate, con prezzo in base al numero di società gestite nello stesso account, fatturato mensilmente o annualmente:</p>
               <ul className="list-disc list-inside space-y-2 marker:text-cis-green">
-                <li><span className="text-cis-white">Starter</span> — a partire da €59/mese, IVA esclusa;</li>
-                <li><span className="text-cis-white">Pro</span> — a partire da €99/mese, IVA esclusa;</li>
-                <li><span className="text-cis-white">Elite</span> — a partire da €179/mese, IVA esclusa.</li>
+                <li><span className="text-cis-white">ClubIS</span> (una società) — €50/mese, IVA esclusa;</li>
+                <li><span className="text-cis-white">Multi-club</span> (più società) — €100/mese, IVA esclusa;</li>
+                <li><span className="text-cis-white">5+ Club</span> (più di 5 società) — €179/mese, IVA esclusa.</li>
               </ul>
               <p>
                 DM Scout è disponibile in un unico piano a <span className="text-cis-white">€49/mese</span>, IVA esclusa.

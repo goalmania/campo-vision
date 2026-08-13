@@ -34,9 +34,9 @@ ClubIS è il sistema di gestione integrato pensato per società di calcio strutt
 
 | Piano | Prezzo mensile | Target |
 |-------|---------------|--------|
-| Starter | €59/mese | Eccellenza, Promozione |
-| Pro | €99/mese | Serie D, semiprofessionismo |
-| Elite | €179/mese | Club strutturati (include DM Scout) |
+| ClubIS | €50/mese | Una società, tutto sbloccato |
+| Multi-club | €100/mese | Più società nello stesso account |
+| 5+ Club | €179/mese | Più di 5 società |
 
 Sconto 15% con pagamento annuale. 7 giorni di prova gratuita, nessuna carta di credito. Nessun costo di attivazione, cancellazione in qualsiasi momento.
 
@@ -90,7 +90,7 @@ Unico piano: €49/mese, tutto incluso, report illimitati. Sconto 15% con pagame
 
 ## Integrazione ClubIS + DM Scout
 
-Il piano Elite di ClubIS include DM Scout integrato. Il direttore sportivo può importare le schede di scouting da DM Scout direttamente nella propria dashboard ClubIS. Il flusso completo è: lo scout carica un PDF in DM Scout, l'AI genera la scheda strutturata, il direttore sportivo la vede direttamente in ClubIS, il club può aprire una trattativa di mercato senza cambiare software. Questo ecosistema integrato elimina la duplicazione dei dati e riduce il tempo di valutazione di un giocatore da ore a minuti.
+ClubIS e DM Scout si integrano tra loro. Il direttore sportivo può importare le schede di scouting da DM Scout direttamente nella propria dashboard ClubIS. Il flusso completo è: lo scout carica un PDF in DM Scout, l'AI genera la scheda strutturata, il direttore sportivo la vede direttamente in ClubIS, il club può aprire una trattativa di mercato senza cambiare software. Questo ecosistema integrato elimina la duplicazione dei dati e riduce il tempo di valutazione di un giocatore da ore a minuti.
 
 ---
 

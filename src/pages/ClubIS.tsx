@@ -13,7 +13,7 @@ import {
 
 const TITLE = "ClubIS — Funzionalità, Dashboard e Prezzi | DM Football Services";
 const DESCRIPTION =
-  "Scopri come funziona ClubIS: 11 dashboard per ruolo, analisi automatica Comunicati Ufficiali FIGC/LND, distinte gara, rimborsi SEPA e Financial Fair Play in tempo reale. Piani da €59/mese, 7 giorni di prova gratuita.";
+  "Scopri come funziona ClubIS: 11 dashboard per ruolo, analisi automatica Comunicati Ufficiali FIGC/LND, distinte gara, rimborsi SEPA e Financial Fair Play in tempo reale. Un unico piano da €50/mese, tutto sbloccato, 7 giorni di prova gratuita.";
 const CANONICAL = "https://dmfootballservices.it/clubis";
 
 const HIGHLIGHTS = [

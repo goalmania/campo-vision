@@ -12,10 +12,10 @@ immagino che ogni settimana qualcuno in segreteria legga a mano il Comunicato Uf
 
 Abbiamo costruito ClubIS apposta per questo: legge il C.U. e aggiorna la rosa da solo, e nello stesso posto gestisce anche rimborsi SEPA e Financial Fair Play, invece di tenerli sparsi tra Excel e WhatsApp.
 
-Vi va di dare un'occhiata? Si prova gratis per 7 giorni, senza carta: https://clubis.it/registrati?piano=pro — oppure rispondete pure a questa email, vi rispondiamo noi direttamente.
+Vi va di dare un'occhiata? Si prova gratis per 7 giorni, senza carta: https://clubis.it/registrati?piano=pro — oppure rispondete pure a questa email, vi rispondo io direttamente.
 
 A presto,
-[NOME] — DM Football Services
+Paolo Di Muro — DM Football Services
 
 ---
 
@@ -32,7 +32,7 @@ Con ClubIS si generano i bonifici SEPA in batch per tutti i tesserati insieme, p
 Se vi interessa provarlo (7 giorni gratis, senza carta): https://clubis.it/registrati?piano=pro — altrimenti nessun problema, non vi scrivo più su questo.
 
 A presto,
-[NOME] — DM Football Services
+Paolo Di Muro — DM Football Services
 
 ---
 

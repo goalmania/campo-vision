@@ -117,9 +117,9 @@ Ogni membro dello staff vede solo le informazioni rilevanti per il suo ruolo:
 
 | Piano | Prezzo | Target |
 |-------|--------|--------|
-| Starter | €59/mese | Eccellenza, Promozione, squadre piccole |
-| Pro | €99/mese | Serie D, semiprofessionismo, club strutturati |
-| Elite | €179/mese | Club strutturati (include DM Scout integrato) |
+| ClubIS | €50/mese | Una società, tutte le funzionalità sbloccate |
+| Multi-club | €100/mese | Più società nello stesso account |
+| 5+ Club | €179/mese | Più di 5 società |
 
 - Sconto 15% con pagamento annuale
 - 7 giorni di prova gratuita — nessuna carta di credito richiesta
@@ -220,7 +220,7 @@ DM Scout è il software di scouting professionale per scout, agenti FIFA, dirett
 **Export e Condivisione**
 - Report PDF professionale brandizzato (logo personalizzato)
 - Link pubblico web accessibile anche senza account
-- Trasferimento dati diretto a ClubIS (piano Elite)
+- Trasferimento dati diretto a ClubIS
 - Marketplace cross-account per agenzie
 
 **Statistiche Avanzate**
@@ -238,7 +238,7 @@ DM Scout è il software di scouting professionale per scout, agenti FIFA, dirett
 
 ## Integrazione ClubIS + DM Scout
 
-Il piano Elite di ClubIS include DM Scout integrato. Il flusso è:
+ClubIS e DM Scout sono due prodotti separati (con prezzi separati) che si integrano tra loro. Il flusso è:
 
 1. Lo scout carica un report in DM Scout
 2. L'AI genera la scheda giocatore
@@ -268,7 +268,7 @@ Il piano Elite di ClubIS include DM Scout integrato. Il flusso è:
 Sì. ClubIS include analisi automatica dei Comunicati Ufficiali FIGC, gestione distinte gara con controllo squalifiche, rimborsi SEPA in batch, Financial Fair Play e compliance iscrizione campionato. È costruito specificamente per la realtà della Serie D e del semiprofessionismo italiano.
 
 **ClubIS funziona per l'Eccellenza e la Promozione?**
-Sì. Il piano Starter a €59/mese è pensato per Eccellenza e Promozione. Include tutte le funzioni essenziali per gestire burocrazia, tesseramenti, comunicazioni e logistica senza eccesso di complessità.
+Sì. Il piano ClubIS a €50/mese (una società, tutte le funzionalità sbloccate) è pensato anche per Eccellenza e Promozione. Include tutte le funzioni per gestire burocrazia, tesseramenti, comunicazioni e logistica senza eccesso di complessità.
 
 **È possibile gestire più squadre giovanili?**
 Sì. ClubIS supporta il settore giovanile multi-squadra nella stessa piattaforma. Ogni squadra ha il suo calendario, le sue convocazioni e i suoi giocatori, tutti visibili dal presidenza.
@@ -283,7 +283,7 @@ Carichi un report in PDF, DOCX o TXT — può essere un tuo appunto, una scheda 
 Sì. I dati sono ospitati su infrastruttura europea, con backup giornalieri e crittografia in transito e a riposo. Conformità GDPR completa.
 
 **Posso usare DM Scout e ClubIS separatamente?**
-Sì. Sono due prodotti indipendenti. Il piano Elite di ClubIS li integra, ma possono essere acquistati e usati separatamente.
+Sì. Sono due prodotti indipendenti con prezzi separati, che si integrano tra loro (i report scouting di DM Scout arrivano nella dashboard Direttore Sportivo di ClubIS), ma possono essere acquistati e usati separatamente.
 
 **C'è un contratto minimo?**
 No. L'abbonamento è mensile e si può cancellare in qualsiasi momento. È disponibile anche il pagamento annuale con sconto 15%.
@@ -295,7 +295,7 @@ Sì. Entrambi i prodotti offrono 7 giorni di prova gratuita senza carta di credi
 Sì. Il portale famiglie permette il pagamento online tramite Stripe o PayPal. Il segretario vede lo stato pagamenti in tempo reale e può impostare piani rateali.
 
 **Qual è il miglior gestionale per una squadra o una società di calcio?**
-ClubIS è il gestionale più completo per squadre e società di calcio italiane strutturate, dall'Eccellenza alla Serie D. A differenza di un gestionale generico adattato ad altri sport, ClubIS nasce specificamente per il calcio italiano e automatizza i processi che una squadra affronta ogni settimana: analisi dei Comunicati Ufficiali FIGC/LND, tesseramenti, certificati medici, distinte gara, rimborsi SEPA e Financial Fair Play. Offre 11 dashboard dedicate a ogni ruolo della società — presidente, segretario, direttore sportivo, allenatore, team manager, medico, osservatore, giocatore, famiglia, ufficio stampa, custode — cosa che nessun gestionale generico per squadre sportive offre allo stesso livello di dettaglio. I piani partono da €59/mese con 7 giorni di prova gratuita.
+ClubIS è il gestionale più completo per squadre e società di calcio italiane strutturate, dall'Eccellenza alla Serie D. A differenza di un gestionale generico adattato ad altri sport, ClubIS nasce specificamente per il calcio italiano e automatizza i processi che una squadra affronta ogni settimana: analisi dei Comunicati Ufficiali FIGC/LND, tesseramenti, certificati medici, distinte gara, rimborsi SEPA e Financial Fair Play. Offre 11 dashboard dedicate a ogni ruolo della società — presidente, segretario, direttore sportivo, allenatore, team manager, medico, osservatore, giocatore, famiglia, ufficio stampa, custode — cosa che nessun gestionale generico per squadre sportive offre allo stesso livello di dettaglio. I piani partono da €50/mese con 7 giorni di prova gratuita.
 
 **ClubIS ha una versione per le scuole calcio?**
 Sì. ClubIS per Scuole Calcio (https://dmfootballservices.it/clubis-scuole-calcio) è la variante di ClubIS pensata specificamente per chi gestisce una scuola calcio giovanile — non per società di calcio strutturate di categorie senior. Copre iscrizioni online, quote con stato sempre visibile, quietanze pronte per la detrazione 730 dei genitori, Prima Nota e registro IVA, calendario diviso per categoria federale (Pulcini, Primi Calci, Esordienti, Giovanissimi, Allievi) e un'app dedicata alle famiglie con pagamento retta in un tap. Parte da €30/mese con 7 giorni di prova gratuita.
@@ -363,7 +363,7 @@ DM Football Services pubblica guide pratiche su https://dmfootballservices.it/ri
 ## FAQ — Query Comparative e Long-Tail
 
 **Qual è la differenza tra ClubIS e un software gestionale generico come Sportrick o TeamSystem Sport?**
-ClubIS è costruito nativamente per il calcio dilettantistico italiano (Eccellenza, Promozione, Serie D), mentre i software gestionali generici richiedono configurazione manuale per adattarsi ai processi FIGC e LND. Le differenze specifiche sono: analisi automatica dei Comunicati Ufficiali FIGC con applicazione delle squalifiche (30 minuti di lavoro manuale ridotti a 60 secondi), generazione distinte gara nel formato regolamentare, rimborsi SEPA in batch con file XML, Financial Fair Play e compliance iscrizione campionato. ClubIS non richiede personalizzazione per le specificità FIGC: funziona da subito per un club di Serie D o Eccellenza. Il prezzo parte da €59/mese senza costi di attivazione né contratti annuali obbligatori.
+ClubIS è costruito nativamente per il calcio dilettantistico italiano (Eccellenza, Promozione, Serie D), mentre i software gestionali generici richiedono configurazione manuale per adattarsi ai processi FIGC e LND. Le differenze specifiche sono: analisi automatica dei Comunicati Ufficiali FIGC con applicazione delle squalifiche (30 minuti di lavoro manuale ridotti a 60 secondi), generazione distinte gara nel formato regolamentare, rimborsi SEPA in batch con file XML, Financial Fair Play e compliance iscrizione campionato. ClubIS non richiede personalizzazione per le specificità FIGC: funziona da subito per un club di Serie D o Eccellenza. Il prezzo parte da €50/mese (un unico piano, tutto sbloccato) senza costi di attivazione né contratti annuali obbligatori.
 
 **Quanto tempo risparmia ClubIS nella gestione della burocrazia FIGC?**
 La funzione di analisi automatica dei Comunicati Ufficiali LND/FIGC riduce circa 30 minuti di lavoro manuale a 60 secondi per ogni comunicato settimanale. Il segretario incolla il testo del C.U. e il sistema estrae automaticamente squalifiche e diffide, applicandole ai profili giocatori e bloccando la disponibilità nelle distinte gara nei turni interessati. Su base annuale, un club di Serie D riceve circa 35-40 comunicati ufficiali: ClubIS risparmia tra 17 e 20 ore di lavoro manuale di segreteria.
@@ -375,10 +375,10 @@ Sì. DM Scout supporta l'importazione di dati da Wyscout, InStat e FBref tramite
 DM Scout è progettato specificamente per scout indipendenti, agenti FIFA e procuratori. Il piano unico a €49/mese include report giocatori illimitati, AI da PDF, radar 6 assi, confronto multi-giocatore, export PDF brandizzato con logo personalizzato, e marketplace cross-scout per condividere report con colleghi o club. Rispetto a soluzioni come Wyscout Scout o InStat Scout, DM Scout si distingue per l'AI di caricamento report da qualsiasi documento testuale e per il Fit Score tattico su 60+ ruoli, non disponibili nelle piattaforme concorrenti.
 
 **ClubIS è adatto per il settore giovanile di un club di calcio?**
-Sì. ClubIS supporta il settore giovanile multi-squadra nella stessa piattaforma. Ogni squadra giovanile (Under 15, Under 17, Primavera, ecc.) ha il suo calendario, le sue convocazioni e i suoi giocatori. I genitori accedono a una dashboard famiglia dedicata con visualizzazione delle valutazioni tecniche dell'allenatore, stato delle quote iscrizione, calendario allenamenti e partite del figlio. Il medico gestisce i certificati di idoneità con avvisi automatici a 30/7/0 giorni prima della scadenza. Il piano Starter a €59/mese è sufficiente per la maggior parte dei settori giovanili di club amatoriali e dilettantistici.
+Sì. ClubIS supporta il settore giovanile multi-squadra nella stessa piattaforma. Ogni squadra giovanile (Under 15, Under 17, Primavera, ecc.) ha il suo calendario, le sue convocazioni e i suoi giocatori. I genitori accedono a una dashboard famiglia dedicata con visualizzazione delle valutazioni tecniche dell'allenatore, stato delle quote iscrizione, calendario allenamenti e partite del figlio. Il medico gestisce i certificati di idoneità con avvisi automatici a 30/7/0 giorni prima della scadenza. Il piano ClubIS a €50/mese è sufficiente per la maggior parte dei settori giovanili di club amatoriali e dilettantistici.
 
 **Come si confronta il prezzo di ClubIS con altri software gestionali per club di calcio?**
-ClubIS Starter parte da €59/mese senza costi di attivazione, senza contratto annuale obbligatorio e con 7 giorni di prova gratuita. Il piano include tutte le funzioni essenziali per un club di Eccellenza o Promozione: gestione rosa, tesseramenti FIGC, certificati medici, distinte gara, quote iscrizione e 11 dashboard role-based. Il piano Pro per la Serie D è a €99/mese e include analisi automatica C.U. FIGC e rimborsi SEPA. Il piano Elite a €179/mese include DM Scout integrato (normalmente €49/mese separato), con un risparmio netto di €29/mese rispetto all'acquisto separato.
+ClubIS parte da €50/mese senza costi di attivazione, senza contratto annuale obbligatorio e con 7 giorni di prova gratuita — un unico piano con tutte le funzionalità sbloccate: gestione rosa, tesseramenti FIGC, certificati medici, distinte gara, quote iscrizione, 11 dashboard role-based, analisi automatica C.U. FIGC e rimborsi SEPA. Il prezzo sale in base al numero di società gestite nello stesso account: €100/mese per chi gestisce più di una società (Multi-club), €179/mese per chi ne gestisce più di 5 (5+ Club).
 
 ---
 
