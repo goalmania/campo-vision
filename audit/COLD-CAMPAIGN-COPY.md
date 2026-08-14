@@ -66,3 +66,30 @@ Tutte e 4 le campagne sono **programmate** (status: queued), non più bozza:
 | Invio 4 | 128 | Giovedì 20/08 ore 9:30 |
 
 Per bloccare o modificare un invio prima che parta: Brevo → Campagne → Email → apri la campagna → Annulla programmazione.
+
+---
+
+## Rework 14/08: segmentazione per campionato + prova sociale
+
+Corretto dopo feedback: aggiunta la prova sociale reale ("Lo usano già Nocerina, Melfi ed Ebolitana") ed eliminata la finestra unica Lun-Gio, sostituita con invii allineati all'inizio di ciascun campionato.
+
+**Nuove liste Brevo:**
+- #10 Prospect ClubIS - Eccellenza W1 (160)
+- #11 Prospect ClubIS - Eccellenza W2 (159)
+- #12 Prospect ClubIS - Serie D W1 (55)
+- #13 Prospect ClubIS - Serie D W2 (54)
+
+(Le vecchie liste #6-9 a scaglioni misti per volume restano ma non sono più usate da nessuna campagna.)
+
+**Calendario invii confermato:**
+
+| Campagna | Segmento | Contatti | Data |
+|---|---|---|---|
+| Eccellenza W1 | Eccellenza+Promozione | 160 | Gio 20/08, 9:30 |
+| Eccellenza W2 | Eccellenza+Promozione | 159 | Sab 22/08, 9:30 |
+| Serie D W1 | Serie D | 55 | Lun 24/08, 9:30 |
+| Eccellenza Follow-up | Eccellenza+Promozione (319) | — | Mer 26/08, 9:30 |
+| Serie D W2 | Serie D | 54 | Mer 26/08, 9:30 |
+| Serie D Follow-up | Serie D (109) | — | Lun 31/08, 9:30 |
+
+Razionale date: Eccellenza spostata leggermente più avanti rispetto al piano originale (era Lun 17/08), campionato il 30/08. Serie D nell'ultima settimana di agosto, campionato ai primi di settembre. Follow-up pochi giorni prima del rispettivo inizio campionato.
